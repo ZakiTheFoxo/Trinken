@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF=8">
+		<title>Formulario valida</title>
+		<style type="text/css">
+			body{
+				color: white;
+				background-image: url("../imagenes/barra.png");
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: 100% 100%;
+			}
+		</style>
+
+		<script type="text/javascript">
+
+			function crearCuenta(){
+				// Validar nombre
+				if(document.formulario.nombre.value.length == 0){
+					alert("Tiene que escribir su nombre")
+					document.formulario.nombre.focus()
+					return 0;
+				};
+
+				if(document.formulario.fecha.value.length == 0){
+					alert("Tiene que escoger su fecha de nacimiento")
+					document.formulario.fecha.focus()
+					return 0;
+				};
+
+				
+				if(document.formulario.celnum.value.length == 0){
+					alert("Tiene que escribir su número de celular")
+					document.formulario.celnum.focus()
+					return 0;
+				};
+
+				if(document.formulario.correo.value.length == 0){
+					alert("Tiene que escribir su correo")
+					document.formulario.correo.focus()
+					return 0;
+				};
+
+				if(document.formulario.clave.value.length == 0){
+					alert("Tiene que escribir su contraseña")
+					document.formulario.clave.focus()
+					return 0;
+				};
+
+				// Enviar formulario				
+				document.formulario.submit();
+				window.close();
+			}
+		</script>
+	</head>
+
+	<body>
+
+
+		<form method="GET" name="formulario">
+			<table align="center">
+				<tr>
+
+
+					<td>
+						Nombres:
+					</td>
+
+					<td>
+						<input type="text" name="nombre" size="30">
+					</td>
+
+				</tr>
+
+					<tr>
+
+					<td>
+						Fecha de Nacimiento:
+
+					</td>
+
+					<td>
+						<input type="date" name="fecha" size="30">
+					</td>
+
+				</tr>
+
+				<tr>
+
+					<td>
+						Número Celular:
+					</td>
+					<td>
+						<input type="text" name="celnum" size="30">
+					</td>
+					
+				</tr>
+
+				<tr>
+
+					<td>
+						Correo:
+					</td>
+					<td>
+						<input type="email" name="correo" size="30">
+					</td>
+					
+				</tr>
+
+				<tr>
+					
+					<td>
+						Constraseña:
+					</td>
+					<td>
+						<input type="password" name="clave" size="30">
+					</td>
+					
+				</tr>
+				<tr>
+
+					<td colspan="2" align="center">
+						<input type="button" value="Crear Cuenta" onclick="crearCuenta()">
+					</td>
+				</tr>
+			</table>
+		</form>
+
+
+	</body>
+</html>
