@@ -2,21 +2,79 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Barra de navegación trinken</title>
+		<title>Body trinken</title>
         <style>
             footer{
                 background-color: black;
                 color: white;
             }
+
+            .scroll-container {
+                overflow: auto;
+                white-space: nowrap;
+                margin: 1%;
+            }
+
+            .scroll-content img{
+                padding: 0% 0.3%;
+                border-radius: 16% / 8%;
+                width: 15%;
+                height: 400px;
+                overflow: hidden;
+            }
         </style>
 	</head>
 	<body bgcolor="#000000">
-		sadsadas
+        <div>
+            <table width="80%" align="center">
+                <tr>
+                    <td align="left">
+                        <img src="../Imagenes/botanas.png" width="80%">
+                    </td>
+
+                    <td align="center">
+                        <img src="../Imagenes/bebidas.png" width="80%">
+                    </td>
+
+                    <td align="right">
+                        <img src="../Imagenes/extras.png" width="80%">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="scroll-container">
+            <div class="scroll-content">
+                <img src="../imagenes/barra.png" alt="Image 1">
+                <img src="../imagenes/barra.png" alt="Image 2">
+                <img src="../imagenes/barra.png" alt="Image 3">
+                <img src="../imagenes/barra.png" alt="Image 4">
+                <img src="../imagenes/barra.png" alt="Image 5">
+                <img src="../imagenes/barra.png" alt="Image 6">
+                <img src="../imagenes/barra.png" alt="Image 7">
+                <img src="../imagenes/barra.png" alt="Image 8">
+                <img src="../imagenes/barra.png" alt="Image 9">
+                <img src="../imagenes/barra.png" alt="Image 10">
+            </div>
+        </div>
     </body>
     
     <footer>
-        <div>
-            <img src="../Imagenes/trfooter.png" align="center">&nbsp;&nbsp;&nbsp;&nbsp; ©2023 Trinken Be Safe
-        </div>
+        <table width="100%" align="center">
+            <tr>
+                <td align="left" width="33%">
+                    <img src="../Imagenes/trfooter.png" width="40%">
+                </td>
+
+                <td align="center" width="33%">
+                    ©2023 Trinken Be Safe
+                </td>
+
+                <td align="right" width="33%">
+                    <img src="../Imagenes/fb.png" width="10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="../Imagenes/ps.png" width="10%">
+                </td>
+            </tr>
+        </table>
     </footer>
 </html>
