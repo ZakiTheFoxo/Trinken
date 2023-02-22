@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF=8">
+        <title>Método de Pago</title>
+        <script type="text/javascript">
+            function valida_pago(){
+                //Validar método de Pago
+                if(document.formulario.metodo.selectedIndex == 0){
+                    alert("Debe seleccionar un método de pago")
+                    document.formulario.metodo.focus()
+                    return 0;
+                }
+                if(document.formulario.metodo.selectedIndex == 2){
+                    document.write(
+                        <tr>
+                            <td>
+                                Nombre del titular: 
+                            </td>
+                            <td> </td>        
+                        </tr>
+                        )
+                    return 0;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <form method="GET" name="formulario">
+            <table>
+                <tr>
+                    <td>
+                        Método de Pago: 
+                    </td>
+                    <td>
+                        <select name="metodo">
+                            <option selected></option>
+                            <option>En efectivo</option>
+                            <option>En tarjeta</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
