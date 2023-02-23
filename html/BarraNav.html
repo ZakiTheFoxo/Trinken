@@ -10,27 +10,34 @@
 				background-attachment: fixed;
 				background-size: 100% 100%;
 			}
-		</style>
 
-		<script type="text/javascript">
-			function iniciarSesion(){
-				window.open("formularios/tk_inicio_sesion.html", "NuevaVentana", "top = 50, width = 600, height = 200, resizable=no");
+			a:link { text-decoration: none; }
+			a:visited { text-decoration: none; }
+			a:hover { text-decoration: none; }
+			a:active { text-decoration: none; }
+
+			input[type=search] {
+				border-radius: 3% / 60%;
 			}
-		</script>
+		</style>
 	</head>
 
 
 	<body>
-		<table cellpadding='1px'>
+		<table cellpadding='1%' width="100%" height="100%">
 			<tr>
 				<td align="left" width="33%">
-					<img valign="top" halign="left" src="../imagenes/trinken_logo.png" width="8%" height="100%" >
+					<a href="body.html" target="cuadroenlaces">
+						<img valign="top" halign="left" src="../imagenes/trinken_logo.png" width="8%" height="auto" ></a>
 				</td>
 				<td align="center" width="33%">
-					<input type="search" name="busqueda" size="70">
+					<div class="search-bar">
+						<input type="search" name="busqueda" size="50%">
+					</div>
 				</td>
 				<td align="right" width="33%">
-					<input type="image" name="iniciarsesion" alt="Iniciar Sesion" src="../imagenes/user.png" height="20" width="20" align="right" onclick="iniciarSesion()">
+					<a href="formularios/tk_inicio_sesion.html" target="cuadroenlaces">
+						<img valign="top" halign="left" src="../imagenes/user.png" width="7%" height="auto">&nbsp; Iniciar Sesión</a>
 				</td>
 			</tr>
 		</table>
