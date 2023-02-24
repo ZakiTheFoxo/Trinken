@@ -2,10 +2,11 @@
 <html>
 	<head>
 		<meta charset="UTF=8">
-		<title>Formulario valida</title>
+		<title>Formulario Inicio Sesion</title>
 		<style type="text/css">
 			body{
 				background-color: black;
+				font-family: sans-serif;
 			}
 
 			table{
@@ -20,15 +21,16 @@
 
 		<script type="text/javascript">
 			function verificarDatos(){
-				// Validar nombre
+				// Validar usuario
 				if(document.formulario.usuario.value.length == 0){
-					alert("Tiene que escribir su usuario")
+					alert("Tiene que escribir su Usuario")
 					document.formulario.usuario.focus()
 					return 0;
 				};
 
+				// Validar Contraseña
 				if(document.formulario.contraseña.value.length == 0){
-					alert("Tiene que escribir su contraseña")
+					alert("Tiene que escribir su Contraseña")
 					document.formulario.contraseña.focus()
 					return 0;
 				};

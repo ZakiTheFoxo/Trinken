@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF=8">
-		<title>Formulario Registrar Cuenta</title>
+		<title>Formulario Registrar Repartidor</title>
 		<style type="text/css">
 			body{
 				background-color: black;
@@ -35,17 +35,10 @@
 					return 0;
 				};
 
-				// Validar contraseña 
-				if(document.formulario.clave.value.length == 0){
-					alert("Tiene que escribir su Contraseña")
-					document.formulario.clave.focus()
-					return 0;
-				};
-
-				// Validar fecha nacimiento
-				if(document.formulario.fecha.value.length == 0){
-					alert("Tiene que escoger su fecha de Nacimiento")
-					document.formulario.fecha.focus()
+				// Validar correo
+				if(document.formulario.correo.value.length == 0){
+					alert("Tiene que escribir su Correo")
+					document.formulario.correo.focus()
 					return 0;
 				};
 
@@ -56,16 +49,22 @@
 					return 0;
 				};
 
-				// Validar correo
-				if(document.formulario.correo.value.length == 0){
-					alert("Tiene que escribir su Correo")
-					document.formulario.correo.focus()
+				// Validar Sueldo
+				if(document.formulario.sueldo.value.length == 0){
+					alert("Tiene que ingresar su Sueldo")
+					document.formulario.sueldo.focus()
+					return 0;
+				};
+
+				// Validar Comision
+				if(document.formulario.comision.value.length == 0){
+					alert("Tiene que ingresar su Comision")
+					document.formulario.comision.focus()
 					return 0;
 				};
 
 				// Enviar formulario				
 				document.formulario.submit();
-				window.close();
 			}
 		</script>
 	</head>
@@ -94,24 +93,13 @@
 				</tr>
 
 				<tr>
-					
 					<td align="right">
-						Constraseña:
+						Correo:
 					</td>
 					<td>
-						<input type="password" name="clave" size="30%">
+						<input type="email" name="correo" size="30%">
 					</td>
 					
-				</tr>
-
-				<tr>
-					<td align="right">
-						Fecha de Nacimiento:
-					</td>
-
-					<td>
-						<input type="date" name="fecha" size="30%">
-					</td>
 				</tr>
 
 				<tr>
@@ -126,17 +114,27 @@
 
 				<tr>
 					<td align="right">
-						Correo:
+						Sueldo:
 					</td>
 					<td>
-						<input type="email" name="correo" size="30%">
+						<input type="number" name="sueldo" style="width: 3em" placeholder="$">
+					</td>
+					
+				</tr>
+
+				<tr>
+					<td align="right">
+						Comision:
+					</td>
+					<td>
+						<input type="number" name="comision" style="width: 3em" placeholder="%">
 					</td>
 					
 				</tr>
 
 				<tr>
 					<td colspan="2" align="center">
-						<input type="button" value="Crear Cuenta" onclick="crearCuenta()">
+						<input type="button" value="Registrar Repartidor" onclick="crearCuenta()">
 					</td>
 				</tr>
 			</table>

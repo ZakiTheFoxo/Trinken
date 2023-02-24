@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF=8">
+		<title>Formulario Añadir Direccion</title>
+		<style type="text/css">
+			body{
+				background-color: black;
+                font-family: sans-serif;
+			}
+
+			table{
+				background-image: url("../../imagenes/barra.png");
+				background-repeat: no-repeat;
+				border-radius: 5% / 16%;
+				padding: 3%;
+				background-size: 100% 100%;
+			}
+
+		</style>
+
+		<script type="text/javascript">
+			function verificarDatos(){
+				// Validar direccion 1
+				if(document.formulario.dir_1.value.length == 0){
+					alert("Tiene que escribir su Dirección")
+					document.formulario.dir_1.focus()
+					return 0;
+				};
+
+                // Validar direccion 2
+                if(document.formulario.ciudad.value.length == 0){
+					alert("Tiene que escribir su Ciudad")
+					document.formulario.ciudad.focus()
+					return 0;
+				};
+
+                // Validar código postal
+                if(document.formulario.c_postal.value.length == 0){
+					alert("Tiene que escribir su Código Postal")
+					document.formulario.c_postal.focus()
+					return 0;
+				};
+
+				// Enviar formulario				
+				document.formulario.submit();
+			}
+		</script>
+	</head>
+
+	<body>
+		<form method="GET" name="formulario">
+			<table align="center" width="50%">
+				<tr>
+					<td align="right">
+						Dirección:
+					</td>
+					<td>
+						<input type="text" name="dir_1" size="50%" placeholder="Calle, Colonia, Número de casa...">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Dirección 2:
+					</td>
+					<td>
+						<input type="text" name="dir_2" size="50%" placeholder="No. Interior, Fraccionamiento... (Opcional)">
+					</td>
+				</tr>
+                <tr>
+					<td align="right">
+						Ciudad:
+					</td>
+					<td>
+						<input type="text" name="ciudad" size="20%">
+					</td>
+				</tr>
+                <tr>
+					<td align="right">
+						Código Postal:
+					</td>
+					<td>
+						<input type="text" name="c_postal" size="10%">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<br><input type="button" value="Añadir Dirección" onclick="verificarDatos()">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
