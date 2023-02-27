@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF=8">
+		<title>Formulario de pago con tarjeta</title>
+		<style type="text/css">
+			body{
+				background-color: black;
+				font-family: sans-serif;
+			}
+
+			table{
+				background-image: url("../../imagenes/barra.png");
+				background-repeat: no-repeat;
+				border-radius: 8% / 16%;
+				padding: 3%;
+				background-size: 100% 100%;
+			}
+		</style>
+	</head>
+    
+    <script type="text/javascript">
+        function validarTarjeta(){
+            // Validar número
+            if(document.formulario.num.value.length < 16){
+                alert("Tiene que escribir un número de tarjeta válido")
+                document.formulario.num.focus()
+                return 0;
+            };
+
+            // Validar nombre
+            if(document.formulario.titular.value.length == 0){
+                alert("Tiene que escribir un nombre")
+                document.formulario.titular.focus()
+                return 0;
+            };
+
+            // Validar fecha de expiración
+            if(document.formulario.mes.value.length == 0){
+                alert("Tiene que ingresar una fecha de expiración válida")
+                document.formulario.mes.focus()
+                return 0;
+            };
+
+            // Validar CCV
+            if(document.formulario.ccv.value.length == 0){
+                alert("Tiene que escribir un CCV válido")
+                document.formulario.ccv.focus()
+                return 0;
+            };
+
+            // Enviar formulario				
+            document.formulario.submit();
+            window.close();
+        }
+    </script>
+
+    <body>
+		<form method="GET" name="formulario">
+			<table align="center" width="40%">
+				<tr>
+					<td align="right">
+						Número de tarjeta:
+					</td>
+
+					<td>
+						<input type="text" name="num" size="30%" minlength="16" maxlength="19">
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						Nombre del titular:
+					</td>
+
+					<td>
+						<input type="text" name="titular" size="30%">
+					</td>
+				</tr>
+
+				<tr>
+					
+					<td align="right">
+						Fecha de Expiración:
+					</td>
+					<td>
+						<input type="month" name="mes" size="30%">
+					</td>
+					
+				</tr>
+
+				<tr>
+					<td align="right">
+						CCV:
+					</td>
+					<td>
+						<input type="text" name="ccv" size="30%" maxlength="3">
+					</td>
+					
+				</tr>
+
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="Pagar" onclick="validarTarjeta()">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

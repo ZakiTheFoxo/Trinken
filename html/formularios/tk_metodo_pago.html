@@ -1,51 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF=8">
-        <title>Método de Pago</title>
-        <style>
-            
-        </style>
+	<head>
+		<meta charset="UTF=8">
+		<title>Formulario Inicio Sesion</title>
+		<style type="text/css">
+			body{
+				background-color: black;
+				font-family: sans-serif;
+			}
 
-        <script type="text/javascript">
-            function valida_pago(){
-                //Validar método de Pago
-                if(document.formulario.metodo.selectedIndex == 0){
-                    alert("Debe seleccionar un método de pago")
-                    document.formulario.metodo.focus()
-                    return 0;
-                }
-                if(document.formulario.metodo.selectedIndex == 2){
-                    document.write(
-                        <tr>
-                            <td>
-                                Nombre del titular: 
-                            </td>
-                            <td> </td>        
-                        </tr>
-                        )
-                    return 0;
-                }
-            }
-        </script>
-    </head>
+			table{
+				background-image: url("../../imagenes/barra.png");
+				background-repeat: no-repeat;
+				border-radius: 8% / 16%;
+				padding: 3%;
+				background-size: 100% 100%;
+			}
 
-    <body>
-        <form method="GET" name="formulario">
-            <table>
-                <tr>
+		</style>
+	</head>
+
+	<body>
+		<form method="GET" name="formulario">
+			<table align="center" width="30%">
+				<tr>
+					<td>
+						Método de Pago:
+					</td>
+					<td>
+						<input type="radio" name="efectivo" onclick="this.form.action = 'tk_seguimiento_pedido.html'">En efectivo
+					</td>
                     <td>
-                        Método de Pago: 
+                        <input type="radio" name="tarjeta" onclick="this.form.action = 'tk_pago_tarjeta.html'">En tarjeta
                     </td>
-                    <td>
-                        <select name="metodo">
-                            <option selected></option>
-                            <option>En efectivo</option>
-                            <option>En tarjeta</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </body>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
 </html>
