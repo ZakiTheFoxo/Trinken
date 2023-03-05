@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF=8">
+		<title>Formulario Inicio Sesion</title>
+		<style type="text/css">
+			body{
+				background-color: black;
+				font-family: sans-serif;
+                color: white;
+			}
+
+			table{
+				background-image: url("../imagenes/barra.png");
+				background-repeat: no-repeat;
+				border-radius: 8% / 16%;
+				padding: 3%;
+				background-size: 100% 100%;
+			}
+
+            input[type=button] {
+				width: 100%;
+                height: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table align="center" width="30%">
+            <tr>
+                <td align="center">
+                    <input type="button" value="Agregar un Artículo" onclick="window.location.replace('formularios/tk_agregar_articulo.php')">
+                </td>
+                <td align="center">
+                    <input type="button" value="Borrar un Artículo" onclick="window.location.replace('formularios/tk_borrar_articulo.html')">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" value="Añadir un Proveedor" onclick="window.location.replace('formularios/tk_añadir_proveedor.php')">
+                </td>
+                <td align="center">
+                    <input type="button" value="Eliminar un Proveedor" onclick="window.location.replace('formularios/tk_eliminar_proveedor.html')">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" value="Registrar un Repartidor" onclick="window.location.replace('formularios/tk_registrar_repartidor.php')">
+                </td>
+                <td align="center">
+                    <input type="button" value="Eliminar un Repartidor" onclick="window.location.replace('formularios/tk_eliminar_repartidor.html')">
+                </td>
+            </tr>
+        </table>
+	</body>
+</html>

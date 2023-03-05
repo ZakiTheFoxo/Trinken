@@ -17,6 +17,11 @@
 				background-size: 100% 100%;
 			}
 
+			input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
 		</style>
 
 		<script type="text/javascript">
@@ -54,13 +59,13 @@
 				};
 
 				// Validar existencia
-				if(document.formulario.existencia.value == 0){
+				if(document.formulario.cantidad.value == 0){
 					alert("Tiene que añadir la cantidad de Artículos en Existencia")
 					document.formulario.existencia.focus()
 					return 0;
-				}else if(document.formulario.existencia.value <= 0){
-					alert("La cantidad en Existencia no puede ser 0 o menor")
-					document.formulario.existencia.focus()
+				}else if(document.formulario.cantidad.value <= 0){
+					alert("La cantidad no puede ser 0 o menor")
+					document.formulario.cantidad.focus()
 					return 0;
 				}
 
@@ -71,8 +76,8 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario">
-			<table align="center" width="50%">
+		<form method="GET" name="formulario" action="tk_agregar_articulo.php">
+			<p><table align="center" width="50%">
 				<tr>
 					<td align="right">
 						Nombre del Artículo:
@@ -114,10 +119,10 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Existencia:
+						Cantidad:
 					</td>
 					<td>
-						<input type="number" name="existencia" style="width: 3em">
+						<input type="number" name="cantidad" style="width: 3em">
 					</td>
 				</tr>
 				<tr>
@@ -125,7 +130,27 @@
 						<br><input type="button" value="Agregar Artículo" onclick="verificarDatos()">
 					</td>
 				</tr>
-			</table>
+			</table></p>
+
+			<p><?php 
+				if($_GET){
+					$arti = $_GET['nom_art'];
+					$desc = $_GET['descripcion'];
+					$prec = $_GET['precio'];
+					$categ = $_GET['categoria'];
+					$cant = $_GET['cantidad'];
+
+					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
+
+					echo "<tr><td align='right' width='50%'>Nombre del Artículo:</td><td align='left'>$arti</td></tr>";
+					echo "<tr><td align='right'>Descripción:</td><td align='left'>$desc</td></tr>";
+					echo "<tr><td align='right' width='50%'>Precio:</td><td align='left'>$$prec</td></tr>";
+					echo "<tr><td align='right'>Categoria:</td><td align='left'>$categ</td></tr>";
+					echo "<tr><td align='right' width='50%'>Cantidad:</td><td align='left'>$cant</td></tr>";
+
+					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
+				}
+			?></p>	
 		</form>
 	</body>
 </html>

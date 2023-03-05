@@ -17,6 +17,11 @@
 				background-size: 100% 100%;
 			}
 
+			input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
 		</style>
 
 		<script type="text/javascript">
@@ -28,7 +33,14 @@
 					return 0;
 				};
 
-                // Validar direccion 2
+				// Validar estado
+                if(document.formulario.estado.value.length == 0){
+					alert("Tiene que escribir su Estado")
+					document.formulario.estado.focus()
+					return 0;
+				};
+
+                // Validar ciudad
                 if(document.formulario.ciudad.value.length == 0){
 					alert("Tiene que escribir su Ciudad")
 					document.formulario.ciudad.focus()
@@ -49,14 +61,14 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario">
-			<table align="center" width="50%">
+		<form method="GET" name="formulario" action="tk_añadir_direccion.php">
+			<p><table align="center" width="50%">
 				<tr>
 					<td align="right">
 						Dirección:
 					</td>
 					<td>
-						<input type="text" name="dir_1" size="50%" placeholder="Calle, Colonia, Número de casa...">
+						<input type="text" name="dir_1" size="50%" placeholder="Calle, Número de casa, Colonia...">
 					</td>
 				</tr>
 				<tr>
@@ -65,6 +77,14 @@
 					</td>
 					<td>
 						<input type="text" name="dir_2" size="50%" placeholder="No. Interior, Fraccionamiento... (Opcional)">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Estado:
+					</td>
+					<td>
+						<input type="text" name="estado" size="20%">
 					</td>
 				</tr>
                 <tr>
@@ -80,7 +100,7 @@
 						Código Postal:
 					</td>
 					<td>
-						<input type="text" name="c_postal" size="10%">
+						<input type="number" name="c_postal" style="width: 3em">
 					</td>
 				</tr>
 				<tr>
@@ -88,7 +108,27 @@
 						<br><input type="button" value="Añadir Dirección" onclick="verificarDatos()">
 					</td>
 				</tr>
-			</table>
+			</table></p>
+
+			<p><?php 
+				if($_GET){
+					$dir1 = $_GET['dir_1'];
+					$dir2 = $_GET['dir_2'];
+					$est = $_GET['estado'];
+					$ciu = $_GET['ciudad'];
+					$c_p = $_GET['c_postal'];
+
+					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
+
+					echo "<tr><td align='right' width='50%'>Dirección 1:</td><td align='left'>$dir1</td></tr>";
+					echo "<tr><td align='right'>Dirección 2:</td><td align='left'>$dir2</td></tr>";
+					echo "<tr><td align='right' width='50%'>Estado:</td><td align='left'>$est</td></tr>";
+					echo "<tr><td align='right'>Ciudad:</td><td align='left'>$ciu</td></tr>";
+					echo "<tr><td align='right' width='50%'>Código Postal:</td><td align='left'>$c_p</td></tr>";
+
+					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
+				}
+			?></p>
 		</form>
 	</body>
 </html>

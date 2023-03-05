@@ -17,6 +17,11 @@
 				background-size: 100% 100%;
 			}
 
+			input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
 		</style>
 
 		<script type="text/javascript">
@@ -50,7 +55,7 @@
 
 	<body>
 		<form method="GET" name="formulario">
-			<table align="center" width="40%">
+			<p><table align="center" width="40%">
 				<tr>
 					<td align="right">
 						Nombre de la empresa:
@@ -64,7 +69,7 @@
 						Correo:
 					</td>
 					<td>
-						<input type="email" name="correo" size="30%">
+						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com">
 					</td>
 				</tr>
 				<tr>
@@ -72,7 +77,7 @@
 						Número Celular:
 					</td>
 					<td>
-						<input type="text" name="celnum" size="30%">
+					<input type="number" name="celnum" style="width: 6em" placeholder="0123456789">
 					</td>
 				</tr>
 				<tr>
@@ -80,7 +85,23 @@
 						<br><input type="button" value="Registrar Proveedor" onclick="verificarDatos()">
 					</td>
 				</tr>
-			</table>
+			</table></p>
+
+			<p><?php 
+				if($_GET){
+					$nom_emp = $_GET['nom_emp'];
+					$email = $_GET['correo'];
+					$celnum = $_GET['celnum'];
+
+					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
+
+					echo "<tr><td align='right' width='50%'>Nombre de la Empresa:</td><td align='left'>$nom_emp</td></tr>";
+					echo "<tr><td align='right'>Correo:</td><td align='left'>$email</td></tr>";
+					echo "<tr><td align='right'>Número de Celular:</td><td align='left'>$celnum</td></tr>";
+
+					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
+				}
+			?></p>	
 		</form>
 	</body>
 </html>

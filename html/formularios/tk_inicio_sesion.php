@@ -17,6 +17,11 @@
 				background-size: 100% 100%;
 			}
 
+			input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
 		</style>
 
 		<script type="text/javascript">
@@ -42,14 +47,14 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="../body.html">
-			<table align="center" width="30%">
+		<form method="GET" name="formulario" action="tk_inicio_sesion.php">
+			<p><table align="center" width="30%">
 				<tr>
 					<td align="right">
-						Usuario:
+						Usuario (No. Celular):
 					</td>
 					<td>
-						<input type="text" name="usuario" size="30%">
+						<input type="number" name="usuario" style="width: 6em" placeholder="0123456789">
 					</td>
 				</tr>
 				<tr>
@@ -57,16 +62,30 @@
 						Constraseña:
 					</td>
 					<td>
-						<input type="password" name="contraseña" size="30%">
+						<input type="password" name="contraseña" size="10%">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
 						<br><input type="button" value="Iniciar Sesión" onclick="verificarDatos()"><br><br>
-						<input type="button" value="Registrarse" onclick="window.location.replace('tk_registrar_cuenta.html')">
+						<input type="button" value="Registrarse" onclick="window.location.replace('tk_registrar_cuenta.php')">
 					</td>
 				</tr>
-			</table>
+			</table></p>
+				
+			<p><?php 
+				if($_GET){
+					$user = $_GET['usuario'];
+					$pass = $_GET['contraseña'];
+
+					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
+
+					echo "<tr><td align='right' width='50%'>Usuario:</td><td align='left'>$user</td></tr>";
+					echo "<tr><td align='right'>Contraseña:</td><td align='left'>$pass</td></tr>";
+
+					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
+				}
+			?></p>			
 		</form>
 	</body>
 </html>

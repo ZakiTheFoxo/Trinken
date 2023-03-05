@@ -17,6 +17,11 @@
 				background-size: 100% 100%;
 			}
 
+			input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
 		</style>
 
 		<script type="text/javascript">
@@ -65,14 +70,13 @@
 
 				// Enviar formulario				
 				document.formulario.submit();
-				window.close();
 			}
 		</script>
 	</head>
 
 	<body>
-		<form method="GET" name="formulario">
-			<table align="center" width="40%">
+		<form method="GET" name="formulario" action="tk_registrar_cuenta.php">
+			<p><table align="center" width="40%">
 				<tr>
 					<td align="right">
 						Nombre(s):
@@ -119,7 +123,7 @@
 						Número Celular:
 					</td>
 					<td>
-						<input type="text" name="celnum" size="30%">
+						<input type="number" name="celnum" style="width: 6em" placeholder="0123456789">
 					</td>
 					
 				</tr>
@@ -129,7 +133,7 @@
 						Correo:
 					</td>
 					<td>
-						<input type="email" name="correo" size="30%">
+						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com">
 					</td>
 					
 				</tr>
@@ -139,7 +143,29 @@
 						<input type="button" value="Crear Cuenta" onclick="crearCuenta()">
 					</td>
 				</tr>
-			</table>
+			</table></p>
+
+			<p><?php 
+				if($_GET){
+					$nom = $_GET['nombre'];
+					$ap = $_GET['apellido'];
+					$pass = $_GET['clave'];
+					$bd = $_GET['fecha'];
+					$cel = $_GET['celnum'];
+					$email = $_GET['correo'];
+
+					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
+
+					echo "<tr><td align='right' width='50%'>Nombre:</td><td align='left'>$nom</td></tr>";
+					echo "<tr><td align='right'>Apellido:</td><td align='left'>$ap</td></tr>";
+					echo "<tr><td align='right' width='50%'>Contraseña:</td><td align='left'>$pass</td></tr>";
+					echo "<tr><td align='right'>Fecha de Nacimiento:</td><td align='left'>$bd</td></tr>";
+					echo "<tr><td align='right' width='50%'>Número de Celular:</td><td align='left'>$cel</td></tr>";
+					echo "<tr><td align='right'>Correo:</td><td align='left'>$email</td></tr>";
+
+					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
+				}
+			?></p>
 		</form>
 	</body>
 </html>
