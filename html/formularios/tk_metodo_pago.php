@@ -9,7 +9,7 @@
 				font-family: sans-serif;
 			}
 
-			.main{
+			table[class=main]{
 				background-image: url("../../imagenes/barra.png");
 				background-repeat: no-repeat;
 				border-radius: 5% / 16%;
@@ -62,14 +62,13 @@
 	
 				// Enviar formulario				
 				document.formulario.submit();
-				window.close();
 			}
 		</script>
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="pagar.html">
-			<table align="center" width="30%" class="main">
+		<form method="GET" name="formulario" action="tk_metodo_pago.php">
+			<p><table align="center" width="30%" class="main">
 				<tr>
 					<td>
 						Método de Pago:
@@ -92,7 +91,7 @@
 								</tr>
 								<tr>
 									<td align="center">
-										<input type="button" value="Pagar" onclick="window.location.replace('pagar.html')">
+										<input type="button" value="Pagar" onclick="window.location.replace('../seguimientoPedido.html')">
 									</td>
 								</tr>
 							</table>
@@ -150,7 +149,25 @@
 						</div>
 					</td>
 				</tr>
-			</table>
+			</table></p>
+
+			<p><?php 
+				if($_GET){
+					$num = $_GET['num'];
+					$titu = $_GET['titular'];
+					$mes = $_GET['mes'];
+					$ccv = $_GET['ccv'];
+
+					echo "<table align='center' class='main'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
+
+					echo "<tr><td align='right' width='50%'>Número:</td><td align='left'>$num</td></tr>";
+					echo "<tr><td align='right'>Titular:</td><td align='left'>$titu</td></tr>";
+					echo "<tr><td align='right'>Fecha de Expiración:</td><td align='left'>$mes</td></tr>";
+					echo "<tr><td align='right'>CCV:</td><td align='left'>$ccv</td></tr>";
+
+					echo '<tr><td colspan="2" align="center"><input type="button" value="Pagar" onclick="window.location.replace(\'../seguimientoPedido.html\')"></td></tr></table>';
+				}
+			?></p>
 		</form>
 	</body>
 </html>

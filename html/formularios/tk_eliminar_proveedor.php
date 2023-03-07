@@ -47,7 +47,7 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario">
+		<form method="GET" name="formulario" action="tk_eliminar_proveedor.php">
 			<p><table align="center" width="40%">
 				<tr>
 					<td align="right">

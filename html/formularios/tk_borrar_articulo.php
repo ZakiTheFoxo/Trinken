@@ -44,7 +44,7 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario">
+		<form method="GET" name="formulario" action="tk_borrar_articulo.php">
 			<p><table align="center" width="50%">
 				<tr>
 					<td align="right">

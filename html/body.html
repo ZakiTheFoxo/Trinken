@@ -30,6 +30,31 @@
                 border-radius: 16% / 8%;
                 display: inline-block;
             }
+
+            .fixed-btn{
+                position: fixed;
+                bottom: 10%;
+                right: 3%;
+                background: #bf2a5e;
+                width: 5%;
+                height: 9.5%;
+                text-align: center;
+                line-height: normal;
+                border-radius: 100%;
+                box-shadow: 4px 4px 4px #57182e;
+                cursor: pointer;
+            }
+
+            .fixed-btn:active{
+                box-shadow: 0  0;
+            }
+
+            .carrito{
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
         </style>
 	</head>
 	<body>
@@ -97,6 +122,14 @@
                 <div class="articulo"></div>
                 <div class="articulo"></div>
                 <div class="articulo"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="fixed-btn">
+                <div class="carrito">
+                    <a href="formularios/tk_metodo_pago.php"><img src="../imagenes/carrito.png" width="100%" height="100%" title="Carrito"></a>
+                </div>
             </div>
         </div>
     </body>
