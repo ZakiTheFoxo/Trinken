@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF=8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Formulario Añadir Proveedor</title>
 		<style type="text/css">
 			body{
@@ -54,7 +54,7 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="tk_añadir_proveedor.php">
+		<form method="GET" name="formulario" action="tk_anadir_proveedor.php">
 			<p><table align="center" width="40%">
 				<tr>
 					<td align="right">

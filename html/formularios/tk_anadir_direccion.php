@@ -61,7 +61,7 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="tk_añadir_direccion.php">
+		<form method="GET" name="formulario" action="tk_anadir_direccion.php">
 			<p><table align="center" width="50%">
 				<tr>
 					<td align="right">

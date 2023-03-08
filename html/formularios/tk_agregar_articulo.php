@@ -110,10 +110,10 @@
 						<select name="categoria">
 							<option selected>Elegir</option>
 							<option>Cervezas</option>
-							<option>Licores</option>
-							<option>Mezcladores</option>
 							<option>Cigarros</option>
 							<option>Extras</option>
+							<option>Licores</option>
+							<option>Mezcladores</option>
 						</select>
 					</td>
 				</tr>
