@@ -67,6 +67,21 @@
 	</head>
 
 	<body>
+		<p>
+			<table align="center" width="30%" class="main">
+				<tr>
+					<td align="center">
+						<p><b>CARRITO</b></p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Cerveza Corona	Cantidad: 1 	Subtotal: $30
+						Total: $30
+					</td>
+				</tr>
+			</table>
+		</p>
 		<form method="GET" name="formulario" action="tk_metodo_pago.php">
 			<p><table align="center" width="30%" class="main">
 				<tr>
