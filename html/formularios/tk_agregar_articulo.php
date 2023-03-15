@@ -76,7 +76,7 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="tk_agregar_articulo.php">
+		<form method="POST" name="formulario" action="tk_agregar_articulo_procesa.php">
 			<p><table align="center" width="50%">
 				<tr>
 					<td align="right">
@@ -126,6 +126,15 @@
 					</td>
 				</tr>
 				<tr>
+					<td align="right">
+						Proveedor:
+					</td>
+					<td>
+						<input type="number" name="proveedor" style="width: 3em">
+					</td>
+				</tr>
+				<tr>
+				<tr>
 					<td colspan="2" align="center">
 						<br><input type="button" value="Agregar Artículo" onclick="verificarDatos()">
 					</td>
@@ -133,20 +142,22 @@
 			</table></p>
 
 			<p><?php 
-				if($_GET){
-					$arti = $_GET['nom_art'];
-					$desc = $_GET['descripcion'];
-					$prec = $_GET['precio'];
-					$categ = $_GET['categoria'];
-					$cant = $_GET['cantidad'];
+				if($_POST){
+					$arti = $_POST['nom_art'];
+					$desc = $_POST['descripcion'];
+					$prec = $_POST['precio'];
+					$categ = $_POST['categoria'];
+					$cant = $_POST['cantidad'];
+					$prov = $_POST['proveedor'];
 
-					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
+					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron correctamente los siguientes datos:</b></td></tr>";
 
 					echo "<tr><td align='right' width='50%'>Nombre del Artículo:</td><td align='left'>$arti</td></tr>";
 					echo "<tr><td align='right'>Descripción:</td><td align='left'>$desc</td></tr>";
 					echo "<tr><td align='right' width='50%'>Precio:</td><td align='left'>$$prec</td></tr>";
 					echo "<tr><td align='right'>Categoria:</td><td align='left'>$categ</td></tr>";
 					echo "<tr><td align='right' width='50%'>Cantidad:</td><td align='left'>$cant</td></tr>";
+					echo "<tr><td align='right' width='50%'>Proveedor:</td><td align='left'>$prov</td></tr>";
 
 					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
 				}

@@ -26,17 +26,12 @@
 
 		<script type="text/javascript">
 			function verificarDatos(){
-				// Validar Nombre del artículo
-				if(document.formulario.nom_art == 0){
-					alert("Tiene que escribir el Nombre del Artículo")
-					document.formulario.nom_art.focus()
-					return 0;
-				};
-				if(document.formulario.id == 0){
+				if(document.formulario.id.value.length == 0){
 					alert("Tiene que escribir el Nombre del Artículo")
 					document.formulario.id.focus()
 					return 0;
 				};
+
 				// Enviar formulario				
 				document.formulario.submit();
 			}
@@ -44,46 +39,57 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="tk_borrar_articulo.php">
-			<p><table align="center" width="50%">
+		<form method="POST" name="formulario" action="tk_borrar_articulo.php">
+			<p><table align="center" width="20%">
 				<tr>
 					<td align="right">
 						ID:
 					</td>
 					<td>
-						<input type="text" name="id" size="50%">
-					</td>
-				</tr>
-				<tr>
-					También puedes eliminarlo mediante su:
-				</tr>	
-				<tr>
-					<td align="right">
-						Nombre del Artículo:
-					</td>
-					<td>
-						<input type="text" name="nom_art" size="50%">
+						<input type="number" name="id" style="width: 3em">
 					</td>
 				</tr>
 				<td colspan="2" align="center">
 						<br><input type="button" value="Borrar Artículo" onclick="verificarDatos()">
 				</td>
 			</table></p>
+		</form>
 
 			<p><?php 
-				if($_GET){
-					$arti = $_GET['nom_art'];
-					$id = $_GET['id'];
+				if($_POST){
+					$id = $_POST['id'];
 
-					echo "<table align='center'><tr><td colspan='2' align='center'><b>¿Estás seguro que quieres eliminar los siguientes datos?</b></td></tr>";
+					include("conex.php");
+					$link = Conectarse();
 
-					echo "<tr><td align='right'>ID:</td><td align='left'>$id</td></tr>";
-					echo "<tr><td align='right' width='50%'>Nombre del Artículo:</td><td align='left'>$arti</td></tr>";
+					$result = mysqli_query($link, "
+						SELECT a.id, a.nombre, a.precio, a.categoria, a.descripcion, a.existencia, p.nombre_de_la_empresa AS Proveedor
+						FROM tk_articulos a, tk_proveedores p 
+						WHERE a.pvr_id = p.id 
+						AND a.id = '$id';
+					");
 
-					echo '<tr><td align="center"><input type="button" value="Confirmar" onclick="window.location.replace(\'../body.html\')"></td>';
-					echo '<td align="center"><input type="button" value="Cancelar" onclick="window.location.replace(\'tk_borrar_articulo.php\')"></td></tr></table>';
+					if(mysqli_num_rows($result) > 0){
+						printf('<form method="POST" name="formulario2" action="tk_borrar_articulo_procesa.php">
+							<input type="hidden" name="id" value="%d">', $id);
+
+						echo "<table align='center' cellspacing='20px'><tr><td colspan='2' align='center'><b>¿Estás seguro que quieres eliminar los siguientes datos?</b></td></tr>";
+
+						printf("<tr><td>ID</td><td>Nombre</td><td>Precio</td><td>Categoria</td><td>Descripcion</td><td>Existencia</td><td>Proveedor</td></tr>");
+
+						while($row = mysqli_fetch_array($result)){
+							printf("<tr border><td>%d</td><td>%s</td><td>%d</td><td>%s</td><td>%s</td><td>%d</td><td>%s</td></tr>", 
+								$row["id"], $row["nombre"], $row["precio"], $row["categoria"], $row["descripcion"], $row["existencia"], $row["Proveedor"]);
+						}
+
+						echo '<tr><td colspan="4" align="center"><input type="submit" value="Confirmar"></td>';
+						echo '<td align="center"><input type="button" value="Cancelar" onclick="window.location.replace(\'tk_borrar_articulo.php\')"></td></tr></table></form>';
+					}else{
+						echo "<table align='center'><tr><td align='center'><b>No se encontró un artículo con ese ID</b></td></tr></table>";
+					}
+					mysqli_free_result($result);
+                    mysqli_close($link);
 				}
-			?></p>	
-		</form>
+			?></p>
 	</body>
 </html>
