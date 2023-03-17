@@ -75,7 +75,7 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="tk_registrar_cuenta.php">
+		<form method="POST" name="formulario" action="tk_registrar_cuenta_procesa.php">
 			<p><table align="center" width="40%">
 				<tr>
 					<td align="right">
@@ -146,13 +146,13 @@
 			</table></p>
 
 			<p><?php 
-				if($_GET){
-					$nom = $_GET['nombre'];
-					$ap = $_GET['apellido'];
-					$pass = $_GET['clave'];
-					$bd = $_GET['fecha'];
-					$cel = $_GET['celnum'];
-					$email = $_GET['correo'];
+				if($_POST){
+					$nom = $_POST['nombre'];
+					$ap = $_POST['apellido'];
+					$pass = $_POST['clave'];
+					$bd = $_POST['fecha'];
+					$cel = $_POST['celnum'];
+					$email = $_POST['correo'];
 
 					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
 
