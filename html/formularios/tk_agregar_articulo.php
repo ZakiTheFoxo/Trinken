@@ -140,28 +140,6 @@
 					</td>
 				</tr>
 			</table></p>
-
-			<p><?php 
-				if($_POST){
-					$arti = $_POST['nom_art'];
-					$desc = $_POST['descripcion'];
-					$prec = $_POST['precio'];
-					$categ = $_POST['categoria'];
-					$cant = $_POST['cantidad'];
-					$prov = $_POST['proveedor'];
-
-					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron correctamente los siguientes datos:</b></td></tr>";
-
-					echo "<tr><td align='right' width='50%'>Nombre del Artículo:</td><td align='left'>$arti</td></tr>";
-					echo "<tr><td align='right'>Descripción:</td><td align='left'>$desc</td></tr>";
-					echo "<tr><td align='right' width='50%'>Precio:</td><td align='left'>$$prec</td></tr>";
-					echo "<tr><td align='right'>Categoria:</td><td align='left'>$categ</td></tr>";
-					echo "<tr><td align='right' width='50%'>Cantidad:</td><td align='left'>$cant</td></tr>";
-					echo "<tr><td align='right' width='50%'>Proveedor:</td><td align='left'>$prov</td></tr>";
-
-					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
-				}
-			?></p>	
 		</form>
 	</body>
 </html>
