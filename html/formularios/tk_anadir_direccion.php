@@ -61,7 +61,7 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="tk_anadir_direccion.php">
+		<form method="POST" name="formulario" action="tk_anadir_direccion_procesa.php">
 			<p><table align="center" width="50%">
 				<tr>
 					<td align="right">
@@ -104,6 +104,14 @@
 					</td>
 				</tr>
 				<tr>
+					<td align="right">
+						ID Cliente:
+					</td>
+					<td>
+						<input type="text" name="cliente" size="20%">
+					</td>
+				</tr>
+				<tr>
 					<td colspan="2" align="center">
 						<br><input type="button" value="Añadir Dirección" onclick="verificarDatos()">
 					</td>
@@ -111,12 +119,16 @@
 			</table></p>
 
 			<p><?php 
-				if($_GET){
-					$dir1 = $_GET['dir_1'];
-					$dir2 = $_GET['dir_2'];
-					$est = $_GET['estado'];
-					$ciu = $_GET['ciudad'];
-					$c_p = $_GET['c_postal'];
+				if($_POST){
+					include("conex.php");
+				    $link = Conectarse();
+
+					$dir1 = $_POST['dir_1'];
+					$dir2 = $_POST['dir_2'];
+					$est = $_POST['estado'];
+					$ciu = $_POST['ciudad'];
+					$c_p = $_POST['c_postal'];
+					$cte = $_POST['cliente'];
 
 					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
 

@@ -54,7 +54,7 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="tk_anadir_proveedor.php">
+		<form method="POST" name="formulario" action="tk_anadir_proveedor_proceso.php">
 			<p><table align="center" width="40%">
 				<tr>
 					<td align="right">
@@ -88,10 +88,10 @@
 			</table></p>
 
 			<p><?php 
-				if($_GET){
-					$nom_emp = $_GET['nom_emp'];
-					$email = $_GET['correo'];
-					$celnum = $_GET['celnum'];
+				if($_POST){
+					$nom_emp = $_POST['nom_emp'];
+					$email = $_POST['correo'];
+					$celnum = $_POST['celnum'];
 
 					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
 
