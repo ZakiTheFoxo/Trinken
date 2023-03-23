@@ -1,6 +1,6 @@
 <?php 
     function Conectarse(){
-        if(!$link = mysqli_connect("172.16.14.73", "TrinkenAdmin", "TkAdmin#1", "trinken")){
+        if(!$link = mysqli_connect("localhost", "TrinkenAdmin", "TkAdmin#1", "trinken")){
             die('Error Conectando: '.mysqli_connect_error());
             exit();
         }

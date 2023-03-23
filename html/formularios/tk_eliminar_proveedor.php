@@ -26,13 +26,6 @@
 
 		<script type="text/javascript">
 			function verificarDatos(){
-				// Validar Nombre Empresa
-				if(document.formulario.nom_emp.value.length == 0){
-					alert("Tiene que escribir el Nombre de la Empresa")
-					document.formulario.nom_emp.focus()
-					return 0;
-				};
-
 				// Validar Numero de Celular
 				if(document.formulario.id_emp.value.length == 0){
 					alert("Tiene que escribir el ID de la Empresa")
@@ -47,16 +40,8 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="tk_eliminar_proveedor.php">
-			<p><table align="center" width="40%">
-				<tr>
-					<td align="right">
-						Nombre de la empresa:
-					</td>
-					<td>
-						<input type="text" name="nom_emp" size="30%">
-					</td>
-				</tr>
+		<form method="POST" name="formulario" action="tk_eliminar_proveedor.php">
+			<p><table align="center" width="30%">
 				<tr>
 					<td align="right">
 						ID de la empresa:
@@ -71,20 +56,42 @@
 					</td>
 				</tr>
 			</table></p>
-
-			<p><?php 
-				if($_GET){
-					$nom_emp = $_GET['nom_emp'];
-					$id_emp = $_GET['id_emp'];
-					echo "<table align='center'><tr><td colspan='2' align='center'><b>¿Estás seguro que quieres eliminar los siguientes datos?</b></td></tr>";
-
-					echo "<tr><td align='right'>ID:</td><td align='left'>$id_emp</td></tr>";
-					echo "<tr><td align='right' width='50%'>Nombre del Proveedor:</td><td align='left'>$id_emp</td></tr>";
-
-					echo '<tr><td align="center"><input type="button" value="Confirmar" onclick="window.location.replace(\'../body.html\')"></td>';
-					echo '<td align="center"><input type="button" value="Cancelar" onclick="window.location.replace(\'tk_eliminar_proveedor.php\')"></td></tr></table>';
-				}
-			?></p>	
 		</form>
+
+		<p><?php 
+			if($_POST){
+				$id = $_POST['id_emp'];
+
+				include("conex.php");
+				$link = Conectarse();
+
+				$result = mysqli_query($link, "
+					SELECT *
+					FROM tk_proveedores
+					WHERE id = '$id';
+				");
+
+				if(mysqli_num_rows($result) > 0){
+					printf('<form method="POST" name="formulario2" action="tk_eliminar_proveedor_procesa.php">
+						<input type="hidden" name="id" value="%d">', $id);
+
+					echo "<table align='center' cellspacing='20px'><tr><td colspan='2' align='center'><b>¿Estás seguro que quieres eliminar los siguientes datos?</b></td></tr>";
+
+					printf("<tr><td>ID</td><td>Nombre</td><td>Correo</td><td>Celular</td></tr>");
+
+					while($row = mysqli_fetch_array($result)){
+						printf("<tr border><td>%d</td><td>%s</td><td>%s</td><td>%s</td>", 
+							$row["id"], $row["nombre_de_la_empresa"], $row["correo_electronico"], $row["celular"]);
+					}
+
+					echo '<tr><td colspan="2" align="center"><input type="submit" value="Confirmar"></td>';
+					echo '<td align="center"><input type="button" value="Cancelar" onclick="window.location.replace(\'tk_eliminar_proveedor.php\')"></td></tr></table></form>';
+				}else{
+					echo "<table align='center'><tr><td align='center'><b>No se encontró un proveedor con ese ID</b></td></tr></table>";
+				}
+				mysqli_free_result($result);
+				mysqli_close($link);
+			}
+		?></p>
 	</body>
 </html>

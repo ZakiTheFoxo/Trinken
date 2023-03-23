@@ -144,28 +144,6 @@
 					</td>
 				</tr>
 			</table></p>
-
-			<p><?php 
-				if($_POST){
-					$nom = $_POST['nombre'];
-					$ap = $_POST['apellido'];
-					$pass = $_POST['clave'];
-					$bd = $_POST['fecha'];
-					$cel = $_POST['celnum'];
-					$email = $_POST['correo'];
-
-					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
-
-					echo "<tr><td align='right' width='50%'>Nombre:</td><td align='left'>$nom</td></tr>";
-					echo "<tr><td align='right'>Apellido:</td><td align='left'>$ap</td></tr>";
-					echo "<tr><td align='right' width='50%'>Contraseña:</td><td align='left'>$pass</td></tr>";
-					echo "<tr><td align='right'>Fecha de Nacimiento:</td><td align='left'>$bd</td></tr>";
-					echo "<tr><td align='right' width='50%'>Número de Celular:</td><td align='left'>$cel</td></tr>";
-					echo "<tr><td align='right'>Correo:</td><td align='left'>$email</td></tr>";
-
-					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
-				}
-			?></p>
 		</form>
 	</body>
 </html>
