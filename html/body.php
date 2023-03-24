@@ -82,17 +82,17 @@
             <table width="80%" align="center">
                 <tr>
                     <td align="left">
-                        <a href="bebidas.html">
+                        <a href="bebidas.php">
                             <img src="../Imagenes/bebidas.png" width="80%"></a>
                     </td>
 
                     <td align="center">
-                        <a href="botanas.html">
+                        <a href="botanas.php">
                         <img src="../Imagenes/botanas.png" width="80%"></a>
                     </td>
 
                     <td align="right">
-                        <a href="extras.html">
+                        <a href="extras.php">
                         <img src="../Imagenes/extras.png" width="80%"></a>
                     </td>
                 </tr>
