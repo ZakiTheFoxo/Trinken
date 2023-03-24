@@ -54,6 +54,13 @@
 					return 0;
 				};
 
+				// Validar id del cliente
+                if(document.formulario.cliente.value.length == 0){
+					alert("Tiene que escribir el ID de Cliente")
+					document.formulario.c_postal.focus()
+					return 0;
+				};
+
 				// Enviar formulario				
 				document.formulario.submit();
 			}

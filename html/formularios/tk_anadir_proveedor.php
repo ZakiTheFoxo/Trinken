@@ -40,9 +40,15 @@
 					return 0;
 				};
 
-				// Validar Numero de Celular
+				// Validar Numero de Celular y longitud
 				if(document.formulario.celnum.value.length == 0){
 					alert("Tiene que escribir el Número Celular de la Empresa")
+					document.formulario.celnum.focus()
+					return 0;
+				};
+				
+				if(document.formulario.celnum.value.length != 10){
+					alert("El Número Celular de la Empresa debe contener 10 digitos")
 					document.formulario.celnum.focus()
 					return 0;
 				};

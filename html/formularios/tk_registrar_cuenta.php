@@ -54,9 +54,15 @@
 					return 0;
 				};
 
-				// Validar número de celular
+				// Validar número de celular y longitud
 				if(document.formulario.celnum.value.length == 0){
 					alert("Tiene que escribir su Número de Celular")
+					document.formulario.celnum.focus()
+					return 0;
+				};
+
+				if(document.formulario.celnum.value.length != 10){
+					alert("El Número Celular debe contener 10 digitos")
 					document.formulario.celnum.focus()
 					return 0;
 				};
