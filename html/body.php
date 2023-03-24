@@ -106,17 +106,28 @@
                 Promociones
             </font>
             <div class="scroll-container">
-                <div class="articulo">
-                    <div class="informacion">
-                        Cerveza<br>
-                        Cerveza Corona<br>
-                        4 pack Corona Laton 473ml<br>
-                        $30
-                    </div>
-                    <div class="agregar">
-                        <input type="button" value="Agregar">
-                    </div>
-                </div>
+            <?php
+                include("formularios/conex.php");
+                $link = Conectarse();
+
+                $sql = "SELECT * FROM tk_articulos ORDER BY nombre";
+                $result = mysqli_query($link,$sql);
+
+                if ($result->num_rows > 0) {
+                while($row = $result->fetch_array()) {
+                    echo "<div class='articulo'>";
+                    echo "<h2>" . $row["nombre"] . "</h2>";
+                    echo "<p>Precio: $" . $row["precio"] . "</p>";
+                    echo "<p>Descripción: $" . $row["descripcion"] . "</p>";
+                    echo "<button onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "</div>";
+                    }
+                } 
+                else {
+                    echo "No hay productos asdladjladj";
+                }
+                mysqli_close($link);
+                ?>
                 <div class="articulo"></div>
                 <div class="articulo"></div>
                 <div class="articulo"></div>

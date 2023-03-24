@@ -25,7 +25,8 @@ CREATE TABLE tk_usuarios (
     fecha_nacimiento   DATE NOT NULL,
     correo_electronico VARCHAR(60) NOT NULL,
     administrador      BOOLEAN DEFAULT FALSE,
-    celular            VARCHAR(14) NOT NULL
+    celular            VARCHAR(14) NOT NULL,
+    contrasena         VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE tk_direccion_clientes (
@@ -61,6 +62,10 @@ CREATE TABLE tk_repartidores (
     celular            VARCHAR(14) NOT NULL,
     sueldo             DECIMAL(10, 2) NOT NULL,
     comision           DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE tk_promociones (
+    
 );
 
 ALTER TABLE tk_ato_pedidos
