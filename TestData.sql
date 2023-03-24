@@ -34,8 +34,8 @@ INSERT INTO tk_direccion_clientes(direccion_linea_1, estado, ciudad, codigo_post
 VALUES('Lobo Blanco 4 Cuarta Seccion', 'CDMX', 'Konoha', 17263, '4');
 
 -- Insertar en tk_articulos
-INSERT INTO tk_articulos(nombre, precio, categoria, descripcion, existencia, pvr_id)
-VALUES('Penafiel', 35.00, 'Mezcladores', 'Agua mineral Penafiel de 2L embotellada', 200, '1');
+INSERT INTO tk_articulos(nombre, precio, categoria, descripcion, existencia, imagen, pvr_id)
+VALUES('Penafiel', 35.00, 'Mezcladores', 'Agua mineral Penafiel de 2L embotellada', 200, LOAD_FILE('C:\\Users\btpms\Desktop\Trinken_Web\imagenes\productos\penafiel2l.png'), '1');
 INSERT INTO tk_articulos(nombre, precio, categoria, descripcion, existencia, pvr_id)
 VALUES('Coca Cola', 42.00, 'Mezcladores', 'Refresco Cola Cola de 2L embotellada', 200, '1');
 INSERT INTO tk_articulos(nombre, precio, categoria, descripcion, existencia, pvr_id)
