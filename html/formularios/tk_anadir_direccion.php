@@ -54,6 +54,13 @@
 					return 0;
 				};
 
+				// Validar id del cliente
+                if(document.formulario.cliente.value.length == 0){
+					alert("Tiene que escribir el ID de Cliente")
+					document.formulario.c_postal.focus()
+					return 0;
+				};
+
 				// Enviar formulario				
 				document.formulario.submit();
 			}
@@ -117,30 +124,6 @@
 					</td>
 				</tr>
 			</table></p>
-
-			<p><?php 
-				if($_POST){
-					include("conex.php");
-				    $link = Conectarse();
-
-					$dir1 = $_POST['dir_1'];
-					$dir2 = $_POST['dir_2'];
-					$est = $_POST['estado'];
-					$ciu = $_POST['ciudad'];
-					$c_p = $_POST['c_postal'];
-					$cte = $_POST['cliente'];
-
-					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
-
-					echo "<tr><td align='right' width='50%'>Dirección 1:</td><td align='left'>$dir1</td></tr>";
-					echo "<tr><td align='right'>Dirección 2:</td><td align='left'>$dir2</td></tr>";
-					echo "<tr><td align='right' width='50%'>Estado:</td><td align='left'>$est</td></tr>";
-					echo "<tr><td align='right'>Ciudad:</td><td align='left'>$ciu</td></tr>";
-					echo "<tr><td align='right' width='50%'>Código Postal:</td><td align='left'>$c_p</td></tr>";
-
-					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
-				}
-			?></p>
 		</form>
 	</body>
 </html>

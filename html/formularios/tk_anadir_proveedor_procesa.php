@@ -10,6 +10,6 @@
 ?>
 
 	<script>
-		window.location.replace('tk_anadir_direccion.php');
+		window.location.replace('tk_anadir_proveedor.php');
 	</script>
 	

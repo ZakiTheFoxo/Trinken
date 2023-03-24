@@ -34,9 +34,9 @@
 				};
 
 				// Validar Contraseña
-				if(document.formulario.contraseña.value.length == 0){
+				if(document.formulario.contrasena.value.length == 0){
 					alert("Tiene que escribir su Contraseña")
-					document.formulario.contraseña.focus()
+					document.formulario.contrasena.focus()
 					return 0;
 				};
 
@@ -47,14 +47,14 @@
 	</head>
 
 	<body>
-		<form method="GET" name="formulario" action="tk_inicio_sesion.php">
+		<form method="POST" name="formulario" action="control.php">
 			<p><table align="center" width="30%">
 				<tr>
 					<td align="right">
 						Usuario (No. Celular):
 					</td>
 					<td>
-						<input type="number" name="usuario" style="width: 6em" placeholder="0123456789">
+						<input type="number" name="usuario" style="width: 8em" placeholder="+5210123456789">
 					</td>
 				</tr>
 				<tr>
@@ -62,7 +62,7 @@
 						Constraseña:
 					</td>
 					<td>
-						<input type="password" name="contraseña" size="10%">
+						<input type="password" name="contrasena" style="width: 8em">
 					</td>
 				</tr>
 				<tr>
@@ -71,21 +71,7 @@
 						<input type="button" value="Registrarse" onclick="window.location.replace('tk_registrar_cuenta.php')">
 					</td>
 				</tr>
-			</table></p>
-				
-			<p><?php 
-				if($_GET){
-					$user = $_GET['usuario'];
-					$pass = $_GET['contraseña'];
-
-					echo "<table align='center'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
-
-					echo "<tr><td align='right' width='50%'>Usuario:</td><td align='left'>$user</td></tr>";
-					echo "<tr><td align='right'>Contraseña:</td><td align='left'>$pass</td></tr>";
-
-					echo '<tr><td colspan="2" align="center"><input type="button" value="Volver al Menú" onclick="window.location.replace(\'../body.html\')"></td></tr></table>';
-				}
-			?></p>			
+			</table></p>			
 		</form>
 	</body>
 </html>
