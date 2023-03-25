@@ -1,3 +1,6 @@
+<?php 
+	include "seguridad.php";
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -76,8 +79,21 @@
 				</tr>
 				<tr>
 					<td>
-						Cerveza Corona	Cantidad: 1 	Subtotal: $30
-						Total: $30
+					<?php
+                        if (!isset($_SESSION['carrito'])) {
+                            $_SESSION['carrito'] = array();
+                        }
+                        $total = 0;
+
+                        // Mostrar el contenido del carrito
+                        foreach ($_SESSION['carrito'] as $producto) {
+                            // Mostrar la información del producto
+                            echo $producto['nombre'];
+                            echo $precios[$producto['id']];
+                            $total += $precios[$producto['id']];
+                        }
+                        echo "Total: $total";
+                    ?>
 					</td>
 				</tr>
 			</table>

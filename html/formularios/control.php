@@ -3,14 +3,21 @@
     $link = Conectarse();
 
     $user = $_POST['usuario'];
-    $pass = md5($_POST['contrasena']);
+    $pass = $_POST['contrasena'];
 
     $result = mysqli_query($link, "SELECT count(*) FROM tk_usuarios WHERE celular = '$user' AND contrasena = '$pass'");
 
-    if(mysqli_num_rows($result) > 0){
+    $row = mysqli_fetch_array($result);
+
+    if($row['count(*)'] == '1'){
         session_start();
-        $_SESSION["autenticado"] = "SI";
-        header("Location: ../body.html");
+
+        $result = mysqli_query($link, "SELECT id FROM tk_usuarios WHERE celular = '$user' AND contrasena = '$pass'");
+        $row = mysqli_fetch_array($result);
+
+        $_SESSION['autenticado'] = $row['id'];
+        
+        header("Location: ../body.php");
     }else {
         header("Location: tk_inicio_sesion.php?errorusuario=1");
     }
