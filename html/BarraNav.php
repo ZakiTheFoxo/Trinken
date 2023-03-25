@@ -6,6 +6,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Barra de navegación trinken</title>
+		
 		<style>
 			body {
 				background-image: url("../imagenes/barra.png");
@@ -54,8 +55,8 @@
 
 								// Admin
 								if($row['administrador'] == '1'){
-									echo '<a href="admin.html" target="cuadroenlaces">Vista Admin</a>
-									<a href="formularios/tk_inicio_sesion.php" target="cuadroenlaces">
+									echo '<a href="formularios/admin.php" target="cuadroenlaces">Vista Admin</a>
+									<a href="formularios/sesion.php" target="cuadroenlaces">
 										<img valign="top" halign="left" src="../imagenes/user.png" width="7%" height="auto">&nbsp;
 										<label id="sesion">Bienvenido, '.$row['nombre'].'</label>
 									</a>';
@@ -63,7 +64,7 @@
 								// Usuario
 								}else{
 									echo '
-									<a href="formularios/tk_inicio_sesion.php" target="cuadroenlaces">
+									<a href="formularios/sesion.php" target="cuadroenlaces">
 										<img valign="top" halign="left" src="../imagenes/user.png" width="7%" height="auto">&nbsp;
 										<label id="sesion">Bienvenido, '.$row['nombre'].'</label>
 									</a>';

@@ -17,7 +17,7 @@
 
             // Admin
             if($row['administrador'] != '1'){
-                header("Location: tk_inicio_sesion.php");
+                header("Location: ../body.php");
 
                 exit();
             }

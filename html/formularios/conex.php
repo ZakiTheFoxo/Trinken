@@ -5,6 +5,5 @@
             exit();
         }
         return $link;
-    }  
-    Conectarse();
+    } 
 ?>

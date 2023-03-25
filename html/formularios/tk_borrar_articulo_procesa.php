@@ -11,5 +11,5 @@
 ?>
 
 <script>
-    window.location.replace('tk_borrar_articulo.php');
+    window.location.replace('tk_borrar_articulo.php?borrararticulo=1');
 </script>

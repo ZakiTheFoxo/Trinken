@@ -16,5 +16,5 @@
 
 ?></p>
 <script>
-    window.location.replace('tk_registrar_repartidor.php');
+    window.location.replace('tk_registrar_repartidor.php?repartidoragregado=1');
 </script>

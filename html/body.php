@@ -39,6 +39,18 @@
                 border-radius: 16% / 8%;
             }
 
+            .add {
+                border-radius: 10px;
+                border: 0;
+                background: linear-gradient(to right, #B7D373, #3FA848);
+                color: #fff;
+                box-shadow: 3px 3px #666;
+            }
+
+            .add:active {
+                box-shadow: 0px 0px;
+            }
+
             h2 {
                 font-size: 20px;
                 font-weight: bold;
@@ -180,8 +192,8 @@
                     echo "<div class='articulo'>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p>Descripción: $" . $row["descripcion"] . "</p>";
-                    echo "<button onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
+                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
                     echo "</div>";
                 }
             } 
@@ -204,8 +216,8 @@
                     echo "<div class='articulo'>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p>Descripción: $" . $row["descripcion"] . "</p>";
-                    echo "<button onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
+                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
                     echo "</div>";
                     }
                 } 
@@ -228,8 +240,8 @@
                     echo "<div class='articulo'>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p>Descripción: $" . $row["descripcion"] . "</p>";
-                    echo "<button onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
+                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
                     echo "</div>";
                     }
                 } 
@@ -257,8 +269,8 @@
                     echo "<div class='articulo'>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p>Descripción: $" . $row["descripcion"] . "</p>";
-                    echo "<button onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
+                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
                     echo "</div>";
                     }
                 } 
@@ -286,8 +298,8 @@
                     echo "<div class='articulo'>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p>Descripción: $" . $row["descripcion"] . "</p>";
-                    echo "<button onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
+                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
                     echo "</div>";
                     }
                 } 

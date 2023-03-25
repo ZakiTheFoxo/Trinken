@@ -16,5 +16,5 @@
 ?>
 
 <script>
-    window.location.replace('tk_agregar_articulo.php');
+    window.location.replace('tk_agregar_articulo.php?articuloagregado=1');
 </script>

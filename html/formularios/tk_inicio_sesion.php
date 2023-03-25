@@ -3,19 +3,26 @@
 	<head>
 		<meta charset="UTF=8">
 		<title>Formulario Inicio Sesion</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 		<style type="text/css">
 			body{
 				background-color: black;
 				font-family: sans-serif;
 			}
 
-			table{
+			table:not(#footer){
 				background-image: url("../../imagenes/barra.png");
 				background-repeat: no-repeat;
 				border-radius: 8% / 16%;
 				padding: 3%;
 				background-size: 100% 100%;
 			}
+
+			footer{
+                background-color: black;
+                color: white;
+            }
 
 			input::-webkit-outer-spin-button,
             input::-webkit-inner-spin-button {
@@ -48,7 +55,7 @@
 
 	<body>
 		<form method="POST" name="formulario" action="control.php">
-			<p><table align="center" width="30%">
+			<p><table cellpadding='10px' align="center" width="30%">
 				<tr>
 					<td align="right">
 						Usuario (No. Celular):
@@ -66,6 +73,18 @@
 					</td>
 				</tr>
 				<tr>
+					<td colspan="2" align="center" >
+						<?php
+							if ( $_GET ){ 
+								if ($_GET['errorusuario']==1){
+						?> 
+									<Font color="red">
+										<b>Datos incorrectos</b>
+									</Font>
+						<?php }} ?>
+					</td>
+				</tr>
+				<tr>
 					<td colspan="2" align="center">
 						<br><input type="button" value="Iniciar Sesión" onclick="verificarDatos()"><br><br>
 						<input type="button" value="Registrarse" onclick="window.location.replace('tk_registrar_cuenta.php')">
@@ -74,4 +93,29 @@
 			</table></p>			
 		</form>
 	</body>
+
+	<footer>
+        <table id="footer" width="100%" align="center">
+            <tr>
+                <td align="left" width="33%">
+                    <img src="../../Imagenes/trfooter.png" width="40%">
+                </td>
+
+                <td align="center" width="33%">
+                    ©2023 Trinken Be Safe
+                </td>
+
+                <td align="right" width="33%">
+                    <a href="https://www.facebook.com/TrinkenApp/" target="_blank">
+                        <img src="../../imagenes/fb.png" width="10%"></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://play.google.com/store/apps/details?id=com.trinken.android" target="_blank">
+                        <img src="../../imagenes/ps.png" width="10%"></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/trinkenbesafe/" target="_blank">
+                            <img src="../../imagenes/ig.png" width="10%"></a>
+                </td>
+            </tr>
+        </table>
+    </footer>
 </html>

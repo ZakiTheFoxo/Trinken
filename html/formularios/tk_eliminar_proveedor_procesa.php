@@ -11,5 +11,5 @@
 ?>
 
 <script>
-    window.location.replace('tk_eliminar_proveedor.php');
+    window.location.replace('tk_eliminar_proveedor.php?borrarproveedor=1');
 </script>

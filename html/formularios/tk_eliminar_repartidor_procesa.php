@@ -11,5 +11,5 @@
 ?>
 
 <script>
-    window.location.replace('tk_eliminar_repartidor.php');
+    window.location.replace('tk_eliminar_repartidor.php?borrarrepartidor=1');
 </script>
