@@ -5,6 +5,7 @@ CREATE TABLE tk_articulos (
     categoria   VARCHAR(30) NOT NULL,
     descripcion VARCHAR(150) NOT NULL,
     existencia  INTEGER(10) NOT NULL,
+    imagen      MEDIUMBLOB NOT NULL,
     pvr_id      INTEGER(6) NOT NULL
 );
 
@@ -65,8 +66,34 @@ CREATE TABLE tk_repartidores (
 );
 
 CREATE TABLE tk_promociones (
-    
+    id               INTEGER(6) PRIMARY KEY AUTO_INCREMENT,
+    ato_id           INTEGER(6) NOT NULL,
+    imagen           MEDIUMBLOB NOT NULL,
+    precio           DECIMAL(10, 2) NOT NULL,
+    comp1_id         INTEGER(6),
+    comp2_id         INTEGER(6),
+    comp3_id         INTEGER(6),
+    comp4_id         INTEGER(6)
 );
+ALTER TABLE tk_promociones
+    ADD CONSTRAINT prn_ato_fk FOREIGN KEY ( ato_id )
+        REFERENCES tk_articulos ( id );
+
+ALTER TABLE tk_promociones
+    ADD CONSTRAINT prn_ato1_fk FOREIGN KEY ( comp1_id )
+        REFERENCES tk_articulos ( id );
+
+ALTER TABLE tk_promociones
+    ADD CONSTRAINT prn_ato2_fk FOREIGN KEY ( comp2_id )
+        REFERENCES tk_articulos ( id );
+
+ALTER TABLE tk_promociones
+    ADD CONSTRAINT prn_ato3_fk FOREIGN KEY ( comp3_id )
+        REFERENCES tk_articulos ( id );
+
+ALTER TABLE tk_promociones
+    ADD CONSTRAINT prn_ato4_fk FOREIGN KEY ( comp4_id )
+        REFERENCES tk_articulos ( id );
 
 ALTER TABLE tk_ato_pedidos
     ADD CONSTRAINT ato_pdo_ato_fk FOREIGN KEY ( ato_id )
