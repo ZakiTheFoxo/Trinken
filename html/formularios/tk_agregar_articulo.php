@@ -17,7 +17,7 @@
 			table:not(#footer){
 				background-image: url("../../imagenes/barra.png");
 				background-repeat: no-repeat;
-				border-radius: 5% / 16%;
+				border-radius: 20px 20px;
 				padding: 3%;
 				background-size: 100% 100%;
 			}
@@ -31,6 +31,24 @@
             input::-webkit-inner-spin-button {
                 -webkit-appearance: none;
                 margin: 0;
+            }
+
+			input[type=button] {
+                border-radius: 10px;
+                box-shadow: 3px 3px #444;
+				border: 0;
+			}
+
+			.center{
+                position: relative;
+                margin-top: 10px;
+                left: 47%;
+            }
+
+			.btn{
+                position: relative;
+                margin-top: 10px;
+                left: 47%;
             }
 		</style>
 
@@ -78,6 +96,13 @@
 					document.formulario.cantidad.focus()
 					return 0;
 				}
+
+				// Validar Proveedor
+                if(document.formulario.proveedor.selectedIndex == 0){
+					alert("Tiene que elegir al Proveedor")
+					document.formulario.proveedor.focus()
+					return 0;
+				};
 
 				// Enviar formulario				
 				document.formulario.submit();
@@ -140,10 +165,17 @@
 						Proveedor:
 					</td>
 					<td>
-						<input type="number" name="proveedor" style="width: 3em">
+						<select name="proveedor">
+							<option SELECTED>Elegir</option>
+							<?php 
+								$result = mysqli_query($link, "SELECT nombre_de_la_empresa AS nom FROM tk_proveedores;");
+								while($row = mysqli_fetch_array($result)){
+									echo "<option>".$row['nom']."</option>";
+								}
+							?>
+						</select>
 					</td>
 				</tr>
-				<tr>
 				<tr>
 					<td colspan="2" align="center">
 						<br><input type="button" value="Agregar Artículo" onclick="verificarDatos()">
@@ -151,13 +183,13 @@
 				</tr>
 			</table></p>
 		</form>
-
 		<?php
 			if ( $_GET ){ 
 				if ($_GET['articuloagregado']==1){
 		?> 
 					<script>alert("Artículo agregado exitosamente");</script>
 		<?php }} ?>
+		<a href="admin.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>

@@ -37,10 +37,7 @@
 						<img valign="top" halign="left" src="../imagenes/trinken.png" width="50%" height="auto"></a>
 				</td>
 				<td align="center" width="33%">
-					<div class="search-bar">
-						<input type="search" name="busqueda" size="40%">
-						<input type="submit" name="buscar" value="Buscar" size="75%">
-					</div>
+					&nbsp;
 				</td>
 				<td align="right" width="33%">
 					<?php 

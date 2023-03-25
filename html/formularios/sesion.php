@@ -25,10 +25,28 @@
                 margin-top: 10px;
 				background-image: url("../../imagenes/barra.png");
 				background-repeat: no-repeat;
-				border-radius: 8% / 16%;
+				border-radius: 20px / 20px;
 				padding: 3%;
 				background-size: 100% 100%;
 			}
+
+            input[type=button] {
+                border-radius: 10px;
+                box-shadow: 3px 3px #444;
+				border: 0;
+			}
+
+            .center{
+                position: relative;
+                margin-top: 10px;
+                left: 47%;
+            }
+
+            .btn{
+                position: relative;
+                margin-top: 10px;
+                left: 47%;
+            }
         </style>
 	</head>
 	<body>
@@ -44,6 +62,7 @@
                 </td>
             </tr>
         </table>
+        <a href="../body.php" class="btn btn-secondary">Regresar</a>
     </body>
     
     <footer>

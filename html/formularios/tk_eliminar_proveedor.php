@@ -17,7 +17,7 @@
 			table:not(#footer){
 				background-image: url("../../imagenes/barra.png");
 				background-repeat: no-repeat;
-				border-radius: 6% / 16%;
+				border-radius: 20px / 20px;
 				padding: 3%;
 				background-size: 100% 100%;
 			}
@@ -31,6 +31,29 @@
             input::-webkit-inner-spin-button {
                 -webkit-appearance: none;
                 margin: 0;
+            }
+
+			input[type=button], input[type=submit] {
+				border-radius: 10px;
+				box-shadow: 3px 3px #444;
+			}
+
+			input:active[type=button], input[type=submit] {
+				box-shadow: 0px 0px;
+			}
+
+			input[type=button]{
+				border: 0;
+			}
+
+			input[type=submit]{
+				border: 1;
+			}
+
+			.btn{
+                position: relative;
+                margin-top: 10px;
+                left: 47%;
             }
 		</style>
 
@@ -67,6 +90,7 @@
 				</tr>
 			</table></p>
 		</form>
+		<a href="admin.php" class="btn btn-secondary">Regresar</a>
 
 		<p><?php 
 			if($_POST){
@@ -82,7 +106,7 @@
 					printf('<form method="POST" name="formulario2" action="tk_eliminar_proveedor_procesa.php">
 						<input type="hidden" name="id" value="%d">', $id);
 
-					echo "<table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='2' align='center'><b>¿Estás seguro que quieres eliminar los siguientes datos?</b></td></tr>";
+					echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='4' align='center'><b>¿Estás seguro que quieres eliminar los siguientes datos?</b></td></tr>";
 
 					printf("<tr><td>ID</td><td>Nombre</td><td>Correo</td><td>Celular</td></tr>");
 
@@ -91,10 +115,32 @@
 							$row["id"], $row["nombre_de_la_empresa"], $row["correo_electronico"], $row["celular"]);
 					}
 
-					echo '<tr><td colspan="2" align="center"><input type="submit" value="Confirmar"></td>';
-					echo '<td align="center"><input type="button" value="Cancelar" onclick="window.location.replace(\'tk_eliminar_proveedor.php\')"></td></tr></table></form>';
+					echo '<tr><td colspan="4" align="center"><input type="submit" class="bg-danger text-light" value="Confirmar">&nbsp&nbsp';
+					echo '<input type="button" value="Cancelar" onclick="window.location.replace(\'tk_eliminar_proveedor.php\')"></td></tr></table></div></form>';
 				}else{
-					echo "<table align='center'><tr><td align='center'><b>No se encontró un proveedor con ese ID</b></td></tr></table>";
+					echo "<table cellpadding='10px' align='center'><tr><td align='center'><b>No se encontró un proveedor con ese ID</b></td></tr></table>";
+				}
+				mysqli_free_result($result);
+				mysqli_close($link);
+			}else{
+				$result = mysqli_query($link, "
+					SELECT *
+					FROM tk_proveedores;
+				");
+
+				if(mysqli_num_rows($result) > 0){
+					echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='4' align='center'><b>Trinken Proveedores</b></td></tr>";
+
+					printf("<tr><td>ID</td><td>Nombre</td><td>Correo</td><td>Celular</td></tr>");
+
+					while($row = mysqli_fetch_array($result)){
+						printf("<tr border><td>%d</td><td>%s</td><td>%s</td><td>%s</td>", 
+							$row["id"], $row["nombre_de_la_empresa"], $row["correo_electronico"], $row["celular"]);
+					}
+
+					echo '</table></div>';
+				}else{
+					echo "<table align='center'><tr><td align='center'><b>No hay proveedores</b></td></tr></table>";
 				}
 				mysqli_free_result($result);
 				mysqli_close($link);

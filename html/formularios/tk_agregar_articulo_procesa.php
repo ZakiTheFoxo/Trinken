@@ -9,8 +9,16 @@
     $cant = $_POST['cantidad'];
     $prov = $_POST['proveedor'];
 
+    $result = mysqli_query($link, "
+        SELECT id
+        FROM tk_proveedores
+        WHERE nombre_de_la_empresa = '$prov';
+    ");
+
+    $row = mysqli_fetch_array($result);
+
     mysqli_query($link, "INSERT INTO tk_articulos(nombre, precio, categoria, descripcion, existencia, pvr_id)
-        VALUES('$arti', '$prec', '$categ', '$desc', '$cant', '$prov');") or die(mysqli_error($link));
+        VALUES('$arti', '$prec', '$categ', '$desc', '$cant', '$row[id]');") or die(mysqli_error($link));
 
     mysqli_close($link);   
 ?>

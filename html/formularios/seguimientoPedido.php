@@ -30,7 +30,7 @@
 			table[class=pedido]{
 				background-image: url("../../imagenes/barra.png");
 				background-repeat: no-repeat;
-				border-radius: 8% / 16%;
+				border-radius: 20px / 20px;
 				padding: 3%;
 				background-size: 100% 100%;
 			}
@@ -42,8 +42,11 @@
                 <p><b>TRINKEN Be Safe</b></p>
             </font>
         </div>
+        <font color="white" style="position:relative; left:1%" size="6%">
+            <p>Gracias por comprar con nosotros! Esperamos que tengas un gran día ;)</p>
+        </font>
         <font color="white" style="position:relative; left:1%" size="5%">
-            Seguimiento del Pedido
+            Seguimiento del pedido
         </font>
         <table cellpadding="10px" align="center" class="pedido">
             <tr>

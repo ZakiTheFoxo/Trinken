@@ -17,7 +17,7 @@
 			table[class=main]{
 				background-image: url("../../imagenes/barra.png");
 				background-repeat: no-repeat;
-				border-radius: 5% / 16%;
+				border-radius: 20px / 20px;
 				padding: 3%;
 				background-size: 100% 100%;
 			}
@@ -25,6 +25,18 @@
 			footer{
                 background-color: black;
                 color: white;
+            }
+
+			input[type=button] {
+                border-radius: 10px;
+                box-shadow: 3px 3px #444;
+				border: 0;
+			}
+
+			.btn{
+                position: relative;
+                margin-top: 10px;
+                left: 47%;
             }
 		</style>
 
@@ -207,6 +219,7 @@
 				}
 			?></p>
 		</form>
+		<a href="../body.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>
