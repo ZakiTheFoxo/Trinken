@@ -2,6 +2,9 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 		<title>Body trinken</title>
         <style>
             html, body{
@@ -78,26 +81,33 @@
             </font>
         </div>
 
-        <div class="opciones">
-            <table width="80%" align="center">
-                <tr>
-                    <td align="left">
-                        <a href="bebidas.php">
-                            <img src="../Imagenes/bebidas.png" width="80%"></a>
-                    </td>
-
-                    <td align="center">
-                        <a href="botanas.php">
-                        <img src="../Imagenes/botanas.png" width="80%"></a>
-                    </td>
-
-                    <td align="right">
-                        <a href="extras.php">
-                        <img src="../Imagenes/extras.png" width="80%"></a>
-                    </td>
-                </tr>
-            </table>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item">
+                <img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento1.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
+              </div>
+              <div class="carousel-item">
+                <img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento2.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
+              </div>
+              <div class="carousel-item active">
+                <img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento3.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
 
         <br>
 
@@ -124,7 +134,7 @@
                     }
                 } 
                 else {
-                    echo "No hay productos asdladjladj";
+                    echo "No hay productos";
                 }
                 mysqli_close($link);
                 ?>
@@ -147,23 +157,13 @@
                 Comprado Recientemente
             </font>
             <div class="scroll-container">
-                <div class="articulo"></div>
-                <div class="articulo"></div>
-                <div class="articulo"></div>
-                <div class="articulo"></div>
-                <div class="articulo"></div>
-                <div class="articulo"></div>
-                <div class="articulo"></div>
-                <div class="articulo"></div>
-                <div class="articulo"></div>
-                <div class="articulo"></div>
             </div>
         </div>
 
         <div class="container">
             <div class="fixed-btn">
                 <div class="carrito">
-                    <a href="formularios/tk_metodo_pago.php"><img src="../imagenes/carrito.png" width="100%" height="100%" title="Carrito"></a>
+                    <a href="formularios/tk_carrito.php"><img src="../imagenes/carrito.png" width="100%" height="100%" title="Carrito"></a>
                 </div>
             </div>
         </div>
