@@ -124,7 +124,8 @@
 					$result = mysqli_query($link, "
 						SELECT a.id, a.nombre, a.precio, a.categoria, a.descripcion, a.existencia, p.nombre_de_la_empresa AS Proveedor
 						FROM tk_articulos a, tk_proveedores p 
-						WHERE a.pvr_id = p.id;
+						WHERE a.pvr_id = p.id
+						ORDER BY a.id;
 					");
 	
 					if(mysqli_num_rows($result) > 0){

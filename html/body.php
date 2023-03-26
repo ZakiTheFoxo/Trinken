@@ -137,7 +137,8 @@
 
         <div class="promociones">
             <font color="white" style="position:relative; left:1%" size="5%">
-                Promociones
+                Todos los Artículos
+                <!-- Promociones -->
             </font>
             <div class="scroll-container">
             <?php
@@ -166,14 +167,14 @@
 
         <br>
 
-        <div class="comprado-reciente">
+        <!-- <div class="comprado-reciente">
             <font color="white" style="position:relative; left:1%" size="5%">
                 Comprado Recientemente
             </font>
             <div class="scroll-container">
                 <div class="articulo"></div>
             </div>
-        </div>
+        </div> -->
 
         <div class="bebidas" id="bebidas">
             <font color="white" style="position:relative; left:1%" size="7%">
@@ -252,6 +253,8 @@
             </div>  
         </div>
 
+        <br>
+
         <div class="botanas" id="botanas">
             <font color="white" style="position:relative; left:1%" size="7%">
                 Botanas
@@ -280,6 +283,8 @@
             ?>
             </div>
         </div>
+
+        <br>
 
         <div class="extras" id="extras">
             <font color="white" style="position:relative; left:1%" size="7%">
