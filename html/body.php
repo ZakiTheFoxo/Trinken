@@ -117,10 +117,10 @@
                 <a href="#bebidas"><img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento1.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
               </div>
               <div class="carousel-item">
-                <a href="#extras"><img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento2.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
+                <a href="#cigarros"><img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento2.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
               </div>
               <div class="carousel-item active">
-                <a href="#botanas"><img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento3.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
+                <a href="#extras"><img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento3.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -147,14 +147,19 @@
 
                 $sql = "SELECT * FROM tk_articulos ORDER BY nombre";
                 $result = mysqli_query($link,$sql);
+                //Agregar esta variable en el carrito no aquui xd$var = $result->num_rows;
 
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
+                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito" . "</button>";
+                    echo "<form action='agregar_al_carrito.php' method='post'>";
+                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
+                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "</form>";
                     echo "</div>";
                     }
                 } 
@@ -164,7 +169,6 @@
                 ?>
             </div>
         </div>
-
         <br>
 
         <!-- <div class="comprado-reciente">
@@ -191,15 +195,20 @@
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
+                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<form action='agregar_al_carrito.php' method='post'>";
+                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
+                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "</form>";
                     echo "</div>";
+                    }
                 }
-            } 
+
             else {
-                echo "No hay productos asdladjladj";
+                echo "No hay productos en la base de datos";
             }
             ?>
             </div>
@@ -215,15 +224,19 @@
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
+                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<form action='agregar_al_carrito.php' method='post'>";
+                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
+                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "</form>";
                     echo "</div>";
                     }
                 } 
                 else {
-                    echo "No hay productos asdladjladj";
+                    echo "No hay productos en la base de datos";
                 }
             ?>
             </div>
@@ -235,19 +248,22 @@
             <?php
                 $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Mezcladores'";
                 $result = mysqli_query($link,$sql);
-
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
+                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<form action='agregar_al_carrito.php' method='post'>";
+                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
+                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "</form>";
                     echo "</div>";
                     }
                 } 
                 else {
-                    echo "No hay productos asdladjladj";
+                    echo "No hay productos en la base de datos";
                 }
             ?>
             </div>  
@@ -255,30 +271,31 @@
 
         <br>
 
-        <div class="botanas" id="botanas">
+        <div class="cigarros" id="cigarros">
             <font color="white" style="position:relative; left:1%" size="7%">
-                Botanas
+                Cigarros
             </font><br>
-            <font color="white" style="position:relative; left:1%" size="5%">
-                Variados
-            </font>
-            <div class="scroll-container">
+            <div class="scroll-container">            
             <?php
-                $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Extras'";
+                $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Cigarros'";
                 $result = mysqli_query($link,$sql);
-
+    
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
+                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<form action='agregar_al_carrito.php' method='post'>";
+                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
+                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "</form>";
                     echo "</div>";
                     }
                 } 
                 else {
-                    echo "No hay productos asdladjladj";
+                    echo "No hay productos en la base datos";
                 }
             ?>
             </div>
@@ -290,26 +307,26 @@
             <font color="white" style="position:relative; left:1%" size="7%">
                 Extras
             </font><br>
-            <font color="white" style="position:relative; left:1%" size="5%">
-                Cigarros
-            </font>
             <div class="scroll-container">
             <?php
-                $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Cigarros'";
+                $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Extras'";
                 $result = mysqli_query($link,$sql);
-
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
+                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<button class='add' onclick='addToCart(" . $row["id"] . ")'>Añadir al carrito</button>";
+                    echo "<form action='agregar_al_carrito.php' method='post'>";
+                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
+                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "</form>";
                     echo "</div>";
                     }
                 } 
                 else {
-                    echo "No hay productos asdladjladj";
+                    echo "No hay productos en la base de datos";
                 }
             ?>
             </div>

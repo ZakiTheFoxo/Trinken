@@ -13,14 +13,18 @@ INSERT INTO tk_repartidores(nombre, apellidos, correo_electronico, celular, suel
 VALUES('Tobio', 'Kageyama', 'miyagiKarasuno@gmail.edu', '6582119883', 200, 10);
 
 -- Insertar en tk_usuarios
-INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular)
-VALUES('Minato', 'Namikaze', '2000-01-01', 'cuartohokage@hotmail.com', '2745632477');
-INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular)
-VALUES('Kaguya', 'Shinomiya', '2001-05-24', 'teamomiyuki@yahoo.com', '3311774653');
-INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular)
-VALUES('Tanjiro', 'Kamado', '1994-07-04', 'rengokuhashira@gmail.com', '7563669412');
-INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular)
-VALUES('Nino', 'Nakano', '1989-11-10', 'futarouesugi@hotmail.com.jp', '5522334411');
+INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena)
+VALUES('Minato', 'Namikaze', '2000-01-01', 'cuartohokage@hotmail.com', '2745632477', 'narutouzumaki');
+INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena)
+VALUES('Kaguya', 'Shinomiya', '2001-05-24', 'teamomiyuki@yahoo.com', '3311774653','yukiyuki2');
+INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena)
+VALUES('Tanjiro', 'Kamado', '1994-07-04', 'rengokuhashira@gmail.com', '7563669412','Tanjiro#1234');
+INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena)
+VALUES('Nino', 'Nakano', '1989-11-10', 'futarouesugi@hotmail.com.jp', '5522334411','nn#1989');
+INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena, administrador)
+VALUES('Mauricio', 'Solano', '2001-11-01', 'mauricio.solano@upaep.edu.mx', '5212215740459','deathlinex#2001','1');
+INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena, administrador)
+VALUES('Omar Arturo', 'Diaz Alarcón Aguilar', '2002-09-12', 'omararturo.diazalarcon@upaep.edu.mx', '5212211191720','ZakiTheFoxxo#2002','1');
 
 
 -- Insertar en tk_direccion_clientes
@@ -34,8 +38,8 @@ INSERT INTO tk_direccion_clientes(direccion_linea_1, estado, ciudad, codigo_post
 VALUES('Lobo Blanco 4 Cuarta Seccion', 'CDMX', 'Konoha', 17263, '4');
 
 -- Insertar en tk_articulos
-INSERT INTO tk_articulos(nombre, precio, categoria, descripcion, existencia, imagen, pvr_id)
-VALUES('Penafiel', 35.00, 'Mezcladores', 'Agua mineral Penafiel de 2L embotellada', 200, LOAD_FILE('C:\\Users\btpms\Desktop\Trinken_Web\imagenes\productos\penafiel2l.png'), '1');
+INSERT INTO tk_articulos(nombre, precio, categoria, descripcion, existencia, pvr_id)
+VALUES('Penafiel', 35.00, 'Mezcladores', 'Agua mineral Penafiel de 2L embotellada', 200, '1');
 INSERT INTO tk_articulos(nombre, precio, categoria, descripcion, existencia, pvr_id)
 VALUES('Coca Cola', 42.00, 'Mezcladores', 'Refresco Cola Cola de 2L embotellada', 200, '1');
 INSERT INTO tk_articulos(nombre, precio, categoria, descripcion, existencia, pvr_id)
@@ -108,27 +112,27 @@ INSERT INTO tk_pedidos(fecha, hora, estado, cte_id, rpr_id)
 VALUES('2022-04-22', '20:30:45', 'EN PROCESO', '4', '1');
 
 -- Insertar en tk_ato_pedidos
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('1','9', 2, 2);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('1','30', 1, 1);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('2','15', 1, 0);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('3','13', 5, 5);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('3','1', 2, 2);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('3','16', 3, 3);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('4','2', 5, 5);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('4','12', 2, 2);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('5','23', 1, 1);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('5','17', 1, 1);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('5','14', 1, 1);
-INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida, cantidad_enviada)
+INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
 VALUES('5','30', 1, 1);

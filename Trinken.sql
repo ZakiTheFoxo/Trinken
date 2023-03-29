@@ -5,15 +5,13 @@ CREATE TABLE tk_articulos (
     categoria   VARCHAR(30) NOT NULL,
     descripcion VARCHAR(150) NOT NULL,
     existencia  INTEGER(10) NOT NULL,
-    imagen      MEDIUMBLOB NOT NULL,
     pvr_id      INTEGER(6) NOT NULL
 );
 
 CREATE TABLE tk_ato_pedidos (
     pdo_id           INTEGER(6) NOT NULL,
     ato_id           INTEGER(6) NOT NULL,
-    cantidad_pedida  INTEGER(5) NOT NULL,
-    cantidad_enviada INTEGER(5) NOT NULL
+    cantidad_pedida  INTEGER(5) NOT NULL
 );
 
 ALTER TABLE tk_ato_pedidos ADD CONSTRAINT ato_pdo_pk PRIMARY KEY ( pdo_id, ato_id );
@@ -31,8 +29,8 @@ CREATE TABLE tk_usuarios (
 );
 
 CREATE TABLE tk_direccion_clientes (
-    direccion_linea_1 VARCHAR(30) NOT NULL,
-    direccion_linea_2 VARCHAR(30),
+    direccion_linea_1 VARCHAR(50) NOT NULL,
+    direccion_linea_2 VARCHAR(50),
     estado            VARCHAR(20) NOT NULL,
     ciudad            VARCHAR(20) NOT NULL,
     codigo_postal     INTEGER(5) NOT NULL,
@@ -68,13 +66,28 @@ CREATE TABLE tk_repartidores (
 CREATE TABLE tk_promociones (
     id               INTEGER(6) PRIMARY KEY AUTO_INCREMENT,
     ato_id           INTEGER(6) NOT NULL,
-    imagen           MEDIUMBLOB NOT NULL,
     precio           DECIMAL(10, 2) NOT NULL,
     comp1_id         INTEGER(6),
     comp2_id         INTEGER(6),
     comp3_id         INTEGER(6),
     comp4_id         INTEGER(6)
 );
+
+CREATE TABLE tk_carrito(
+    ato_id           INTEGER(6) NOT NULL,
+    cte_id           INTEGER(6) NOT NULL,
+    cantidad_pedida  INTEGER(5) NOT NULL
+);
+
+
+ALTER TABLE tk_carrito
+    ADD CONSTRAINT cat_ato_fk FOREIGN KEY ( ato_id )
+        REFERENCES tk_articulos ( id );
+
+ALTER TABLE tk_carrito
+    ADD CONSTRAINT cat_cte_fk FOREIGN KEY ( cte_id )
+        REFERENCES tk_usuarios ( id );
+
 ALTER TABLE tk_promociones
     ADD CONSTRAINT prn_ato_fk FOREIGN KEY ( ato_id )
         REFERENCES tk_articulos ( id );
