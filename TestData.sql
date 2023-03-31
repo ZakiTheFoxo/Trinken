@@ -113,26 +113,26 @@ VALUES('2022-04-22', '20:30:45', 'EN PROCESO', '4', '1');
 
 -- Insertar en tk_ato_pedidos
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('1','9', 2, 2);
+VALUES('1','9', 2);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('1','30', 1, 1);
+VALUES('1','30', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('2','15', 1, 0);
+VALUES('2','15', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('3','13', 5, 5);
+VALUES('3','13', 5);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('3','1', 2, 2);
+VALUES('3','1', 2);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('3','16', 3, 3);
+VALUES('3','16', 3);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('4','2', 5, 5);
+VALUES('4','2', 5);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('4','12', 2, 2);
+VALUES('4','12', 2);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('5','23', 1, 1);
+VALUES('5','23', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('5','17', 1, 1);
+VALUES('5','17', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('5','14', 1, 1);
+VALUES('5','14', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('5','30', 1, 1);
+VALUES('5','30', 1);

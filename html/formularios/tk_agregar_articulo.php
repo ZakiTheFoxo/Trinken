@@ -111,7 +111,7 @@
 	</head>
 
 	<body>
-		<form method="POST" name="formulario" action="tk_agregar_articulo_procesa.php">
+		<form method="POST" name="formulario" action="tk_agregar_articulo_procesa.php" enctype="multipart/form-data">
 			<p><table cellpadding="10px" align="center" width="50%">
 				<tr>
 					<td align="right">
@@ -174,6 +174,14 @@
 								}
 							?>
 						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Imagen:
+					</td>
+					<td>
+						<input type="file" name="imagen" required>
 					</td>
 				</tr>
 				<tr>
