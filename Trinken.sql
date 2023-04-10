@@ -5,6 +5,7 @@ CREATE TABLE tk_articulos (
     categoria   VARCHAR(30) NOT NULL,
     descripcion VARCHAR(150) NOT NULL,
     existencia  INTEGER(10) NOT NULL,
+    imagen      VARCHAR(255),
     pvr_id      INTEGER(6) NOT NULL
 );
 
