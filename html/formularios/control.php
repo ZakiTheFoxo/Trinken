@@ -4,6 +4,7 @@
 
     $user = $_POST['usuario'];
     $pass = $_POST['contrasena'];
+    $pass = md5($pass);
 
     $result = mysqli_query($link, "SELECT count(*) FROM tk_usuarios WHERE celular = '$user' AND contrasena = '$pass'");
 
