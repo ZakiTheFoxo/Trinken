@@ -94,6 +94,10 @@
                 top: 50%;
                 transform: translateY(-50%);
             }
+
+			.footer{
+				postion-absolute: 0;
+			}
         </style>
 	</head>
 	<body>
@@ -114,13 +118,13 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item">
-                <a href="#bebidas"><img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento1.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
+                <a href="#bebidas"><img class="bd-placeholder-img" width="100%" height="100%" src="imagenes/Carrusel/Evento1.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
               </div>
               <div class="carousel-item">
-                <a href="#cigarros"><img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento2.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
+                <a href="#cigarros"><img class="bd-placeholder-img" width="100%" height="100%" src="imagenes/Carrusel/Evento2.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
               </div>
               <div class="carousel-item active">
-                <a href="#extras"><img class="bd-placeholder-img" width="100%" height="100%" src="../imagenes/Carrusel/Evento3.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
+                <a href="#extras"><img class="bd-placeholder-img" width="100%" height="100%" src="imagenes/Carrusel/Evento3.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"></svg></a>
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -142,31 +146,30 @@
             </font>
             <div class="scroll-container">
             <?php
-                include("formularios/conex.php");
+                include("html/formularios/conex.php");
                 $link = Conectarse();
 
                 $sql = "SELECT * FROM tk_articulos ORDER BY nombre";
                 $result = mysqli_query($link,$sql);
-                //Agregar esta variable en el carrito no aquui xd$var = $result->num_rows;
 
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
-                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
+                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='agregar_al_carrito.php' method='post'>";
-                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
-                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
                     echo "</form>";
                     echo "</div>";
                     }
                 } 
                 else {
-                    echo "No hay productos asdladjladj";
+                    echo "No hay productos en la base de datos";
                 }
-                ?>
+            ?>
             </div>
         </div>
         <br>
@@ -188,28 +191,27 @@
                 Licores
             </font>
             <div class="scroll-container">
-                <?php                
+            <?php
                 $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Licores'";
                 $result = mysqli_query($link,$sql);
-                
+
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
-                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
+                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='agregar_al_carrito.php' method='post'>";
-                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
-                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
                     echo "</form>";
                     echo "</div>";
                     }
+                } 
+                else {
+                    echo "No hay productos en la base de datos";
                 }
-
-            else {
-                echo "No hay productos en la base de datos";
-            }
             ?>
             </div>
 
@@ -224,13 +226,13 @@
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
-                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
+                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='agregar_al_carrito.php' method='post'>";
-                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
-                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
                     echo "</form>";
                     echo "</div>";
                     }
@@ -245,19 +247,20 @@
                 Mezcladores
             </font>
             <div class="scroll-container">
-            <?php
+                       <?php
                 $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Mezcladores'";
                 $result = mysqli_query($link,$sql);
+
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
-                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
+                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='agregar_al_carrito.php' method='post'>";
-                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
-                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
                     echo "</form>";
                     echo "</div>";
                     }
@@ -279,23 +282,23 @@
             <?php
                 $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Cigarros'";
                 $result = mysqli_query($link,$sql);
-    
+
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
-                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
+                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='agregar_al_carrito.php' method='post'>";
-                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
-                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
                     echo "</form>";
                     echo "</div>";
                     }
                 } 
                 else {
-                    echo "No hay productos en la base datos";
+                    echo "No hay productos en la base de datos";
                 }
             ?>
             </div>
@@ -311,16 +314,17 @@
             <?php
                 $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Extras'";
                 $result = mysqli_query($link,$sql);
+
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
-                    echo "<img src='../imagenes/Productos/".$row["id"].".png' height=45%>";
+                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
                     echo "<h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='agregar_al_carrito.php' method='post'>";
-                    echo "<input type='hidden' id='id_producto' value='".$row['id']."'>";
-                    echo "<button class='add' onclick'agregar()' name='producto'>Agregar al carrito";
+                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
                     echo "</form>";
                     echo "</div>";
                     }
@@ -335,7 +339,7 @@
         <div class="container">
             <div class="fixed-btn">
                 <div class="carrito">
-                    <a href="formularios/tk_metodo_pago.php"><img src="../imagenes/carrito.png" width="100%" height="100%" title="Carrito">
+                    <a href="html/formularios/carrito.php"><img src="imagenes/carrito.png" width="100%" height="100%" title="Carrito">
                     </a>
                 </div>
             </div>
@@ -346,7 +350,7 @@
         <table width="100%" align="center">
             <tr>
                 <td align="left" width="33%">
-                    <img src="../Imagenes/trfooter.png" width="40%">
+                    <img src="Imagenes/trfooter.png" width="40%">
                 </td>
 
                 <td align="center" width="33%">
@@ -355,13 +359,13 @@
 
                 <td align="right" width="33%">
                     <a href="https://www.facebook.com/TrinkenApp/" target="_blank">
-                        <img src="../imagenes/fb.png" width="10%"></a>
+                        <img src="imagenes/fb.png" width="10%"></a>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="https://play.google.com/store/apps/details?id=com.trinken.android" target="_blank">
-                        <img src="../imagenes/ps.png" width="10%"></a>
+                        <img src="imagenes/ps.png" width="10%"></a>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="https://www.instagram.com/trinkenbesafe/" target="_blank">
-                        <img src="../imagenes/ig.png" width="10%"></a>
+                        <img src="imagenes/ig.png" width="10%"></a>
                 </td>
             </tr>
         </table>

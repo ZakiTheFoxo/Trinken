@@ -15,7 +15,7 @@
 			}
 
 			table:not(#footer){
-				background-image: url("../../imagenes/barra.png");
+				background: linear-gradient(rgba(255,192,44,1) 0%, rgba(255,27,93,1) 100%);
 				background-repeat: no-repeat;
 				border-radius: 20px / 20px;
 				padding: 3%;
@@ -125,7 +125,7 @@
 						SELECT a.id, a.nombre, a.precio, a.categoria, a.descripcion, a.existencia, p.nombre_de_la_empresa AS Proveedor
 						FROM tk_articulos a, tk_proveedores p 
 						WHERE a.pvr_id = p.id
-						ORDER BY a.id;
+						ORDER BY p.id, a.nombre;
 					");
 	
 					if(mysqli_num_rows($result) > 0){

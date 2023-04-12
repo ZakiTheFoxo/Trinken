@@ -18,13 +18,13 @@ VALUES('Minato', 'Namikaze', '2000-01-01', 'cuartohokage@hotmail.com', '27456324
 INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena)
 VALUES('Kaguya', 'Shinomiya', '2001-05-24', 'teamomiyuki@yahoo.com', '3311774653','yukiyuki2');
 INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena)
-VALUES('Tanjiro', 'Kamado', '1994-07-04', 'rengokuhashira@gmail.com', '7563669412','Tanjiro#1234');
+VALUES('Tanjiro', 'Kamado', '1994-07-04', 'rengokuhashira@gmail.com', '7563669412','Tanjiro1234');
 INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena)
-VALUES('Nino', 'Nakano', '1989-11-10', 'futarouesugi@hotmail.com.jp', '5522334411','nn#1989');
+VALUES('Nino', 'Nakano', '1989-11-10', 'futarouesugi@hotmail.com.jp', '5522334411','nn1989');
 INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena, administrador)
-VALUES('Mauricio', 'Solano', '2001-11-01', 'mauricio.solano@upaep.edu.mx', '5212215740459','deathlinex#2001','1');
+VALUES('Mauricio', 'Solano', '2001-11-01', 'mauricio.solano@upaep.edu.mx', '5212215740459','deathlinex2001','1');
 INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena, administrador)
-VALUES('Omar Arturo', 'Diaz Alarcón Aguilar', '2002-09-12', 'omararturo.diazalarcon@upaep.edu.mx', '5212211191720','ZakiTheFoxxo#2002','1');
+VALUES('Omar Arturo', 'Diaz Alarcón Aguilar', '2002-09-12', 'omararturo.diazalarcon@upaep.edu.mx', '5212211191720','ZakiTheFoxxo2002','1');
 
 
 -- Insertar en tk_direccion_clientes
@@ -113,26 +113,26 @@ VALUES('2022-04-22', '20:30:45', 'EN PROCESO', '4', '1');
 
 -- Insertar en tk_ato_pedidos
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('1','9', 2, 2);
+VALUES('1','9', 2);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('1','30', 1, 1);
+VALUES('1','30', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('2','15', 1, 0);
+VALUES('2','15', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('3','13', 5, 5);
+VALUES('3','13', 5);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('3','1', 2, 2);
+VALUES('3','1', 2);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('3','16', 3, 3);
+VALUES('3','16', 3);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('4','2', 5, 5);
+VALUES('4','2', 5);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('4','12', 2, 2);
+VALUES('4','12', 2);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('5','23', 1, 1);
+VALUES('5','23', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('5','17', 1, 1);
+VALUES('5','17', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('5','14', 1, 1);
+VALUES('5','14', 1);
 INSERT INTO tk_ato_pedidos(pdo_id, ato_id, cantidad_pedida)
-VALUES('5','30', 1, 1);
+VALUES('5','30', 1);

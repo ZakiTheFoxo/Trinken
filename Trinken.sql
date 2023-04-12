@@ -5,6 +5,7 @@ CREATE TABLE tk_articulos (
     categoria   VARCHAR(30) NOT NULL,
     descripcion VARCHAR(150) NOT NULL,
     existencia  INTEGER(10) NOT NULL,
+    imagen      VARCHAR(255),
     pvr_id      INTEGER(6) NOT NULL
 );
 
@@ -25,7 +26,7 @@ CREATE TABLE tk_usuarios (
     correo_electronico VARCHAR(60) NOT NULL,
     administrador      BOOLEAN DEFAULT FALSE,
     celular            VARCHAR(14) NOT NULL,
-    contrasena         VARCHAR(30) NOT NULL
+    contrasena         VARCHAR(35) NOT NULL
 );
 
 CREATE TABLE tk_direccion_clientes (

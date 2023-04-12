@@ -17,7 +17,7 @@
 
             // Admin
             if($row['administrador'] != '1'){
-                header("Location: ../body.php");
+                header("Location: ../../body.php");
 
                 exit();
             }

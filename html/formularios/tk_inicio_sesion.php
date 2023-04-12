@@ -12,16 +12,19 @@
 			}
 
 			table:not(#footer){
-				background-image: url("../../imagenes/barra.png");
+				background: linear-gradient(rgba(255,192,44,1) 0%, rgba(255,27,93,1) 100%);
 				background-repeat: no-repeat;
 				border-radius: 20px / 20px;
 				padding: 3%;
 				background-size: 100% 100%;
 			}
 
-			footer{
+            footer{
                 background-color: black;
                 color: white;
+                position:fixed;
+                left:0px;
+                bottom:0px;
             }
 
 			input::-webkit-outer-spin-button,
@@ -104,14 +107,14 @@
 				</tr>
 			</table></p>			
 		</form>
-		<a href="../body.php" class="btn btn-secondary">Regresar</a>
+		<a href="../../body.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>
         <table id="footer" width="100%" align="center">
             <tr>
                 <td align="left" width="33%">
-                    <img src="../../Imagenes/trfooter.png" width="40%">
+                    <img src="../../imagenes/trfooter.png" width="40%">
                 </td>
 
                 <td align="center" width="33%">

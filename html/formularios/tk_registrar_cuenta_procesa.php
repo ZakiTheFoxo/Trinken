@@ -4,6 +4,7 @@
 	$nom = $_POST['nombre'];
 	$ap = $_POST['apellido'];
 	$pass = $_POST['clave'];
+	$pass = md5($pass);
 	$bd = $_POST['fecha'];
 	$cel = $_POST['celnum'];
 	$email = $_POST['correo'];

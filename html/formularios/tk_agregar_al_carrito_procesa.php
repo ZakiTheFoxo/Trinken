@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF=8">
-		<title>Carrito</title>
+		<title>Carrito procesa</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -65,6 +65,17 @@
 	</head>
 
 	<body>
+       <script>
+        $(document).ready(function(){
+            $(document).on("click","#btn-agregar",function () {
+            var variable = $("#num-exist").val();
+            if (confirm('¿Desea agregar '+variable+' al carrito?')) {
+            
+            }
+            alert("Producto Agregado al Carrito");
+            });
+        });
+        </script>
 			<p><table cellpadding="10px" align="center" width="50%">
                 <?php
                     include("conex.php");
@@ -80,43 +91,41 @@
                             echo "</td>";
                             
                             echo "<td>";?>
-                            <form method="post" name="formulario" action="tk_agregar_al_carrito_procesa.php">
-                                <p><table id="info" cellpadding="25px" align="center" width="80%">
-                                    <?php
+                            <p><table id="info" cellpadding="25px" align="center" width="80%">
+                                <?php
                                 echo "<tr>";					
-                                echo "<td>";					
-                                echo "<h2>" . $row["nombre"] . "</h2>";
-                                echo "</td>";
-                                echo "<td>";					
-                                echo "<p>Precio: $" . $row["precio"] . "</p>";
-                                echo "</td>";
-                                echo "<td>";					
-                                echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                                echo "</td>";
+                                    echo "<td>";					
+                                        echo "<h2>" . $row["nombre"] . "</h2>";
+                                    echo "</td>";
+                                    echo "<td>";					
+                                        echo "<p>Precio: $" . $row["precio"] . "</p>";
+                                    echo "</td>";
+                                    echo "<td>";					
+                                        echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
+                                    echo "</td>";
                                 echo "</tr>";
                                 echo "<tr>";
                                 if ($row["existencia"]>=1){
                                     echo "<td>";
-                                    echo "<a>Cantidad deseada</a>";
+                                        echo "<a>Cantidad deseada</a>";
                                     echo"</td>";
                                     echo "<td>";
-                                    echo "<input id='num-exist' type='number' min='1' max='" . $row["existencia"] . "' step='1'>";
+                                        echo "<input id='num-exist' type='number' min='1' max='" . $row["existencia"] . "' step='1'>";
                                     echo"</td>";?>
                                     <td align='left'>
                                         <br><input type="button" id="btn-agregar" class='btn btn-primary agregar' onclick="verificarDatos()" value="Agergar al Carrito">
                                     </td>;
-                                    <?php }
+                                     <?php }
                                 else {
                                     echo "<td colspan='3'>";
-                                    echo "No hay existencias de este artículo";
+                                        echo "No hay existencias de este artículo";
                                     echo "</td>";
                                 }
                                 echo "</tr>";
-                                echo "</td>";
-                                echo "</tr>";
-                                ?>
+                            echo "</td>";
+                        echo "</tr>";
+                ?>
 			</table></p>
-        </form>
 		<?php
 			if ( $_GET ){ 
 				if ($_GET['articuloagregado']==1){
