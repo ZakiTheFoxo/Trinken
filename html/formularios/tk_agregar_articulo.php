@@ -180,6 +180,14 @@
 					</td>
 				</tr>
 				<tr>
+					<td align="right">
+						Imagen:
+					</td>
+					<td>
+						<input type="file" name="imagen" required>
+					</td>
+				</tr>
+				<tr>
 					<td colspan="2" align="center">
 						<br><input type="button" value="Agregar Artículo" onclick="verificarDatos()">
 					</td>
