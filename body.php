@@ -6,99 +6,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Body trinken</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-        <style>
-            html, body{
-                max-width: 100%;
-                overflow-x: hidden;
-                background-color: black;
-                font-family: sans-serif;
-            }
-
-            footer{
-                background-color: black;
-                color: white;
-            }
-
-            .scroll-container {
-                overflow: auto;
-                white-space: nowrap;
-                margin: 1%;
-            }
-
-            .articulo {
-                display: inline-block;
-                height: 400px;
-                width: 200px;
-                padding: 10px  10px;
-                margin: 5px;
-                background: linear-gradient(rgba(255,192,44,1) 0%, rgba(255,27,93,1) 100%);
-                border-radius: 16% / 8%;
-            }
-
-            .add {
-                border-radius: 10px;
-                border: 0;
-                background: linear-gradient(to right, #B7D373, #3FA848);
-                color: #fff;
-                box-shadow: 3px 3px #666;
-            }
-
-            .add:active {
-                box-shadow: 0px 0px;
-            }
-
-            h2 {
-                font-size: 20px;
-                font-weight: bold;
-                max-width: 200px;
-                overflow: hidden;
-            }
-
-            .desc {
-                overflow: hidden;
-            }
-
-            .informacion {
-                position: absolute;
-                margin: auto;
-                width: 16%;
-                padding-top: 15%;
-                text-align: center;
-            }
-
-            .fixed-btn{
-                position: fixed;
-                bottom: 10%;
-                right: 3%;
-                background: #bf2a5e;
-                width: 5%;
-                height: 9.5%;
-                text-align: center;
-                line-height: normal;
-                border-radius: 100%;
-                box-shadow: 4px 4px 4px #57182e;
-                cursor: pointer;
-            }
-
-            .fixed-btn:active{
-                box-shadow: 0  0;
-            }
-
-            .carrito{
-                margin: 0;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-
-			.footer{
-				postion-absolute: 0;
-			}
-        </style>
+		<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
 	</head>
 	<body>
         <script>

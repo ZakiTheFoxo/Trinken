@@ -37,12 +37,6 @@
                 bottom:0px;
             }
 
-			input::-webkit-outer-spin-button,
-            input::-webkit-inner-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-            }
-
 			input[type=button] {
                 border-radius: 10px;
                 box-shadow: 3px 3px #444;
@@ -60,8 +54,13 @@
                 margin-top: 10px;
                 left: 47%;
             }
-		</style>
 
+            #btn-agregar{
+                margin-top: 0%;
+                left: 0%;
+                position: relative;
+            }
+		</style>
 	</head>
 
 	<body>
@@ -97,14 +96,14 @@
                                 echo "<tr>";
                                 if ($row["existencia"]>=1){
                                     echo "<td>";
-                                    echo "<a>Cantidad deseada</a>";
+                                    echo "Cantidad deseada";
                                     echo"</td>";
                                     echo "<td>";
-                                    echo "<input id='num-exist' type='number' min='1' max='" . $row["existencia"] . "' step='1'>";
-                                    echo"</td>";?>
+                                    echo "<input name='existencia' id='num-exist' type='number' min='1' max='" . $row["existencia"] . "' step='1' required>";
+                                    echo"</td>
                                     <td align='left'>
-                                        <br><input type="button" id="btn-agregar" class='btn btn-primary agregar' onclick="verificarDatos()" value="Agergar al Carrito">
-                                    </td>;
+                                        <input width='100%' type='submit' id='btn-agregar' class='btn btn-primary agregar' value='Agregar al Carrito'>
+                                    </td>";?>
                                     <?php }
                                 else {
                                     echo "<td colspan='3'>";
@@ -116,13 +115,9 @@
                                 echo "</tr>";
                                 ?>
 			</table></p>
+            <input name="ato" type="hidden" value=<?=$ato_id?>>
         </form>
-		<?php
-			if ( $_GET ){ 
-				if ($_GET['articuloagregado']==1){
-		?> 
-					<script>alert("Artículo agregado exitosamente");</script>
-		<?php }} ?>
+
 		<a href="../../body.php" class="btn btn-secondary">Regresar</a>
 	</body>
 

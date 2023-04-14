@@ -1,0 +1,110 @@
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: black;
+    font-family: sans-serif;
+}
+
+footer{
+    background-color: black;
+    color: white;
+}
+
+.scroll-container {
+    overflow: auto;
+    white-space: nowrap;
+    margin: 1%;
+}
+
+.articulo {
+    display: inline-block;
+    height: 400px;
+    width: 200px;
+    padding: 10px  10px;
+    margin: 5px;
+    background: linear-gradient(rgba(255,192,44,1) 0%, rgba(255,27,93,1) 100%);
+    border-radius: 16% / 8%;
+}
+
+.add {
+    border-radius: 10px;
+    border: 0;
+    background: linear-gradient(to right, #B7D373, #3FA848);
+    color: #fff;
+    box-shadow: 3px 3px #666;
+}
+
+.add:active {
+    box-shadow: 0px 0px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.desc {
+    overflow: hidden;
+}
+
+.informacion {
+    position: absolute;
+    margin: auto;
+    width: 16%;
+    padding-top: 15%;
+    text-align: center;
+}
+
+.fixed-btn{
+    position: fixed;
+    bottom: 10%;
+    right: 3%;
+    background: #bf2a5e;
+    width: 5%;
+    height: 9.5%;
+    text-align: center;
+    line-height: normal;
+    border-radius: 100%;
+    box-shadow: 4px 4px 4px #57182e;
+    cursor: pointer;
+}
+
+.fixed-btn:active{
+    box-shadow: 0  0;
+}
+
+.carrito{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer{
+    position: absolute;
+}
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: linear-gradient(0deg,  rgba(7, 0, 211, 1) 0%, rgb(45, 163, 226) 100%);
+}
+
+/* Works on Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track:vertical {
+    background:  linear-gradient(0deg,  rgba(7, 0, 211, 1) 0%, rgb(45, 163, 226) 100%);
+}
+::-webkit-scrollbar-track:horizontal {
+    background:  linear-gradient(to left,  rgba(7, 0, 211, 1) 0%, rgb(45, 163, 226) 100%);
+}
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    box-shadow: 0px 0px 0px 100000vh black;
+    border-radius: 20px;
+}
