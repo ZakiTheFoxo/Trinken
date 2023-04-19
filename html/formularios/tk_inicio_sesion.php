@@ -3,8 +3,11 @@
 	<head>
 		<meta charset="UTF=8">
 		<title>Formulario Inicio Sesion</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 		<style type="text/css">
 			body{
 				background-color: black;
@@ -44,9 +47,26 @@
                 margin-top: 10px;
                 left: 47%;
             }
+
+			i{
+				margin-left: -30px; 
+				cursor: pointer;
+			}
 		</style>
 
 		<script type="text/javascript">
+		
+		const togglePassword = document.querySelector('#togglePassword');
+		const password = document.querySelector('#id_password');
+
+		togglePassword.addEventListener('click', function (e) {
+			// toggle the type attribute
+			const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+			password.setAttribute('type', type);
+			// toggle the eye slash icon
+			this.classList.toggle('fa-eye-slash');
+		});
+
 			function verificarDatos(){
 				// Validar usuario
 				if(document.formulario.usuario.value.length == 0){
@@ -84,7 +104,8 @@
 						Constraseña:
 					</td>
 					<td>
-						<input type="password" name="contrasena" style="width: 8em">
+						<input type="password" name="contrasena" style="width: 8em" id="id_password">
+						<i class="far fa-eye" id="togglePassword"></i>
 					</td>
 				</tr>
 				<tr>
