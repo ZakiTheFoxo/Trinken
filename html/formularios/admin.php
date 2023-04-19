@@ -80,7 +80,7 @@
         <table id="footer" width="100%" align="center">
             <tr>
                 <td align="left" width="33%">
-                    <img src="../../Imagenes/trfooter.png" width="40%">
+                    <img src="../../imagenes/trfooter.png" width="40%">
                 </td>
 
                 <td align="center" width="33%">
