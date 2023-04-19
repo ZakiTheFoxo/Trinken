@@ -113,9 +113,9 @@
                                 echo "</tr>";
                                 echo "</td>";
                                 echo "</tr>";
+                                echo '<input name="ato" type="hidden" value='.$ato_id.'>';
                                 ?>
 			</table></p>
-            <input name="ato" type="hidden" value=<?=$ato_id?>>
         </form>
 
 		<a href="../../body.php" class="btn btn-secondary">Regresar</a>

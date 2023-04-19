@@ -1,5 +1,6 @@
 <?php 
     include("conex.php");
+    include("seguridad.php");
     $link = Conectarse();
 
     $ato_id=$_POST["ato"];
@@ -13,5 +14,6 @@
 ?>
 
 <script>
+    alert("¡Artículo agregado exitosamente!");
     window.location.replace('../../body.php');
 </script>

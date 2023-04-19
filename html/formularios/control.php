@@ -10,9 +10,6 @@
 
     $row = mysqli_fetch_array($result);
 
-    echo $row['celular']." = ".$user;
-    echo $row['contrasena']." = ".$pass;
-
     if($row['count(*)'] == '1'){
         session_start();
 
@@ -21,8 +18,8 @@
 
         $_SESSION['autenticado'] = $row['id'];
         
-        // header("Location: ../../body.php");
+        header("Location: ../../body.php");
     }else {
-        // header("Location: tk_inicio_sesion.php?errorusuario=1");
+        header("Location: tk_inicio_sesion.php?errorusuario=1");
     }
 ?>
