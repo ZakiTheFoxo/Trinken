@@ -49,27 +49,51 @@
 	<body>
 		<table cellpadding="10px" align="center" width="30%">
             <tr>
-                <td align="center">
-                    <input type="button" value="Agregar un Artículo" onclick="window.location.replace('tk_agregar_articulo.php')">
-                </td>
-                <td align="center">
-                    <input type="button" value="Borrar un Artículo" onclick="window.location.replace('tk_borrar_articulo.php')">
+                <td>
+                Artículo
                 </td>
             </tr>
             <tr>
                 <td align="center">
-                    <input type="button" value="Añadir un Proveedor" onclick="window.location.replace('tk_anadir_proveedor.php')">
+                    <input type="button" value="Agregar" onclick="window.location.replace('tk_agregar_articulo.php')">                    
                 </td>
                 <td align="center">
-                    <input type="button" value="Eliminar un Proveedor" onclick="window.location.replace('tk_eliminar_proveedor.php')">
+                    <input type="button" value="Editar" >
+                </td>
+                <td align="center">
+                    <input type="button" value="Borrar" onclick="window.location.replace('tk_borrar_articulo.php')">
+                </td>
+            </tr>
+            <tr>
+                <td >
+                Proveedor
                 </td>
             </tr>
             <tr>
                 <td align="center">
-                    <input type="button" value="Registrar un Repartidor" onclick="window.location.replace('tk_registrar_repartidor.php')">
+                    <input type="button" value="Añadir" onclick="window.location.replace('tk_anadir_proveedor.php')">
                 </td>
                 <td align="center">
-                    <input type="button" value="Eliminar un Repartidor" onclick="window.location.replace('tk_eliminar_repartidor.php')">
+                    <input type="button" value="Editar" >
+                </td>
+                <td align="center">
+                    <input type="button" value="Eliminar" onclick="window.location.replace('tk_eliminar_proveedor.php')">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Repartidor
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" value="Registrar" onclick="window.location.replace('tk_registrar_repartidor.php')">
+                </td>
+                <td align="center">
+                    <input type="button" value="Editar" >
+                </td>
+                <td align="center">
+                    <input type="button" value="Eliminar" onclick="window.location.replace('tk_eliminar_repartidor.php')">
                 </td>
             </tr>
         </table>
