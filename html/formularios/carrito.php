@@ -53,13 +53,13 @@
 				border: 1;
 			}
 			
-			.btn .btn-secondary{
+			.btn.btn-secondary{
 				position: relative;
 				margin-top: 10px;
-				left: 57%;
+				left: 47.6%;
             }
 
-			.btn .btn-primary{
+			.btn.btn-primary{
                 position: relative;
 			}
 		</style>
@@ -107,16 +107,16 @@
 			echo "</div>";
             ?>
 			</table>
-			<table class="none" align="center">
-			<tr align="center"><td colspan="3"><a href="../../body.php" class="btn btn-secondary">Regresar</a></td></tr>
-			</table>
+			
+			<a href="../../body.php" class="btn btn-secondary">Regresar</a>
+
 			</body>
 				
 				<footer>
 					<table id="footer" width="100%" align="center">
 						<tr>
 							<td align="left" width="33%">
-								<img src="../../Imagenes/trfooter.png" width="40%">
+								<img src="../../imagenes/trfooter.png" width="40%">
 							</td>
 							
 							<td align="center" width="33%">

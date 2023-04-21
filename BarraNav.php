@@ -36,17 +36,17 @@
 
 								// Admin
 								if($row['administrador'] == '1'){
-									echo 'Bienvenido, <a href="html/formularios/sesion.php" target="cuadroenlaces">
-										<label id="sesion">'.$row['nombre'].'</label>
+									echo '¡Bienvenido, '.$row['nombre'].'!</label>
 									</a>
-									<a  type="button" class="btn btn-primary" href="html/formularios/admin.php" target="cuadroenlaces">Vista Admin</a>';
+									<a  type="button" class="btn btn-primary" href="html/formularios/admin.php" target="cuadroenlaces">Vista Admin</a>
+									<a  type="button" class="btn btn-secondary" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 
 								// Usuario
 								}else{
-									echo '
-									Bienvenido, <a href="html/formularios/sesion.php" target="cuadroenlaces">
-										<label id="sesion">'.$row['nombre'].'</label>
-									</a>';
+									echo '¡Bienvenido, '.$row['nombre'].'!</label>
+									</a>
+									<a  type="button" class="btn btn-secondary" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
+
 								}
 						}
 						else{
