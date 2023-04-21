@@ -141,7 +141,7 @@
 		?> 
 					<script>alert("Dirección agregada exitosamente");</script>
 		<?php }} ?>
-		<a href="sesion.php" class="btn btn-secondary">Regresar</a>
+		<a href="../../body.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>

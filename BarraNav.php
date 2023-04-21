@@ -39,13 +39,15 @@
 									echo '¡Bienvenido, '.$row['nombre'].'!</label>
 									</a>
 									<a  type="button" class="btn btn-primary" href="html/formularios/admin.php" target="cuadroenlaces">Vista Admin</a>
-									<a  type="button" class="btn btn-secondary" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
+									<a  type="button" class="btn btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Agregar Dirección</a>
+									<a  type="button" class="btn btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 
 								// Usuario
 								}else{
 									echo '¡Bienvenido, '.$row['nombre'].'!</label>
 									</a>
-									<a  type="button" class="btn btn-secondary" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
+									<a  type="button" class="btn btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Agregar Dirección</a>
+									<a  type="button" class="btn btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 
 								}
 						}
