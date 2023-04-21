@@ -15,15 +15,12 @@
 	<body>
 		<table cellpadding='10%' width="100%" height="100%">
 			<tr>
-				<td align="left" width="33%">
+				<td align="left" width="30%">
 					<a href="body.php" target="cuadroenlaces">
 						<img valign="top" halign="left" src="imagenes/trinken_logo.png" width="8%" height="auto" >&nbsp;&nbsp;
 						<img valign="top" halign="left" src="imagenes/trinken.png" width="50%" height="auto"></a>
 				</td>
-				<td align="center" width="33%">
-					&nbsp;
-				</td>
-				<td align="right" width="33%">
+				<td align="right" width="70%">
 					<?php 
 						include 'html/formularios/conex.php';
 						$link = Conectarse();
@@ -39,14 +36,14 @@
 									echo '¡Bienvenido, '.$row['nombre'].'!</label>
 									</a>
 									<a  type="button" class="btn btn-primary" href="html/formularios/admin.php" target="cuadroenlaces">Vista Admin</a>
-									<a  type="button" class="btn btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Agregar Dirección</a>
+									<a  type="button" class="btn btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Editar Perfil</a>
 									<a  type="button" class="btn btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 
 								// Usuario
 								}else{
 									echo '¡Bienvenido, '.$row['nombre'].'!</label>
 									</a>
-									<a  type="button" class="btn btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Agregar Dirección</a>
+									<a  type="button" class="btn btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Editar Perfil</a>
 									<a  type="button" class="btn btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 
 								}

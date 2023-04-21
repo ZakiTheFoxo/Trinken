@@ -6,8 +6,10 @@
 	<head>
 		<meta charset="UTF=8">
 		<title>Formulario Carrito</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+		<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 		<style type="text/css">
 			body{
 				background-color: black;
@@ -112,6 +114,7 @@
 	</head>
 
 	<body>	
+		<br><br>
 		<?php
 			include("conex.php");
 			$link = Conectarse();
@@ -119,134 +122,135 @@
 			$sql = "SELECT * FROM tk_articulos join tk_carrito WHERE id = ato_id";
 			$total=0;
 			$result = mysqli_query($link,$sql);
-			
-			echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='5' align='center'><b>¿Desea comprar los siguientes Artículos?</b></td></tr>";
-			printf("<b><tr><td></td><td><b>Producto</b></td><td><b>Precio</b></td><td><b>Cantidad</b></td><td><b>Subtotal</b></td></tr>");
+			if ($result->num_rows == 0) {
+			echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td align='center'><b>No hay productos en en carrito</b></td></tr></table>";
+
+			}
+			else
+				echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='6' align='center'><b>¿Desea comprar los siguientes Artículos?</b></td></tr>";
 			if ($result->num_rows > 0) {
+				printf("<b><tr><td></td><td><b>Producto</b></td><td><b>Precio</b></td><td><b>Cantidad</b></td><td><b>Subtotal</b></td></tr>");
                 while($row = $result->fetch_array()) {
-                    echo "<tr><td><img src='../../imagenes/Productos/".$row["id"].".png' width='35%'></td>";
+                    echo "<tr><td><img src='../../imagenes/Productos/".$row["id"].".png' width='100px'></td>";
 					echo "<td>" . $row["nombre"] . "</td>";
                     echo "<td>$" . $row["precio"] . "</td>";
-                    echo "<td>" . $row["cantidad_pedida"] . "</td>";
-                    echo "<td>$" . $row["cantidad_pedida"] *$row["precio"]."</td></tr>";
+                    echo "<td align='center'>" . $row["cantidad_pedida"] . "</td>";
+                    echo "<td align='center'>$" . $row["cantidad_pedida"] *$row["precio"]."</td>";
 					$total+= $row["cantidad_pedida"] *$row["precio"];
-					echo "<form action='tk_metodo_pago.php' method='POST'>";
-					//echo "<input type='hidden' name='id' value='".$row['id']."'>";
+					echo '<form method="post" name="formulario" action="carrito_procesa.php">';
+					echo "<td>&nbsp<input type=submit class='btn btn-danger' value='X'></td></tr>";
+					echo "<input type='hidden' name='id' value='".$row['id']."'>";
+					echo "</form>";
 				}
-			} 
-			else {
-				echo "No hay productos en la base de datos";
-			}
-			echo "<tr><td align='center' colspan='5'><b>TOTAL: $ ". $total."</b></td></tr>";
-			echo "<tr><td colspan='5' align='center'><input type='submit' class='btn btn-primary' value='Comprar'></td></tr>";
-			echo "</form>";
-			echo "</div>";
-            ?>
-			</table>
-
-		<form method="GET" name="formulario" action="tk_metodo_pago.php">
-			<p><table cellpadding='10px' align="center" width="30%" class="main">
-				<tr>
-					<td>
-						Método de Pago:
-					</td>
-					<td>
-						<input type="radio" name="tipo_pago" value="efectivo" data="1" onclick="javascript:checkSelected(this)">En efectivo
-					</td>
-                    <td>
-                        <input type="radio" name="tipo_pago" value="tarjeta" data="2" onclick="checkSelected(this)">En tarjeta
-                    </td>
-				</tr>
-				<tr>
-					<td width="100%" align="center" colspan="3">
-						<div id="radio1" style="display: none">
-							<table>
-								<tr>
-									<td align="center">
-										<br>En caso de ser efectivo, trate de llevar el precio exacto o no pagar con una denominación tan alta
-									</td>
-								</tr>
-								<tr>
-									<td align="center">
-										<input type="button" value="Pagar" onclick="window.location.replace('seguimientoPedido.php')">
-									</td>
-								</tr>
-							</table>
-						</div>
-						<div id="radio2" style="display: none">
-							<br>
-							<table cellpadding='10px' align="center" width="40%">
-								<tr>
-									<td align="right">
-										Número de tarjeta:
-									</td>
-				
-									<td>
-										<input type="text" name="num" size="30%" minlength="16" maxlength="19">
-									</td>
-								</tr>
-				
-								<tr>
-									<td align="right">
-										Nombre del titular:
-									</td>
-				
-									<td>
-										<input type="text" name="titular" size="30%">
-									</td>
-								</tr>
-				
-								<tr>
-									
-									<td align="right">
-										Fecha de Expiración:
-									</td>
-									<td>
-										<input type="month" name="mes" size="30%">
-									</td>
-									
-								</tr>
-				
-								<tr>
-									<td align="right">
-										CCV:
-									</td>
-									<td>
-										<input type="text" name="ccv" size="30%" maxlength="3">
-									</td>
-									
-								</tr>
-				
-								<tr>
-									<td colspan="2" align="center">
-										<input type="button" value="Pagar" onclick="validarTarjeta()">
-									</td>
-								</tr>
-							</table>
-						</div>
-					</td>
-				</tr>
-			</table></p>
-
-			<p><?php 
-				if($_GET){
-					$num = $_GET['num'];
-					$titu = $_GET['titular'];
-					$mes = $_GET['mes'];
-					$ccv = $_GET['ccv'];
-
-					echo "<table cellpadding='10px' align='center' class='main'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
-
-					echo "<tr><td align='right' width='50%'>Número:</td><td align='left'>$num</td></tr>";
-					echo "<tr><td align='right'>Titular:</td><td align='left'>$titu</td></tr>";
-					echo "<tr><td align='right'>Fecha de Expiración:</td><td align='left'>$mes</td></tr>";
-					echo "<tr><td align='right'>CCV:</td><td align='left'>$ccv</td></tr>";
-
-					echo '<tr><td colspan="2" align="center"><input type="button" value="Pagar" onclick="window.location.replace(\'seguimientoPedido.php\')"></td></tr></table>';
-				}
-			?></p>
-		</form>
-		<a href="../body.php" class="btn btn-secondary">Regresar</a>	
+				echo "<tr><td align='center' colspan='5'><b>TOTAL: $ ". $total."</b></td></tr>";
+				echo "</div>";
+				?>
+				</table>
+	
+			<form method="GET" name="formulario" action="tk_metodo_pago.php">
+				<p><table cellpadding='10px' align="center" width="30%" class="main">
+					<tr>
+						<td>
+							Método de Pago:
+						</td>
+						<td>
+							<input type="radio" name="tipo_pago" value="efectivo" data="1" onclick="javascript:checkSelected(this)">En efectivo
+						</td>
+						<td>
+							<input type="radio" name="tipo_pago" value="tarjeta" data="2" onclick="checkSelected(this)">En tarjeta
+						</td>
+					</tr>
+					<tr>
+						<td width="100%" align="center" colspan="3">
+							<div id="radio1" style="display: none">
+								<table>
+									<tr>
+										<td align="center">
+											<br>En caso de ser efectivo, trate de llevar el precio exacto o no pagar con una denominación tan alta
+										</td>
+									</tr>
+									<tr>
+										<td align="center">
+											<input type="button" value="Pagar" class='btn btn-primary' value='Comprar' onclick="window.location.replace('seguimientoPedido.php')">
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div id="radio2" style="display: none">
+								<br>
+								<table cellpadding='10px' align="center" width="40%">
+									<tr>
+										<td align="right">
+											Número de tarjeta:
+										</td>
+					
+										<td>
+											<input type="text" name="num" size="30%" minlength="16" maxlength="19">
+										</td>
+									</tr>
+					
+									<tr>
+										<td align="right">
+											Nombre del titular:
+										</td>
+					
+										<td>
+											<input type="text" name="titular" size="30%">
+										</td>
+									</tr>
+					
+									<tr>
+										
+										<td align="right">
+											Fecha de Expiración:
+										</td>
+										<td>
+											<input type="month" name="mes" size="30%">
+										</td>
+										
+									</tr>
+					
+									<tr>
+										<td align="right">
+											CCV:
+										</td>
+										<td>
+											<input type="text" name="ccv" size="30%" maxlength="3">
+										</td>
+										
+									</tr>
+					
+									<tr>
+										<td colspan="2" align="center">
+											<input type="button" class='btn btn-primary' value='Comprar' onclick="validarTarjeta()">
+										</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+					</tr>
+				</table></p>
+	
+				<p><?php 
+					if($_GET){
+						$num = $_GET['num'];
+						$titu = $_GET['titular'];
+						$mes = $_GET['mes'];
+						$ccv = $_GET['ccv'];
+	
+						echo "<table cellpadding='10px' align='center' class='main'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
+	
+						echo "<tr><td align='right' width='50%'>Número:</td><td align='left'>$num</td></tr>";
+						echo "<tr><td align='right'>Titular:</td><td align='left'>$titu</td></tr>";
+						echo "<tr><td align='right'>Fecha de Expiración:</td><td align='left'>$mes</td></tr>";
+						echo "<tr><td align='right'>CCV:</td><td align='left'>$ccv</td></tr>";
+	
+						echo '<tr><td colspan="2" align="center"><input type="button" value="Pagar" class="btn btn-primary" value="Comprar" onclick="window.location.replace(\'seguimientoPedido.php\')"></td></tr></table>';
+					}
+				?></p>
+			</form>
+			<?php } ?>
+		<a href="../../body.php" class="btn btn-secondary">Regresar</a>	
 		</body>
 
 				
