@@ -24,7 +24,7 @@ VALUES('Nino', 'Nakano', '1989-11-10', 'futarouesugi@hotmail.com.jp', '552233441
 INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena, administrador)
 VALUES('Mauricio', 'Solano', '2001-11-01', 'mauricio.solano@upaep.edu.mx', '5212215740459','deathlinex2001','1');
 INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena, administrador)
-VALUES('Omar Arturo', 'Diaz Alarcón Aguilar', '2002-09-12', 'omararturo.diazalarcon@upaep.edu.mx', '5212211191720','ZakiTheFoxxo2002','1');
+VALUES('Omar Arturo', 'Diaz Alarcón Aguilar', '2002-09-12', 'omararturo.diazalarcon@upaep.edu.mx', '5212211191720','c323965a2f50f07ea288b851e80d38df','1');
 
 
 -- Insertar en tk_direccion_clientes

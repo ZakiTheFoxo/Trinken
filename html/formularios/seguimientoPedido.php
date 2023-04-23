@@ -8,33 +8,7 @@
 		<title>Seguimiento del pedido</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <style>
-            html, body{
-                max-width: 100%;
-                overflow-x: hidden;
-                background-color: black;
-                font-family: sans-serif;
-            }
-
-            footer{
-                background-color: black;
-                color: white;
-            }
-
-            .scroll-container {
-                overflow: auto;
-                white-space: nowrap;
-                margin: 1%;
-            }
-
-			table[class=pedido]{
-                background: linear-gradient(rgba(255,192,44,1) 0%, rgba(255,27,93,1) 100%);
-				background-repeat: no-repeat;
-				border-radius: 20px / 20px;
-				padding: 3%;
-				background-size: 100% 100%;
-			}
-        </style>
+        <link rel="stylesheet" href="../../css/main.css">
 	</head>
 	<body>
         <div class="Header">

@@ -7,16 +7,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Barra de navegación trinken</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">		
-		<link rel="stylesheet" type="text/css" href="css/nav.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" media="screen"/>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	</head>
 
 
 	<body>
-		<table cellpadding='10%' width="100%" height="100%">
+		<table class="navbar" cellpadding='10%'>
 			<tr>
 				<td align="left" width="30%">
-					<a href="body.php" target="cuadroenlaces">
+					<a class="link" href="body.php" target="cuadroenlaces">
 						<img valign="top" halign="left" src="imagenes/trinken_logo.png" width="8%" height="auto" >&nbsp;&nbsp;
 						<img valign="top" halign="left" src="imagenes/trinken.png" width="50%" height="auto"></a>
 				</td>
@@ -35,23 +35,23 @@
 								if($row['administrador'] == '1'){
 									echo '¡Bienvenido, '.$row['nombre'].'!</label>
 									</a>
-									<a  type="button" class="btn btn-primary" href="html/formularios/admin.php" target="cuadroenlaces">Vista Admin</a>
-									<a  type="button" class="btn btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Editar Perfil</a>
-									<a  type="button" class="btn btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
+									<a type="button" class="btn link btn-primary" href="html/formularios/admin.php" target="cuadroenlaces">Vista Admin</a>
+									<a type="button" class="btn link btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Editar Perfil</a>
+									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 
 								// Usuario
 								}else{
 									echo '¡Bienvenido, '.$row['nombre'].'!</label>
 									</a>
-									<a  type="button" class="btn btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Editar Perfil</a>
-									<a  type="button" class="btn btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
+									<a type="button" class="btn link btn-info" href="html/formularios/tk_anadir_direccion.php" target="cuadroenlaces">Editar Perfil</a>
+									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 
 								}
 						}
 						else{
 							echo '
 							<a href="html/formularios/tk_inicio_sesion.php" target="cuadroenlaces">
-								<button id="sesion" type="button" class="btn btn-primary">Iniciar Sesión</button>
+								<button id="sesion"type="button" class="btn link btn-primary">Iniciar Sesión</button>
 							</a>
 							';
 						}

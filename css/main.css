@@ -1,13 +1,51 @@
+.navbar {
+    background: linear-gradient(rgba(255,192,44,1) 0%, rgba(255,27,93,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    font-family: sans-serif;
+}
+
+.link:link { text-decoration: none; }
+.link:visited { text-decoration: none; }
+.link:hover { text-decoration: none; }
+.link:active { text-decoration: none; }
+
 html, body{
+    position: relative;
+    min-height: 100vh;
     max-width: 100%;
     overflow-x: hidden;
     background-color: black;
     font-family: sans-serif;
 }
 
+body {
+    padding-bottom: 80px;
+}
+
+.header {
+    position:relative; 
+    left:10px;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+b {
+    font-size: 20px;
+}
+
 footer{
+    position: absolute;
     background-color: black;
     color: white;
+    width: 100%;
+    bottom:0px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
 }
 
 .scroll-container {
@@ -82,10 +120,6 @@ h2 {
     transform: translateY(-50%);
 }
 
-.footer{
-    position: absolute;
-}
-
 /* Works on Firefox */
 * {
     scrollbar-width: thin;
@@ -115,4 +149,35 @@ h2 {
 ::-webkit-scrollbar-thumb:vertical {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
+}
+
+table:not(#footer):not(.navbar){
+    background: linear-gradient(rgba(255,192,44,1) 0%, rgba(255,27,93,1) 100%);
+    background-repeat: no-repeat;
+    border-radius: 20px / 20px;
+    padding: 3%;
+    background-size: 100% 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=button] {
+    border-radius: 10px;
+    box-shadow: 3px 3px #444;
+    border: 0;
+}
+
+.btn:not(.link){
+    position: relative;
+    margin-top: 10px;
+    left: 47%;
+}
+
+i{
+    margin-left: -30px; 
+    cursor: pointer;
 }

@@ -16,9 +16,9 @@
         <script>
             parent.window.frames["barra"].location.href = 'BarraNav.php';
         </script>
-        <div class="Header">
+        <div class="header">
             <font color="white" style="position:relative; left:1%" size="8%">
-                <p><b>TRINKEN Be Safe</b></p>
+                <p>TRINKEN Be Safe</p>
             </font>
         </div>
 
@@ -259,7 +259,7 @@
     </body>
     
     <footer>
-        <table width="100%" align="center">
+        <table id="footer" width="100%" align="center">
             <tr>
                 <td align="left" width="33%">
                     <img src="imagenes/trfooter.png" width="40%">
