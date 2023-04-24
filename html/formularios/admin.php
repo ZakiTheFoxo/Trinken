@@ -23,7 +23,7 @@
                     <input type="button" value="Agregar" onclick="window.location.replace('tk_agregar_articulo.php')">                    
                 </td>
                 <td align="center">
-                    <input type="button" value="Editar" >
+                    <input type="button" value="Editar" onclick="window.location.replace('tk_editar_articulo.php')">
                 </td>
                 <td align="center">
                     <input type="button" value="Borrar" onclick="window.location.replace('tk_borrar_articulo.php')">
@@ -39,7 +39,7 @@
                     <input type="button" value="Añadir" onclick="window.location.replace('tk_anadir_proveedor.php')">
                 </td>
                 <td align="center">
-                    <input type="button" value="Editar" >
+                    <input type="button" value="Editar" onclick="window.location.replace('tk_editar_proveedor.php')">
                 </td>
                 <td align="center">
                     <input type="button" value="Eliminar" onclick="window.location.replace('tk_eliminar_proveedor.php')">
@@ -55,7 +55,7 @@
                     <input type="button" value="Registrar" onclick="window.location.replace('tk_registrar_repartidor.php')">
                 </td>
                 <td align="center">
-                    <input type="button" value="Editar" >
+                    <input type="button" value="Editar" onclick="window.location.replace('tk_editar_repartidor.php')">
                 </td>
                 <td align="center">
                     <input type="button" value="Eliminar" onclick="window.location.replace('tk_eliminar_repartidor.php')">
