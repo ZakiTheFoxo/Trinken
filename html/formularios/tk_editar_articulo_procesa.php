@@ -27,7 +27,7 @@
     $result = mysqli_query($link, "SELECT id, imagen FROM tk_articulos WHERE nombre = '$arti'");
     $row = mysqli_fetch_array($result);
     
-    $target_path='../../imagenes/productos/';
+    $target_path='../../imagenes/Productos/';
 
     if($row['imagen'])
         unlink($target_path.$row['imagen']);
