@@ -42,7 +42,7 @@
 						Correo Electrónico:
 					</td>
 					<td>
-						<input type="number" name="correo_electronico" style="width: 3em" placeholder="$" value="<?=$row['correo_electronico']?>" required>
+						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com" value="<?=$row['correo_electronico']?>" required>
 					</td>
 				</tr>
                 <tr>
@@ -50,7 +50,7 @@
 						Celular:
 					</td>
 					<td>
-						<input type="number" name="celular" style="width: 3em" placeholder="$" value="<?=$row['celular']?>" required>
+						<input type="number" name="celnum" style="width: 6em" placeholder="0123456789" value="<?=$row['celular']?>" required>
 					</td>
 					
 				</tr>
@@ -75,7 +75,7 @@
 		
 				<tr>
 					<td colspan="2" align="center">
-						<br><input type="submit" value="Agregar Repartidor">
+						<br><input type="submit" value="Editar Repartidor">
 					</td>
 				</tr>
 			</table></p>

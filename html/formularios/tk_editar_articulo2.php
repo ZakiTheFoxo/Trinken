@@ -112,7 +112,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<br><input type="submit" value="Agregar Artículo">
+						<br><input type="submit" value="Editar Artículo">
 					</td>
 				</tr>
 			</table></p>

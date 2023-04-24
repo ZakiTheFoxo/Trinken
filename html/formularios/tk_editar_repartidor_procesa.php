@@ -6,13 +6,13 @@
     $id = $_POST['id'];
     $nom = $_POST['nom_rep'];
     $ape = $_POST['apellidos'];
-    $correo = $_POST['correo_electronico'];
-    $cel = $_POST['celular'];
+    $correo = $_POST['correo'];
+    $cel = $_POST['celnum'];
     $sue = $_POST['sueldo'];
     $comi = $_POST['comision'];
 
     mysqli_query($link, "UPDATE tk_repartidores SET
-    nombre = '$nom', apellidos = '$ape', correo_electronico = $correo, celular = '$cel', sueldo = $sue WHERE id = $id") or die(mysqli_error($link));
+    nombre = '$nom', apellidos = '$ape', correo_electronico = '$correo', celular = $cel, sueldo = $sue, comision = $comi WHERE id = $id") or die(mysqli_error($link));
 
     mysqli_close($link);   
 ?>
