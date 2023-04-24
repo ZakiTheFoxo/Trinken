@@ -13,37 +13,46 @@
 	</head>
 
 	<body>
-        <p><?php 
-            $result = mysqli_query($link, "
-                SELECT p.id, p.nombre_de_la_empresa, p.correo_electronico, p.celular
-                FROM tk_proveedores p 
-                ORDER BY p.id, p.nombre_de_la_empresa;
-            ");
-
-            if(mysqli_num_rows($result) > 0){
-                echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'><b>Trinken Proveedores</b></td></tr>";
-
-                printf("<tr><td>ID</td><td>Nombre de la empresa</td><td>Correo Electrónico</td><td>Celular</td><td></td></tr>");
-
-                while($row = mysqli_fetch_array($result)){
-                    printf("<form method='post' action='tk_editar_proveedor2.php'><input type='hidden' name='id' value='".$row['id']."'><tr border><td>%d</td><td>%s</td><td>%s</td><td>%d</td><td><button class='add' value='editar'>Editar</button></td></tr></form>", 
-                        $row["id"], $row["nombre_de_la_empresa"], $row["correo_electronico"], $row["celular"]);
-                }
-
-                echo '</table></div>';
-            }else{
-                echo "<table align='center' cellpadding='10px'><tr><td align='center'><b>No hay proveedores</b></td></tr></table>";
-            }
-            mysqli_free_result($result);
-            mysqli_close($link);
-        ?></p>
-        <?php
-			if ( $_GET ){ 
-				if ($_GET['editarproveedor']==1){
-		?> 
-					<script>alert("Proveedor modificado exitosamente");</script>
-		<?php }} ?>
-		<a href="admin.php" class="btn btn-secondary">Regresar</a>
+        <?php 
+        $id = $_POST['id'];
+            $result = mysqli_query($link, "SELECT * FROM tk_proveedores WHERE id = $id");
+            $row = mysqli_fetch_array($result);
+        ?>
+    <form method="POST" name="formulario" action="tk_editar_proveedor_procesa.php" enctype="multipart/form-data">
+			<p><table cellpadding="10px" align="center" width="50%">
+				<tr>
+                    <input type="hidden" name="id" value="<?=$id?>">
+					<td align="right">
+						Nombre de la empresa:
+					</td>
+					<td>
+						<input type="text" name="nom_prov" size="50%" value="<?=$row['nombre_de_la_empresa']?>" required>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Correo Electrónico:
+					</td>
+					<td>
+						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com" value="<?=$row['correo_electronico']?>" required>
+					</td>
+				</tr>
+                <tr>
+                <td align="right">
+						Celular:
+					</td>
+					<td>
+						<input type="number" name="celnum" style="width: 6em" placeholder="0123456789" value="<?=$row['celular']?>" required>
+					</td>
+					
+				</tr>		
+				<tr>
+					<td colspan="2" align="center">
+						<br><input type="submit" value="Editar Proveedor">
+					</td>
+				</tr>
+			</table></p>
+		</form>
 	</body>
 
 	<footer>

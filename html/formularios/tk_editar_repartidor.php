@@ -21,7 +21,7 @@
             ");
 
             if(mysqli_num_rows($result) > 0){
-                echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'><b>Trinken Artículos</b></td></tr>";
+                echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'><b>Trinken Repartidores</b></td></tr>";
 
                 printf("<tr><td>ID</td><td>Nombre</td><td>Apellido</td><td>Correo Electrónico</td><td>Celular</td><td>Sueldo</td><td>Comisión</td><td></td></tr>");
 

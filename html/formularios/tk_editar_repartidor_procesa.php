@@ -1,4 +1,3 @@
-
 <?php 
     include("conex.php");
     $link = Conectarse();
