@@ -4,14 +4,11 @@
 
     $id = $_POST['id'];
     $nom = $_POST['nom_prov'];
-    $ape = $_POST['apellidos'];
     $correo = $_POST['correo'];
     $cel = $_POST['celnum'];
-    $sue = $_POST['sueldo'];
-    $comi = $_POST['comision'];
 
     mysqli_query($link, "UPDATE tk_proveedores SET
-    nombre = '$nom', correo_electronico = '$correo', celular = $cel WHERE id = $id") or die(mysqli_error($link));
+    nombre_de_la_empresa = '$nom', correo_electronico = '$correo', celular = $cel WHERE id = $id") or die(mysqli_error($link));
 
     mysqli_close($link);   
 ?>
