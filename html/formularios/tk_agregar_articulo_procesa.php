@@ -24,7 +24,7 @@
     $result = mysqli_query($link, "SELECT id FROM tk_articulos WHERE nombre = '$arti'");
     $row = mysqli_fetch_array($result);
 
-    $target_path='../../imagenes/productos/';
+    $target_path='../../imagenes/Productos/';
     $archivo = $row['id'] . "." . pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION);
     $target_path = $target_path . $archivo;
 
