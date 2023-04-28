@@ -16,7 +16,6 @@
             unlink('../../imagenes/productos/'.$row['imagen']);
 
     mysqli_query($link, "DELETE FROM tk_articulos WHERE id = '$id';");
-    mysqli_query($link, "ALTER TABLE tk_articulos AUTO_INCREMENT = 1;");
 
     mysqli_close($link);
 ?>

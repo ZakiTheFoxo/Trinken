@@ -62,6 +62,13 @@
 					return 0;
 				};
 
+				// Validar Imagen
+                if(document.formulario.imagen.value == ''){
+					alert("Tiene que subir una imagen")
+					document.formulario.proveedor.focus()
+					return 0;
+				};
+
 				// Enviar formulario				
 				document.formulario.submit();
 			}
@@ -139,7 +146,7 @@
 						Imagen:
 					</td>
 					<td>
-						<input type="file" name="imagen" required>
+						<input type="file" name="imagen" accept="image/png">
 					</td>
 				</tr>
 				<tr>

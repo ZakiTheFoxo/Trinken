@@ -43,36 +43,37 @@
 		<script type="text/javascript">
 			function validarTarjeta(){
 				// Validar número
-				if(document.formulario.num.value.length < 16){
+				if(document.formulario2.num.value.length < 16){
 					alert("Tiene que escribir un número de tarjeta válido")
-					document.formulario.num.focus()
+					document.formulario2.num.focus()
 					return 0;
 				};
 		
 				// Validar nombre
-				if(document.formulario.titular.value.length == 0){
+				if(document.formulario2.titular.value.length == 0){
 					alert("Tiene que escribir un nombre")
-					document.formulario.titular.focus()
+					document.formulario2.titular.focus()
 					return 0;
 				};
 		
 				// Validar fecha de expiración
-				if(document.formulario.mes.value.length == 0){
+				if(document.formulario2.mes.value.length == 0){
 					alert("Tiene que ingresar una fecha de expiración válida")
-					document.formulario.mes.focus()
+					document.formulario2.mes.focus()
 					return 0;
 				};
 		
 				// Validar CCV
-				if(document.formulario.ccv.value.length == 0){
+				if(document.formulario2.ccv.value.length == 0){
 					alert("Tiene que escribir un CCV válido")
-					document.formulario.ccv.focus()
+					document.formulario2.ccv.focus()
 					return 0;
 				};
 		
-				// Enviar formulario				
-				document.formulario.submit();
+				// Enviar formulario2				
+				document.formulario2.submit();
 			}
+
 			function checkSelected(radio){
 				opcion = radio.getAttribute("data")
 				
@@ -93,7 +94,7 @@
 			include("conex.php");
 			$link = Conectarse();
 			$cte_id = $_SESSION['autenticado'];
-			$sql = "SELECT * FROM tk_articulos join tk_carrito WHERE id = ato_id";
+			$sql = "SELECT * FROM tk_articulos join tk_carrito WHERE id = ato_id AND cte_id = $cte_id";
 			$total=0;
 			$result = mysqli_query($link,$sql);
 			if ($result->num_rows == 0) {
@@ -112,7 +113,7 @@
                     echo "<td align='center'>$" . $row["cantidad_pedida"] *$row["precio"]."</td>";
 					$total+= $row["cantidad_pedida"] *$row["precio"];
 					echo '<form method="post" name="formulario" action="carrito_procesa.php">';
-					echo "<td>&nbsp<input type=submit class='btn btn-danger' value='X'></td></tr>";
+					echo "<td>&nbsp<input type=submit class='btn btn-danger link' value='X'></td></tr>";
 					echo "<input type='hidden' name='id' value='".$row['id']."'>";
 					echo "</form>";
 				}
@@ -121,7 +122,7 @@
 				?>
 				</table>
 	
-			<form method="GET" name="formulario" action="tk_metodo_pago.php">
+			<form method="POST" name="formulario2" action="tk_metodo_pago.php">
 				<p><table cellpadding='10px' align="center" width="30%" class="main">
 					<tr>
 						<td>
@@ -137,7 +138,7 @@
 					<tr>
 						<td width="100%" align="center" colspan="3">
 							<div id="radio1" style="display: none">
-								<table>
+								<table class='metodo'>
 									<tr>
 										<td align="center">
 											<br>En caso de ser efectivo, trate de llevar el precio exacto o no pagar con una denominación tan alta
@@ -145,21 +146,21 @@
 									</tr>
 									<tr>
 										<td align="center">
-											<input type="button" value="Pagar" class='btn btn-primary' value='Comprar' onclick="window.location.replace('seguimientoPedido.php')">
+											<input type="button" value="Pagar" class='btn btn-primary link' onclick="window.location.replace('seguimientoPedido.php')">
 										</td>
 									</tr>
 								</table>
 							</div>
 							<div id="radio2" style="display: none">
 								<br>
-								<table cellpadding='10px' align="center" width="40%">
+								<table class='metodo' cellpadding='10px' align="center" width="40%">
 									<tr>
 										<td align="right">
 											Número de tarjeta:
 										</td>
 					
 										<td>
-											<input type="text" name="num" size="30%" minlength="16" maxlength="19">
+											<input type="number" name="num" size="30%" minlength="16" maxlength="19">
 										</td>
 									</tr>
 					
@@ -189,14 +190,14 @@
 											CCV:
 										</td>
 										<td>
-											<input type="text" name="ccv" size="30%" maxlength="3">
+											<input type="number" name="ccv" size="30%" maxlength="3">
 										</td>
 										
 									</tr>
 					
 									<tr>
 										<td colspan="2" align="center">
-											<input type="button" class='btn btn-primary' value='Comprar' onclick="validarTarjeta()">
+											<input type="button" class='btn btn-primary link' value='Pagar' onclick="validarTarjeta()">
 										</td>
 									</tr>
 								</table>
@@ -204,52 +205,33 @@
 						</td>
 					</tr>
 				</table></p>
-	
-				<p><?php 
-					if($_GET){
-						$num = $_GET['num'];
-						$titu = $_GET['titular'];
-						$mes = $_GET['mes'];
-						$ccv = $_GET['ccv'];
-	
-						echo "<table cellpadding='10px' align='center' class='main'><tr><td colspan='2' align='center'><b>Se almacenaron los siguientes datos:</b></td></tr>";
-	
-						echo "<tr><td align='right' width='50%'>Número:</td><td align='left'>$num</td></tr>";
-						echo "<tr><td align='right'>Titular:</td><td align='left'>$titu</td></tr>";
-						echo "<tr><td align='right'>Fecha de Expiración:</td><td align='left'>$mes</td></tr>";
-						echo "<tr><td align='right'>CCV:</td><td align='left'>$ccv</td></tr>";
-	
-						echo '<tr><td colspan="2" align="center"><input type="button" value="Pagar" class="btn btn-primary" value="Comprar" onclick="window.location.replace(\'seguimientoPedido.php\')"></td></tr></table>';
-					}
-				?></p>
 			</form>
 			<?php } ?>
 		<a href="../../body.php" class="btn btn-secondary">Regresar</a>	
-		</body>
+	</body>
 
+	<footer>
+		<table id="footer" width="100%" align="center">
+			<tr>
+				<td align="left" width="33%">
+					<img src="../../imagenes/trfooter.png" width="40%">
+				</td>
 				
-				<footer>
-					<table id="footer" width="100%" align="center">
-						<tr>
-							<td align="left" width="33%">
-								<img src="../../imagenes/trfooter.png" width="40%">
-							</td>
-							
-							<td align="center" width="33%">
-								©2023 Trinken Be Safe
-							</td>
-							
-                <td align="right" width="33%">
-					<a href="https://www.facebook.com/TrinkenApp/" target="_blank">
-						<img src="../../imagenes/fb.png" width="10%"></a>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="https://play.google.com/store/apps/details?id=com.trinken.android" target="_blank">
-							<img src="../../imagenes/ps.png" width="10%"></a>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="https://www.instagram.com/trinkenbesafe/" target="_blank">
-								<img src="../../imagenes/ig.png" width="10%"></a>
-							</td>
-						</tr>
-					</table>
-				</footer>
-				</html>
+				<td align="center" width="33%">
+					©2023 Trinken Be Safe
+				</td>
+				
+	<td align="right" width="33%">
+		<a href="https://www.facebook.com/TrinkenApp/" target="_blank">
+			<img src="../../imagenes/fb.png" width="10%"></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="https://play.google.com/store/apps/details?id=com.trinken.android" target="_blank">
+				<img src="../../imagenes/ps.png" width="10%"></a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="https://www.instagram.com/trinkenbesafe/" target="_blank">
+					<img src="../../imagenes/ig.png" width="10%"></a>
+				</td>
+			</tr>
+		</table>
+	</footer>
+</html>
