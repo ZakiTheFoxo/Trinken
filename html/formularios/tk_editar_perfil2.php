@@ -1,6 +1,5 @@
-
 <?php 
-	include "seguridad_admin.php";
+	include 'seguridad.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +13,9 @@
 
 	<body>
         <?php 
-        $id = $_POST['id'];
+        include "conex.php";
+        $link = Conectarse();
+		$id = $_POST['id'];
             $result = mysqli_query($link, "SELECT * FROM tk_usuarios WHERE id = $id");
             $row = mysqli_fetch_array($result);
         ?>
