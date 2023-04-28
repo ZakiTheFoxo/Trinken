@@ -13,35 +13,56 @@
 	<body>
         <div class="Header">
             <font color="white" style="position:relative; left:1%" size="8%">
-                <p><b>TRINKEN Be Safe</b></p>
+                <p align="center"><b>TRINKEN Be Safe</b></p>
             </font>
         </div>
         <font color="white" style="position:relative; left:1%" size="6%">
-            <p>Gracias por comprar con nosotros! Esperamos que tengas un gran día ;)</p>
+            <p align="center">¡Gracias por comprar con nosotros! Esperamos que tengas un gran día ;)</p>
         </font>
-        <font color="white" style="position:relative; left:1%" size="5%">
-            Seguimiento del pedido
-        </font>
-        <table cellpadding="10px" align="center" class="pedido">
-            <tr>
-                <td>
-                    Tiempo estimado:
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>
-                    Nombre repartdor:
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>
-                    Contacto:
-                </td>
-                <td></td>
-            </tr>
-        </table>
+
+		<?php
+			include("conex.php");
+			$link = Conectarse();
+			$cte_id = $_SESSION['autenticado'];
+			$sql = "SELECT fecha, hora, estado, nombre, apellidos FROM tk_pedidos left outer join tk_repartidores on tk_pedidos.rpr_id = tk_repartidores.id WHERE cte_id = 4 and estado = 'EN PROCESO';";
+			$result = mysqli_query($link,$sql);
+			if ($result->num_rows > 0) {
+                echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'>";
+				printf("<b>
+                    <tr>
+                        <td colspan='4' align='center'>
+                            <b>Pedido realizado</b>
+                        </td>
+                    </tr>
+                    </b>");
+                while($row = $result->fetch_array()) {
+                    echo "<tr>
+                            <td>
+                                Fecha del pedido: ".$row["fecha"]."
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Hora del pedido:" . $row["hora"] . "
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Estado:" . $row["estado"] . "
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Repartidor: " . $row["nombre"] . $row["apellidos"] . "
+                            </td>
+                        </tr>";
+				}
+				echo "<tr><td align='center' colspan='4'><b>¡Su pedido llegará pronto!</b></td></tr>";
+				echo "</div>";
+                }
+				?>
+				</table>
+                <a href="../../body.php" class="btn btn-secondary">Regresar</a>
     </body>
     
     <footer>
