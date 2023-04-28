@@ -44,7 +44,8 @@ CREATE TABLE tk_pedidos (
     hora                  TIME NOT NULL,
     estado                VARCHAR(30) NOT NULL,
     cte_id                INTEGER(6) NOT NULL,
-    rpr_id                INTEGER(6) NOT NULL
+    rpr_id                INTEGER(6) NOT NULL,
+    total                 DECIMAL(6,2)
 );
 
 CREATE TABLE tk_proveedores (

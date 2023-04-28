@@ -112,7 +112,7 @@
                     echo "<td align='center'>" . $row["cantidad_pedida"] . "</td>";
                     echo "<td align='center'>$" . $row["cantidad_pedida"] *$row["precio"]."</td>";
 					$total+= $row["cantidad_pedida"] *$row["precio"];
-					echo '<form method="post" name="formulario" action="carrito_procesa.php">';
+					echo '<form method="post" name="formulario" action="carrito_borrar.php">';
 					echo "<td>&nbsp<input type=submit class='btn btn-danger link' value='X'></td></tr>";
 					echo "<input type='hidden' name='id' value='".$row['id']."'>";
 					echo "</form>";
@@ -122,7 +122,8 @@
 				?>
 				</table>
 	
-			<form method="POST" name="formulario2" action="tk_metodo_pago.php">
+			<form method="POST" name="formulario2" action="carrito_procesa.php">
+				<input type="hidden" value="<?=$total?>" name="total">
 				<p><table cellpadding='10px' align="center" width="30%" class="main">
 					<tr>
 						<td>
@@ -146,7 +147,7 @@
 									</tr>
 									<tr>
 										<td align="center">
-											<input type="button" value="Pagar" class='btn btn-primary link' onclick="window.location.replace('seguimientoPedido.php')">
+											<input type="submit" value="Pagar" class='btn btn-primary link' onclick="window.location.replace('carrito_procesa.php')">
 										</td>
 									</tr>
 								</table>
