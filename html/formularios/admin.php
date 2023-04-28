@@ -62,7 +62,7 @@
                 </td>
             </tr>
         </table>
-        <a href="../body.php" class="btn btn-secondary">Regresar</a>
+        <a href="../../body.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
     <footer>
