@@ -30,13 +30,32 @@
 					return 0;
 				};
 
-				// Validar fecha nacimiento
+				// Validar fecha nacimiento			
 				if(document.formulario.fecha.value.length == 0){
 					alert("Tiene que escoger su fecha de Nacimiento")
 					document.formulario.fecha.focus()
 					return 0;
 				};
+				// Validación edad 18 o mayor
+				var today = new Date();
+				var birthDate = new Date(document.formulario.fecha.value);
+				console.log("CUM:"+birthDate);
+				var age = today.getFullYear() - birthDate.getFullYear();
+				console.log("year:"+age);
+				var m = today.getMonth() - birthDate.getMonth();
+				console.log("month:"+m);
+				if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+					age--;
+				}
+				console.log("edad:"+age);
 
+				if(age<18){
+					alert("Trinken es solo para mayores de edad")
+					document.formulario.fecha.focus()
+					return 0;
+				}
+				
+				
 				// Validar número de celular y longitud
 				if(document.formulario.celnum.value.length == 0){
 					alert("Tiene que escribir su Número de Celular")
