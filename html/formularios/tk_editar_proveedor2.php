@@ -14,11 +14,11 @@
 
 	<body>
         <?php 
-        $id = $_POST['id'];
+        	$id = $_POST['id'];
             $result = mysqli_query($link, "SELECT * FROM tk_proveedores WHERE id = $id");
             $row = mysqli_fetch_array($result);
         ?>
-    <form method="POST" name="formulario" action="tk_editar_proveedor_procesa.php" enctype="multipart/form-data">
+    <form method="POST" name="formulario" action="tk_editar_proveedor_procesa.php">
 			<p><table cellpadding="10px" align="center" width="50%">
 				<tr>
                     <input type="hidden" name="id" value="<?=$id?>">
