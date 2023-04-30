@@ -6,98 +6,80 @@
 	<head>
 		<meta charset="UTF=8">
 		<title>Formulario Eliminar Proveedor</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 		<link rel="stylesheet" href="../../css/main.css">
 
 		<script type="text/javascript">
-			function verificarDatos(){
-				// Validar Numero de Celular
-				if(document.formulario.id_emp.value.length == 0){
-					alert("Tiene que escribir el ID de la Empresa")
-					document.formulario.id_emp.focus()
-					return 0;
-				};
-
-				// Enviar formulario				
-				document.formulario.submit();
-			}
+			$(document).ready(function(){
+				$("#filter").keyup(function(){
+			
+					// Retrieve the input field text and reset the count to zero
+					var filter = $(this).val(), count = 0;
+			
+					// Loop through the comment list
+					$(".search").each(function(){
+			
+						// If the list item does not contain the text phrase fade it out
+						if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+							$(this).hide();
+			
+						// Show the list item if the phrase matches and increase the count by 1
+						} else {
+							$(this).show();
+							count++;
+						}
+					});
+			
+					// Update the count
+					var numberItems = count;
+					$("#filter-count").text("Resultados: "+count);
+					if(filter == 0){
+						$("#filter-count").text("");
+					}
+				});
+			});
 		</script>
 	</head>
 
 	<body>
-		<form method="POST" name="formulario" action="tk_eliminar_proveedor.php">
-			<p><table cellpadding="10px" align="center" width="30%">
-				<tr>
-					<td align="right">
-						ID de la empresa:
-					</td>
-					<td>
-					<input type="text" name="id_emp" style="width: 6em">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center">
-						<br><input type="button" value="Eliminar Proveedor" onclick="verificarDatos()">
-					</td>
-				</tr>
-			</table></p>
-		</form>
+		<form id="live-search" action="" class="styled" method="post">
+            <table align="center" cellpadding='10px'>
+                <tr>
+                    <td align='center'>
+                        <b>Buscar:</b>
+                        <input type="text" class="text-input" id="filter" placeholder="Buscar" />
+                        <span id="filter-count"></span>
+                    </td>
+                </tr>
+            </table>
+        </form>
 		<a href="admin.php" class="btn btn-secondary">Regresar</a>
 
-		<p><?php 
-			if($_POST){
-				$id = $_POST['id_emp'];
-
-				$result = mysqli_query($link, "
-					SELECT *
-					FROM tk_proveedores
-					WHERE id = '$id';
-				");
-
-				if(mysqli_num_rows($result) > 0){
-					printf('<form method="POST" name="formulario2" action="tk_eliminar_proveedor_procesa.php">
-						<input type="hidden" name="id" value="%d">', $id);
-
-					echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='4' align='center'><b>¿Estás seguro que quieres eliminar los siguientes datos?</b></td></tr>";
-
-					printf("<tr><td>ID</td><td>Nombre</td><td>Correo</td><td>Celular</td></tr>");
-
-					while($row = mysqli_fetch_array($result)){
-						printf("<tr border><td>%d</td><td>%s</td><td>%s</td><td>%s</td>", 
-							$row["id"], $row["nombre_de_la_empresa"], $row["correo_electronico"], $row["celular"]);
-					}
-
-					echo '<tr><td colspan="4" align="center"><input type="submit" class="bg-danger text-light" value="Confirmar">&nbsp&nbsp';
-					echo '<input type="button" value="Cancelar" onclick="window.location.replace(\'tk_eliminar_proveedor.php\')"></td></tr></table></div></form>';
-				}else{
-					echo "<table cellpadding='10px' align='center'><tr><td align='center'><b>No se encontró un proveedor con ese ID</b></td></tr></table>";
-				}
-				mysqli_free_result($result);
-				mysqli_close($link);
-			}else{
+		<p><?php
 				$result = mysqli_query($link, "
 					SELECT *
 					FROM tk_proveedores;
 				");
 
-				if(mysqli_num_rows($result) > 0){
-					echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='4' align='center'><b>Trinken Proveedores</b></td></tr>";
+				if(mysqli_num_rows($result) > 0){ ?>
+					<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='5' align='center'><b>Trinken Proveedores</b></td></tr>
 
-					printf("<tr><td>ID</td><td>Nombre</td><td>Correo</td><td>Celular</td></tr>");
+					<tr><td>ID</td><td>Nombre</td><td>Correo</td><td>Celular</td><td></td></tr>
 
-					while($row = mysqli_fetch_array($result)){
-						printf("<tr border><td>%d</td><td>%s</td><td>%s</td><td>%s</td>", 
+					<?php while($row = mysqli_fetch_array($result)){
+						printf("<form method='post' action='tk_eliminar_proveedor2.php'><input type='hidden' name='id' value='".$row['id']."'><tr class='search' border='1'><td>%d</td><td>%s</td><td>%s</td><td>%d</td><td><button class='btn btn-danger link' value='Borrar'>Borrar</button></td></tr></form>", 
 							$row["id"], $row["nombre_de_la_empresa"], $row["correo_electronico"], $row["celular"]);
-					}
+					} ?>
 
-					echo '</table></div>';
-				}else{
-					echo "<table align='center'><tr><td align='center'><b>No hay proveedores</b></td></tr></table>";
-				}
+					</table></div>
+				<?php }else{ ?>
+					<table align='center'><tr><td align='center'><b>No hay proveedores</b></td></tr></table>
+				<?php }
 				mysqli_free_result($result);
 				mysqli_close($link);
-			}
 		?></p>
 		<?php
 			if ( $_GET ){ 

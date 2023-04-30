@@ -165,7 +165,7 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input[type=button] {
+input[type=button]:not(.link) {
     border-radius: 10px;
     box-shadow: 3px 3px #444;
     border: 0;
