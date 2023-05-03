@@ -22,31 +22,6 @@
     <form method="POST" name="formulario" action="tk_editar_perfil_procesa.php" enctype="multipart/form-data">
 			<p><table cellpadding="10px" align="center" width="50%">
 				<tr>
-                    <input type="hidden" name="id" value="<?=$id?>">
-					<td align="right">
-						Nombre :
-					</td>
-					<td>
-						<input type="text" name="nom_usu" size="50%" value="<?=$row['nombre']?>" required>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						Apellidos:
-					</td>
-					<td>
-						<input type="text" name="apellidos" size="50%" value="<?=$row['apellidos']?>" required>
-					</td>
-				</tr>
-                <tr>
-					<td align="right">
-						Fecha de Nacimiento:
-					</td>
-					<td>
-						<input type="date" name="fecha_naci" size="50%" value="<?=$row['fecha_nacimiento']?>" required>
-					</td>
-				</tr>
-				<tr>
 					<td align="right">
 						Correo Electrónico:
 					</td>

@@ -67,7 +67,7 @@
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
-                    echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                    echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["imagen"]."' height='100%'></div>";
                     echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
@@ -101,7 +101,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_array()) {
                         echo "<div class='articulo'>";
-                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["imagen"]."' height='100%'></div>";
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
@@ -129,7 +129,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_array()) {
                         echo "<div class='articulo'>";
-                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["imagen"]."' height='100%'></div>";
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
@@ -157,7 +157,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_array()) {
                         echo "<div class='articulo'>";
-                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["imagen"]."' height='100%'></div>";
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
@@ -189,7 +189,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_array()) {
                         echo "<div class='articulo'>";
-                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["imagen"]."' height='100%'></div>";
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
@@ -221,7 +221,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_array()) {
                         echo "<div class='articulo'>";
-                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["imagen"]."' height='100%'></div>";
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";

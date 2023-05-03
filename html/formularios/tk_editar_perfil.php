@@ -12,7 +12,7 @@
 	</head>
 
 	<body>
-        <p><?php
+        <?php
             include "conex.php";
             $link = Conectarse();
             $contador=1;
@@ -22,15 +22,22 @@
                 WHERE id = $_SESSION[autenticado];
                 
             ");
+            echo '
+                <div class="header">
+                    <font color="white" style="position:relative; left:1%" size="8%">
+                        <p>Mi Perfil</p>
+                    </font>
+                </div>
+            ';
 
             if(mysqli_num_rows($result) > 0){
-                echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'><b>Editar Mi Perfil</b></td></tr>";
+                echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'></td></tr>";
 
                 // printf("<tr><td>Nombre</td><td>Apellido</td><td>Fecha de Nacimiento</td><td>Correo Electrónico</td><td>Celular</td><td>Contraseña</td><td></td></tr>");
 
                 while($row = mysqli_fetch_array($result)){
-                    printf("<form method='post' action='tk_editar_perfil2.php'><input type='hidden' name='id' value='".$row['id']."'><tr border><tr><td>Nombre: %s</td></tr><tr><td>Apellidos: %s</td></tr><tr><td>Fecha de Nacimiento: %s</td></tr><tr><td>Correo: %s</td></tr><tr><td>Celular: %s</td></tr><tr><td>Contraseña: %s</td></tr><td><button class='add' value='editar'>Editar</button></td></tr></form><br>", 
-                    $row["nombre"], $row["apellidos"], $row["fecha_nacimiento"], $row["correo_electronico"], $row["celular"], $row["contrasena"]);
+                    printf("<form method='post' action='tk_editar_perfil2.php'><input type='hidden' name='id' value='".$row['id']."'><tr border><tr><td>Correo: %s</td></tr><tr><td>Celular: %s</td></tr><td><button class='add' value='editar'>Editar</button></td></tr></form><br>", 
+                    $row["correo_electronico"], $row["celular"]);
                 }
 
                 echo '</table></div>';
@@ -45,10 +52,17 @@
                 WHERE cte_id = $_SESSION[autenticado];
                 
             ");
-
+            echo '
+                    <div class="header">
+                        <font color="white" style="position:relative; left:1%" size="8%">
+                            <p>Direcciones</p>
+                        </font>
+                    </div>
+                ';
             if(mysqli_num_rows($result) > 0){
+                ?><br><div class='table-responsive' style='display:flex'><?php
                 while($row = mysqli_fetch_array($result)){
-                    echo "<br><div class='table-responsive' display='inline-block'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'><b>Dirección ".$contador."</b></td></tr>
+                    echo "<table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'><b>Dirección ".$contador."</b></td></tr>
                     <tr><td><p class='desc'>Dirección: " . $row["direccion_linea_1"] . "</p></td></tr>
                     <tr><td><p class='desc'>Estado: " . $row["estado"] . "</p></td></tr>
                     <tr><td><p class='desc'>Ciudad: " . $row["ciudad"] . "</p></td></tr>
@@ -66,26 +80,67 @@
                             <button class='add' value='editar'>Borrar</button>
                         </form>
                         </td>    
-                    </tr>
-                    $contador++
-                    '</table></div>'";
+                    </tr>";
+                    $contador++;
+                    echo "</table>";
                 }
-                echo "<td><a href='tk_anadir_direccion.php' class='btn btn-warning rounded-circle' style='width: 50px; height: 50px;'>
-                <span class='visually-hidden'>Añadir</span>
-                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus' viewBox='0 0 16 16'>
-                <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
-                </svg>
-                </a></td>";
+                ?>
+                </div>
+                <a href='tk_anadir_direccion.php' class='btn btn-warning rounded-circle' style='width: 50px; height: 50px; font-size: 26px;'>
+                   +
+                </a>
+                <br>
+                <?php
             }else{
                 echo "<br><table align='center' cellpadding='10px'><tr><td align='center'><b>No hay direcciones añadidas</b></td> <td><a href='tk_anadir_direccion.php' class='btn btn-warning rounded-circle' style='width: 50px; height: 50px;'>
                 <span class='visually-hidden'>Añadir</span>
-                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus' viewBox='0 0 16 16'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='currentColor' class='bi bi-plus' viewBox='0 0 16 16'>
                 <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
                 </svg>
             </a></td></tr></table><br>";
             }
             
+            $cte_id = $_SESSION['autenticado'];
 
+			$sql = "SELECT fecha, hora, total, nombre, apellidos FROM tk_pedidos left outer join tk_repartidores on tk_pedidos.rpr_id = tk_repartidores.id WHERE cte_id = $cte_id and estado = 'COMPLETADO' or estado = 'CANCELADO';";
+			$result = mysqli_query($link,$sql);
+			?>
+            <br><br>
+            <?php
+            echo '
+            <div class="header">
+                <font color="white" style="position:relative; left:1%" size="8%">
+                    <p>Historial de Pedidos</p>
+                </font>
+            </div>
+            ';
+            if ($result->num_rows > 0) { 
+                while($row = $result->fetch_array()) { ?>
+                <div class='table-responsive' style='display:flex'><table align='center' cellpadding='10px' cellspacing='20px'>
+                    <tr>
+                        <td colspan='4' align='center'>
+                            <b>Pedido realizado</b>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>
+                            <b>Fecha del pedido:</b> <?=$row["fecha"]?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Hora del pedido:</b> <?=$row["hora"]?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Repartidor:</b> <?=$row["nombre"] . " " . $row["apellidos"]?>  
+                        </td>
+                    </tr>
+                    </table>
+                </div>
+            <?php } 
+            }
 
             mysqli_free_result($result);
             mysqli_close($link);
