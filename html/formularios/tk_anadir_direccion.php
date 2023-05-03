@@ -52,7 +52,7 @@
 			<p><table cellpadding="10px" align="center" width="50%">
 				<tr>
 					<td align="right">
-						Dirección:
+						Dirección: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="text" name="dir_1" size="50%" placeholder="Calle, Número de casa, Colonia...">
@@ -68,7 +68,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Estado:
+						Estado: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="text" name="estado" size="20%">
@@ -76,7 +76,7 @@
 				</tr>
                 <tr>
 					<td align="right">
-						Ciudad:
+						Ciudad: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="text" name="ciudad" size="20%">
@@ -84,7 +84,7 @@
 				</tr>
                 <tr>
 					<td align="right">
-						Código Postal:
+						Código Postal: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="c_postal" style="width: 3em">

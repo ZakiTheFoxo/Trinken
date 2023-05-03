@@ -51,7 +51,7 @@
 			<p><table cellpadding="10px" align="center" width="40%">
 				<tr>
 					<td align="right">
-						Nombre de la empresa:
+						Nombre de la empresa: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="text" name="nom_emp" size="30%">
@@ -59,7 +59,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Correo:
+						Correo: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com">
@@ -67,7 +67,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Número Celular:
+						Número Celular: <font color="red">*</font>
 					</td>
 					<td>
 					<input type="number" name="celnum" style="width: 6em" placeholder="0123456789">

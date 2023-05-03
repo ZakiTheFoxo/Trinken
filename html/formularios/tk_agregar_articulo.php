@@ -80,7 +80,7 @@
 			<p><table cellpadding="10px" align="center" width="50%">
 				<tr>
 					<td align="right">
-						Nombre del Artículo:
+						Nombre del Artículo: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="text" name="nom_art" size="50%">
@@ -88,7 +88,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Descripción:
+						Descripción: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="text" name="descripcion" size="50%">
@@ -96,7 +96,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Precio:
+						Precio: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="precio" style="width: 3em" placeholder="$">
@@ -104,7 +104,7 @@
 				</tr>
                 <tr>
 					<td align="right">
-						Categoria:
+						Categoria: <font color="red">*</font>
 					</td>
 					<td>
 						<select name="categoria">
@@ -119,7 +119,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Cantidad:
+						Cantidad: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="cantidad" style="width: 3em">
@@ -127,7 +127,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Proveedor:
+						Proveedor: <font color="red">*</font>
 					</td>
 					<td>
 						<select name="proveedor">

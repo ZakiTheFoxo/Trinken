@@ -71,7 +71,7 @@
 			<p><table cellpadding='10px' align="center" width="40%">
 				<tr>
 					<td align="right">
-						Nombre(s):
+						Nombre(s): <font color="red">*</font>
 					</td>
 
 					<td>
@@ -81,7 +81,7 @@
 
 				<tr>
 					<td align="right">
-						Apellidos:
+						Apellidos: <font color="red">*</font>
 					</td>
 
 					<td>
@@ -91,7 +91,7 @@
 
 				<tr>
 					<td align="right">
-						Número Celular:
+						Número Celular: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="celnum" style="width: 6em" placeholder="0123456789">
@@ -101,7 +101,7 @@
 
 				<tr>
 					<td align="right">
-						Correo:
+						Correo: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com">
@@ -111,7 +111,7 @@
 
 				<tr>
 					<td align="right">
-						Sueldo:
+						Sueldo: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="sueldo" style="width: 3em" placeholder="$">
@@ -121,7 +121,7 @@
 
 				<tr>
 					<td align="right">
-						Comision:
+						Comision: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="comision" style="width: 3em" placeholder="%">
