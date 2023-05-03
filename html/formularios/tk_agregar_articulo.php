@@ -156,13 +156,7 @@
 				</tr>
 			</table></p>
 		</form>
-		<?php
-			if ( $_GET ){ 
-				if ($_GET['articuloagregado']==1){
-		?> 
-					<script>alert("Artículo agregado exitosamente");</script>
-		<?php }} ?>
-		<a href="admin.php" class="btn btn-secondary">Regresar</a>
+		<a href="tk_articulo.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>

@@ -80,13 +80,7 @@
 				</tr>
 			</table></p>
 		</form>
-		<?php
-			if ( $_GET ){ 
-				if ($_GET['proveedoragregado']==1){
-		?> 
-					<script>alert("Proveedor añadido exitosamente");</script>
-		<?php }} ?>
-		<a href="admin.php" class="btn btn-secondary">Regresar</a>
+		<a href="tk_proveedor.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>

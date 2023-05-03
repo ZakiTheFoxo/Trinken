@@ -17,5 +17,5 @@
 ?>
 
 <script>
-    window.location.replace('tk_editar_repartidor.php?editarrepartidor=1');
+    window.location.replace('tk_repartidor.php?repartidor=2');
 </script>

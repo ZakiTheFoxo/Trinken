@@ -14,5 +14,5 @@
 ?>
 
 <script>
-    window.location.replace('tk_editar_proveedor.php?editarproveedor=1');
+    window.location.replace('tk_proveedor.php?proveedor=2');
 </script>

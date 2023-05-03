@@ -99,7 +99,7 @@
 		<?php }} ?>
 
         
-		<a href="admin.php" class="btn btn-secondary">Regresar</a>
+		<a href="../../body.php" class="btn btn-secondary">Regresar</a>
         <br>
 	</body>
 

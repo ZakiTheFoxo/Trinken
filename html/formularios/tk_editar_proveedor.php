@@ -7,87 +7,53 @@
 	<head>
 		<meta charset="UTF=8">
 		<title>Formulario Editar Proveedor</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 		<link rel="stylesheet" href="../../css/main.css">
-
-        <script>
-            $(document).ready(function(){
-                $("#filter").keyup(function(){
-            
-                    // Retrieve the input field text and reset the count to zero
-                    var filter = $(this).val(), count = 0;
-            
-                    // Loop through the comment list
-                    $(".search").each(function(){
-            
-                        // If the list item does not contain the text phrase fade it out
-                        if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-                            $(this).hide();
-            
-                        // Show the list item if the phrase matches and increase the count by 1
-                        } else {
-                            $(this).show();
-                            count++;
-                        }
-                    });
-            
-                    // Update the count
-                    var numberItems = count;
-                    $("#filter-count").text("Resultados: "+count);
-                    if(filter == 0){
-                        $("#filter-count").text("");
-                    }
-                });
-            });
-        </script>
 	</head>
 
 	<body>
-        <form id="live-search" action="" class="styled" method="post">
-            <table align="center" cellpadding='10px'>
+        <?php 
+        	$id = $_POST['id'];
+            $result = mysqli_query($link, "SELECT * FROM tk_proveedores WHERE id = $id");
+            $row = mysqli_fetch_array($result);
+        ?>
+    <form method="POST" name="formulario" action="tk_editar_proveedor_procesa.php">
+			<p><table cellpadding="10px" align="center" width="50%">
+				<tr>
+                    <input type="hidden" name="id" value="<?=$id?>">
+					<td align="right">
+						Nombre de la empresa:
+					</td>
+					<td>
+						<input type="text" name="nom_prov" size="50%" value="<?=$row['nombre_de_la_empresa']?>" required>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Correo Electrónico:
+					</td>
+					<td>
+						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com" value="<?=$row['correo_electronico']?>" required>
+					</td>
+				</tr>
                 <tr>
-                    <td align='center'>
-                        <b>Buscar:</b>
-                        <input type="text" class="text-input" id="filter" placeholder="Buscar" />
-                        <span id="filter-count"></span>
-                    </td>
-                </tr>
-            </table>
-        </form>
-		<a href="admin.php" class="btn btn-secondary">Regresar</a>
-        <p><?php 
-            $result = mysqli_query($link, "
-                SELECT p.id, p.nombre_de_la_empresa, p.correo_electronico, p.celular
-                FROM tk_proveedores p 
-                ORDER BY p.id, p.nombre_de_la_empresa;
-            ");
-
-            if(mysqli_num_rows($result) > 0){
-                echo "<div class='table-responsive'><table width='1000px' align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'><b>Trinken Proveedores</b></td></tr>";
-
-                printf("<tr><td>ID</td><td>Nombre de la empresa</td><td>Correo Electrónico</td><td>Celular</td><td></td></tr>");
-
-                while($row = mysqli_fetch_array($result)){
-                    printf("<form method='post' action='tk_editar_proveedor2.php'><input type='hidden' name='id' value='".$row['id']."'><tr class='search' border='1'><td>%d</td><td>%s</td><td>%s</td><td>%d</td><td><button class='add' value='editar'>Editar</button></td></tr></form>", 
-                        $row["id"], $row["nombre_de_la_empresa"], $row["correo_electronico"], $row["celular"]);
-                }
-
-                echo '</table></div>';
-            }else{
-                echo "<table align='center' cellpadding='10px'><tr><td align='center'><b>No hay proveedores</b></td></tr></table>";
-            }
-            mysqli_free_result($result);
-            mysqli_close($link);
-        ?></p>
-        <?php
-			if ( $_GET ){ 
-				if ($_GET['editarproveedor']==1){
-		?> 
-					<script>alert("Proveedor modificado exitosamente");</script>
-		<?php }} ?>
+                <td align="right">
+						Celular:
+					</td>
+					<td>
+						<input type="number" name="celnum" style="width: 6em" placeholder="0123456789" value="<?=$row['celular']?>" required>
+					</td>
+					
+				</tr>		
+				<tr>
+					<td colspan="2" align="center">
+						<br><input type="submit" value="Editar Proveedor">
+					</td>
+				</tr>
+			</table></p>
+		</form>
+		<a href="tk_proveedor.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>

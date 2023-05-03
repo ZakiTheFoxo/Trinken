@@ -6,90 +6,118 @@
 <html>
 	<head>
 		<meta charset="UTF=8">
-		<title>Formulario Borrar artículo</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<title>Formulario Editar Artículo</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 		<link rel="stylesheet" href="../../css/main.css">
-
-        <script>
-            $(document).ready(function(){
-                $("#filter").keyup(function(){
-            
-                    // Retrieve the input field text and reset the count to zero
-                    var filter = $(this).val(), count = 0;
-            
-                    // Loop through the comment list
-                    $(".search").each(function(){
-            
-                        // If the list item does not contain the text phrase fade it out
-                        if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-                            $(this).hide();
-            
-                        // Show the list item if the phrase matches and increase the count by 1
-                        } else {
-                            $(this).show();
-                            count++;
-                        }
-                    });
-            
-                    // Update the count
-                    var numberItems = count;
-                    $("#filter-count").text("Resultados: "+count);
-                    if(filter == 0){
-                        $("#filter-count").text("");
-                    }
-                });
-            });
-        </script>
 	</head>
 
 	<body>
-        <form id="live-search" action="" class="styled" method="post">
-            <table align="center" cellpadding='10px'>
+        <?php 
+        $id = $_POST['id'];
+            $result = mysqli_query($link, "SELECT * FROM tk_articulos WHERE id = $id");
+            $row = mysqli_fetch_array($result);
+        ?>
+    <form method="POST" name="formulario" action="tk_editar_articulo_procesa.php" enctype="multipart/form-data">
+			<p><table cellpadding="10px" align="center" width="50%">
+				<tr>
+                    <input type="hidden" name="id" value="<?=$id?>">
+					<td align="right">
+						Nombre del Artículo:
+					</td>
+					<td>
+						<input type="text" name="nom_art" size="50%" value="<?=$row['nombre']?>" required>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Descripción:
+					</td>
+					<td>
+						<input type="text" name="descripcion" size="50%" value="<?=$row['descripcion']?>" required>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Precio:
+					</td>
+					<td>
+						<input type="number" name="precio" style="width: 3em" placeholder="$" value="<?=$row['precio']?>" required>
+					</td>
+				</tr>
                 <tr>
-                    <td align='center'>
-                        <b>Buscar:</b>
-                        <input type="text" class="text-input" id="filter" placeholder="Buscar" />
-                        <span id="filter-count"></span>
-                    </td>
-                </tr>
-            </table>
-        </form>
-		<a href="admin.php" class="btn btn-secondary">Regresar</a>
-        <p><?php 
-            $result = mysqli_query($link, "
-                SELECT a.id, a.nombre, a.precio, a.categoria, a.descripcion, a.existencia, p.nombre_de_la_empresa AS Proveedor
-                FROM tk_articulos a, tk_proveedores p 
-                WHERE a.pvr_id = p.id
-                ORDER BY p.id, a.nombre;
-            ");
-
-            if(mysqli_num_rows($result) > 0){
-                echo "<div class='table-responsive'><table width='1000px' align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'><b>Trinken Artículos</b></td></tr>";
-
-                printf("<tr><td>ID</td><td>Nombre</td><td>Precio</td><td>Categoria</td><td>Descripcion</td><td>Existencia</td><td>Proveedor</td><td></td></tr>");
-
-                while($row = mysqli_fetch_array($result)){
-                    printf("<form method='post' action='tk_editar_articulo2.php'><input type='hidden' name='id' value='".$row['id']."'><tr class='search' border='1'><td>%d</td><td>%s</td><td>%d</td><td>%s</td><td>%s</td><td>%d</td><td>%s</td><td><button class='add' value='editar'>Editar</button></td></tr></form>", 
-                        $row["id"], $row["nombre"], $row["precio"], $row["categoria"], $row["descripcion"], $row["existencia"], $row["Proveedor"]);
-                }
-
-                echo '</table></div>';
-            }else{
-                echo "<table align='center' cellpadding='10px'><tr><td align='center'><b>No hay articulos</b></td></tr></table>";
-            }
-            mysqli_free_result($result);
-            mysqli_close($link);
-        ?></p>
-        <?php
-			if ( $_GET ){ 
-				if ($_GET['editararticulo']==1){
-		?> 
-					<script>alert("Artículo modificado exitosamente");</script>
-		<?php }} ?>
-		<a href="admin.php" class="btn btn-secondary">Regresar</a>
+					<td align="right">
+						Categoria:
+					</td>
+					<td>
+						<select name="categoria" required>
+                            <?php 
+                            if($row['categoria'] == 'Cervezas')
+                                echo "<option selected>Cervezas</option>";
+                            else
+                                echo "<option>Cervezas</option>";
+                            if($row['categoria'] == 'Cigarros')
+                                echo "<option selected>Cigarros</option>";
+                            else
+                                echo "<option>Cigarros</option>";
+                            if($row['categoria'] == 'Extras')
+                                echo "<option selected>Extras</option>";
+                            else
+                                echo "<option>Extras</option>";
+                            if($row['categoria'] == 'Licores')
+                                echo "<option selected>Licores</option>";
+                            else
+                                echo "<option>Licores</option>";
+                            if($row['categoria'] == 'Mezcladores')
+                                echo "<option selected>Mezcladores</option>";
+                            else
+                                echo "<option>Mezcladores</option>";
+                            ?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Existencias:
+					</td>
+					<td>
+						<?=$row['existencia']?>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Proveedor:
+					</td>
+					<td>
+						<select name="proveedor" required>
+							<?php 
+								$result2 = mysqli_query($link, "SELECT id, nombre_de_la_empresa AS nom FROM tk_proveedores;");
+								while($row2 = mysqli_fetch_array($result2)){
+                                    if($row['pvr_id'] == $row2['id'])
+                                        echo "<option selected>".$row2['nom']."</option>";
+                                    else
+									    echo "<option>".$row2['nom']."</option>";
+								}
+							?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Imagen:
+					</td>
+					<td>
+						<input type="file" name="imagen" value="<?=$row['imagen']?>">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<br><input type="submit" value="Editar Artículo">
+					</td>
+				</tr>
+			</table></p>
+		</form>
+		<a href="tk_articulo.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>

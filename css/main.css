@@ -64,6 +64,18 @@ footer{
     border-radius: 16% / 8%;
 }
 
+.exis {
+    border-radius: 10px;
+    border: 0;
+    background: linear-gradient(to right, #6990c4, rgb(33, 71, 197));
+    color: #fff;
+    box-shadow: 3px 3px #666;
+}
+
+.exis:active {
+    box-shadow: 0px 0px;
+}
+
 .add {
     border-radius: 10px;
     border: 0;
@@ -73,6 +85,18 @@ footer{
 }
 
 .add:active {
+    box-shadow: 0px 0px;
+}
+
+.del {
+    border-radius: 10px;
+    border: 0;
+    background: linear-gradient(to right, #eb4f44, #ff2525);
+    color: #fff;
+    box-shadow: 3px 3px #666;
+}
+
+.del:active {
     box-shadow: 0px 0px;
 }
 

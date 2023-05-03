@@ -135,14 +135,8 @@
 					</td>
 				</tr>
 			</table></p>
-		<?php
-			if ( $_GET ){ 
-				if ($_GET['repartidoragregado']==1){
-		?> 
-					<script>alert("Repartidor registrado exitosamente");</script>
-		<?php }} ?>
 		</form>
-		<a href="admin.php" class="btn btn-secondary">Regresar</a>
+		<a href="tk_repartidor.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>

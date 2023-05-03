@@ -38,5 +38,5 @@
 ?>
 
 <script>
-    window.location.replace('tk_agregar_articulo.php?articuloagregado=1');
+    window.location.replace('tk_articulo.php?articulo=1');
 </script>
