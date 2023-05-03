@@ -144,7 +144,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<br><input type="submit" value="Editar Artículo">
+						<br><input type="button" value="Editar Artículo" onclick="verificarDatos()">
 					</td>
 				</tr>
 			</table></p>

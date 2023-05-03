@@ -129,7 +129,7 @@
 		
 				<tr>
 					<td colspan="2" align="center">
-						<br><input type="submit" value="Editar Repartidor">
+						<br><input type="button" value="Editar Repartidor" onclick="verificarDatos()">
 					</td>
 				</tr>
 			</table></p>

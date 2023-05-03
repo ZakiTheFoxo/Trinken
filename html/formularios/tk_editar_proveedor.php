@@ -81,7 +81,7 @@
 				</tr>		
 				<tr>
 					<td colspan="2" align="center">
-						<br><input type="submit" value="Editar Proveedor">
+						<br><input type="button" value="Editar Proveedor" onclick="verificarDatos()">
 					</td>
 				</tr>
 			</table></p>
