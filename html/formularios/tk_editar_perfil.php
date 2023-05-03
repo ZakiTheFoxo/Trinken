@@ -15,6 +15,7 @@
         <p><?php
             include "conex.php";
             $link = Conectarse();
+            $contador=1;
             $result = mysqli_query($link, "
                 SELECT id, nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena
                 FROM tk_usuarios
@@ -28,24 +29,78 @@
                 // printf("<tr><td>Nombre</td><td>Apellido</td><td>Fecha de Nacimiento</td><td>Correo Electrónico</td><td>Celular</td><td>Contraseña</td><td></td></tr>");
 
                 while($row = mysqli_fetch_array($result)){
-                    printf("<form method='post' action='tk_editar_perfil2.php'><input type='hidden' name='id' value='".$row['id']."'><tr border><tr><td>Nombre: %s</td></tr><tr><td>Apellidos: %s</td></tr><tr><td>Fecha de Nacimiento: %s</td></tr><tr><td>Correo: %s</td></tr><tr><td>Celular: %s</td></tr><tr><td>Contraseña: %s</td></tr><td><button class='add' value='editar'>Editar</button></td></tr></form>", 
+                    printf("<form method='post' action='tk_editar_perfil2.php'><input type='hidden' name='id' value='".$row['id']."'><tr border><tr><td>Nombre: %s</td></tr><tr><td>Apellidos: %s</td></tr><tr><td>Fecha de Nacimiento: %s</td></tr><tr><td>Correo: %s</td></tr><tr><td>Celular: %s</td></tr><tr><td>Contraseña: %s</td></tr><td><button class='add' value='editar'>Editar</button></td></tr></form><br>", 
                     $row["nombre"], $row["apellidos"], $row["fecha_nacimiento"], $row["correo_electronico"], $row["celular"], $row["contrasena"]);
                 }
 
                 echo '</table></div>';
             }else{
-                echo "<table align='center' cellpadding='10px'><tr><td align='center'><b>No hay repartidores</b></td></tr></table>";
+                echo "<table align='center' cellpadding='10px'><tr><td align='center'><b>No hay repartidores</b></td></tr></table> <br>";
             }
+
+            $link = Conectarse();
+            $result = mysqli_query($link, "
+                SELECT *
+                FROM tk_direccion_clientes
+                WHERE cte_id = $_SESSION[autenticado];
+                
+            ");
+
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    echo "<br><div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'><b>Dirección ".$contador."</b></td></tr>";
+                    echo "<tr><td><p class='desc'>Dirección: " . $row["direccion_linea_1"] . "</p></td></tr>";
+                    echo "<tr><td><p class='desc'>Estado: " . $row["estado"] . "</p></td></tr>";
+                    echo "<tr><td><p class='desc'>Ciudad: " . $row["ciudad"] . "</p></td></tr>";
+                    echo "<tr><td><p class='desc'>Código Postal: " . $row["codigo_postal"] . "</p></td></tr>";
+                    echo "<tr><td><form action='html/formularios/tk_editar_direccion.php' method='POST'>";
+                    echo "<input type='hidden' name='id' value='".$row['cte_id']."'>";
+                    echo "<button class='add' value='editar'>Editar</button>";
+                    echo "</form>";
+                    echo "</td>
+                        <td>
+                        <form action='html/formularios/tk_borrrar_direccion.php' method='POST'>
+                        <input type='hidden' name='id' value='".$row['cte_id']."'>
+                        <input type='hidden' name='direccion1' value='".$row['direccion_linea_1']."'>
+                        <input type='hidden' name='estado' value='".$row['estado']."'>
+                        <button class='add' value='editar'>Borrar</button>
+                        </form>
+                        </td>    
+                    </tr>";
+                    $contador++;
+                    echo '</table></div>';
+                }
+                echo "<td><a href='tk_anadir_direccion.php' class='btn btn-warning rounded-circle' style='width: 50px; height: 50px;'>
+                <span class='visually-hidden'>Añadir</span>
+                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus' viewBox='0 0 16 16'>
+                <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
+                </svg>
+                </a></td>";
+            }else{
+                echo "<br><table align='center' cellpadding='10px'><tr><td align='center'><b>No hay direcciones añadidas</b></td> <td><a href='tk_anadir_direccion.php' class='btn btn-warning rounded-circle' style='width: 50px; height: 50px;'>
+                <span class='visually-hidden'>Añadir</span>
+                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus' viewBox='0 0 16 16'>
+                  <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
+                </svg>
+              </a></td></tr></table><br>";
+            }
+            
+
+
             mysqli_free_result($result);
             mysqli_close($link);
         ?></p>
+
         <?php
 			if ( $_GET ){ 
 				if ($_GET['editarperfil']==1){
 		?> 
 					<script>alert("Perfil modificado exitosamente");</script>
 		<?php }} ?>
+
+        
 		<a href="admin.php" class="btn btn-secondary">Regresar</a>
+        <br>
 	</body>
 
 	<footer>
