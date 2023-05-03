@@ -10,6 +10,38 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="../../css/main.css">
+
+		<script type="text/javascript">
+			function verificarDatos(){
+				// Validar nombre del artículo
+				if(document.formulario.nom_art.value.length == 0){
+					alert("Tiene que escribir el Nombre del Artículo")
+					document.formulario.nom_art.focus()
+					return 0;
+				};
+
+				// Validar descripción
+                if(document.formulario.descripcion.value.length == 0){
+					alert("Tiene que añadir una Descripción del producto")
+					document.formulario.descripcion.focus()
+					return 0;
+				};
+
+				// Validar precio
+				if(document.formulario.precio.value == ""){
+					alert("Tiene que introducir un Precio")
+					document.formulario.precio.focus()
+					return 0;
+				}else if(document.formulario.precio.value <= 0){
+					alert("El precio no puede ser 0 o menor")
+					document.formulario.precio.focus()
+					return 0;
+				}
+
+				// Enviar formulario				
+				document.formulario.submit();
+			}
+		</script>
 	</head>
 
 	<body>

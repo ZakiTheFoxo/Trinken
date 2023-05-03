@@ -10,6 +10,60 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="../../css/main.css">
+
+		<script type="text/javascript">
+			function crearCuenta(){
+				// Validar nombre
+				if(document.formulario.nom_rep.value.length == 0){
+					alert("Tiene que escribir su Nombre")
+					document.formulario.nom_rep.focus()
+					return 0;
+				};
+
+				// Validar apellido
+				if(document.formulario.apellidos.value.length == 0){
+					alert("Tiene que escribir su Apellido")
+					document.formulario.apellidos.focus()
+					return 0;
+				};
+
+				// Validar correo
+				if(document.formulario.correo.value.length == 0){
+					alert("Tiene que escribir su Correo")
+					document.formulario.correo.focus()
+					return 0;
+				};
+
+				// Validar número de celular y longitud
+				if(document.formulario.celnum.value.length == 0){
+					alert("Tiene que escribir su Número de Celular")
+					document.formulario.celnum.focus()
+					return 0;
+				};
+				if(document.formulario.celnum.value.length != 10){
+					alert("El Número Celular debe contener 10 digitos")
+					document.formulario.celnum.focus()
+					return 0;
+				};
+
+				// Validar Sueldo
+				if(document.formulario.sueldo.value.length == 0){
+					alert("Tiene que ingresar su Sueldo")
+					document.formulario.sueldo.focus()
+					return 0;
+				};
+
+				// Validar Comision
+				if(document.formulario.comision.value.length == 0){
+					alert("Tiene que ingresar su Comision")
+					document.formulario.comision.focus()
+					return 0;
+				};
+
+				// Enviar formulario				
+				document.formulario.submit();
+			}
+		</script>
 	</head>
 
 	<body>
