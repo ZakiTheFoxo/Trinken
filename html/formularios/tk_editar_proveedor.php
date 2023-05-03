@@ -56,7 +56,7 @@
 				<tr>
                     <input type="hidden" name="id" value="<?=$id?>">
 					<td align="right">
-						Nombre de la empresa:
+						Nombre de la empresa: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="text" name="nom_prov" size="50%" value="<?=$row['nombre_de_la_empresa']?>" required>
@@ -64,7 +64,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Correo Electrónico:
+						Correo Electrónico: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com" value="<?=$row['correo_electronico']?>" required>
@@ -72,7 +72,7 @@
 				</tr>
                 <tr>
                 <td align="right">
-						Celular:
+						Celular: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="celnum" style="width: 6em" placeholder="0123456789" value="<?=$row['celular']?>" required>

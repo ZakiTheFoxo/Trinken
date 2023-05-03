@@ -87,7 +87,7 @@
 			<p><table cellpadding='10px' align="center" width="40%">
 				<tr>
 					<td align="right">
-						Nombre(s):
+						Nombre(s): <font color="red">*</font>
 					</td>
 
 					<td>
@@ -97,7 +97,7 @@
 
 				<tr>
 					<td align="right">
-						Apellidos:
+						Apellidos: <font color="red">*</font>
 					</td>
 
 					<td>
@@ -108,7 +108,7 @@
 				<tr>
 					
 					<td align="right">
-						Constraseña:
+						Constraseña: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="password" name="clave" size="30%">
@@ -118,7 +118,7 @@
 
 				<tr>
 					<td align="right">
-						Fecha de Nacimiento:
+						Fecha de Nacimiento: <font color="red">*</font>
 					</td>
 
 					<td>
@@ -128,7 +128,7 @@
 
 				<tr>
 					<td align="right">
-						Número Celular:
+						Número Celular: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="celnum" style="width: 6em" placeholder="0123456789">
@@ -138,7 +138,7 @@
 
 				<tr>
 					<td align="right">
-						Correo:
+						Correo: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com">

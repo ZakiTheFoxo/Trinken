@@ -77,7 +77,7 @@
 				<tr>
                     <input type="hidden" name="id" value="<?=$id?>">
 					<td align="right">
-						Nombre del Repartidor:
+						Nombre del Repartidor: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="text" name="nom_rep" size="50%" value="<?=$row['nombre']?>" required>
@@ -85,7 +85,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Apellidos:
+						Apellidos: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="text" name="apellidos" size="50%" value="<?=$row['apellidos']?>" required>
@@ -93,7 +93,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Correo Electrónico:
+						Correo Electrónico: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com" value="<?=$row['correo_electronico']?>" required>
@@ -101,7 +101,7 @@
 				</tr>
                 <tr>
                 <td align="right">
-						Celular:
+						Celular: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="celnum" style="width: 6em" placeholder="0123456789" value="<?=$row['celular']?>" required>
@@ -110,7 +110,7 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Sueldo:
+						Sueldo: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="sueldo" style="width: 3em" value="<?=$row['sueldo']?>" required>
@@ -119,7 +119,7 @@
 				<tr>
 
                 <td align="right">
-						Comisión:
+						Comisión: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="number" name="comision" style="width: 3em" value="<?=$row['comision']?>" required>
