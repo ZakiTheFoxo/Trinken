@@ -67,13 +67,13 @@
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
-                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
-                    echo "<h2>" . $row["nombre"] . "</h2>";
+                    echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                    echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
+                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
                     echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
                     echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
+                    echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
                     echo "</form>";
                     echo "</div>";
                     }
@@ -85,15 +85,6 @@
             </div>
         </div>
         <br>
-
-        <!-- <div class="comprado-reciente">
-            <font color="white" style="position:relative; left:1%" size="5%">
-                Comprado Recientemente
-            </font>
-            <div class="scroll-container">
-                <div class="articulo"></div>
-            </div>
-        </div> -->
 
         <div class="bebidas" id="bebidas">
             <font color="white" style="position:relative; left:1%" size="7%">
@@ -108,19 +99,19 @@
                 $result = mysqli_query($link,$sql);
 
                 if ($result->num_rows > 0) {
-                while($row = $result->fetch_array()) {
-                    echo "<div class='articulo'>";
-                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
-                    echo "<h2>" . $row["nombre"] . "</h2>";
-                    echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
-                    echo "</form>";
-                    echo "</div>";
-                    }
-                } 
+                    while($row = $result->fetch_array()) {
+                        echo "<div class='articulo'>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
+                        echo "<p>Precio: $" . $row["precio"] . "</p>";
+                        echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
+                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                        echo "</form>";
+                        echo "</div>";
+                        }
+                    } 
                 else {
                     echo "No hay productos en la base de datos";
                 }
@@ -136,19 +127,19 @@
                 $result = mysqli_query($link,$sql);
 
                 if ($result->num_rows > 0) {
-                while($row = $result->fetch_array()) {
-                    echo "<div class='articulo'>";
-                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
-                    echo "<h2>" . $row["nombre"] . "</h2>";
-                    echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
-                    echo "</form>";
-                    echo "</div>";
-                    }
-                } 
+                    while($row = $result->fetch_array()) {
+                        echo "<div class='articulo'>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
+                        echo "<p>Precio: $" . $row["precio"] . "</p>";
+                        echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
+                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                        echo "</form>";
+                        echo "</div>";
+                        }
+                    } 
                 else {
                     echo "No hay productos en la base de datos";
                 }
@@ -159,24 +150,24 @@
                 Mezcladores
             </font>
             <div class="scroll-container">
-                       <?php
+                <?php
                 $sql = "SELECT * FROM tk_articulos WHERE categoria = 'Mezcladores'";
                 $result = mysqli_query($link,$sql);
 
                 if ($result->num_rows > 0) {
-                while($row = $result->fetch_array()) {
-                    echo "<div class='articulo'>";
-                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
-                    echo "<h2>" . $row["nombre"] . "</h2>";
-                    echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
-                    echo "</form>";
-                    echo "</div>";
-                    }
-                } 
+                    while($row = $result->fetch_array()) {
+                        echo "<div class='articulo'>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
+                        echo "<p>Precio: $" . $row["precio"] . "</p>";
+                        echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
+                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                        echo "</form>";
+                        echo "</div>";
+                        }
+                    } 
                 else {
                     echo "No hay productos en la base de datos";
                 }
@@ -196,19 +187,19 @@
                 $result = mysqli_query($link,$sql);
 
                 if ($result->num_rows > 0) {
-                while($row = $result->fetch_array()) {
-                    echo "<div class='articulo'>";
-                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
-                    echo "<h2>" . $row["nombre"] . "</h2>";
-                    echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
-                    echo "</form>";
-                    echo "</div>";
-                    }
-                } 
+                    while($row = $result->fetch_array()) {
+                        echo "<div class='articulo'>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
+                        echo "<p>Precio: $" . $row["precio"] . "</p>";
+                        echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
+                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                        echo "</form>";
+                        echo "</div>";
+                        }
+                    }  
                 else {
                     echo "No hay productos en la base de datos";
                 }
@@ -228,19 +219,19 @@
                 $result = mysqli_query($link,$sql);
 
                 if ($result->num_rows > 0) {
-                while($row = $result->fetch_array()) {
-                    echo "<div class='articulo'>";
-                    echo "<img src='imagenes/Productos/".$row["id"].".png' height=45%>";
-                    echo "<h2>" . $row["nombre"] . "</h2>";
-                    echo "<p>Precio: $" . $row["precio"] . "</p>";
-                    echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p>";
-                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                    echo "<button class='add' value='Agregar al carrito'>Agregar al carrito</button>";
-                    echo "</form>";
-                    echo "</div>";
-                    }
-                } 
+                    while($row = $result->fetch_array()) {
+                        echo "<div class='articulo'>";
+                        echo "<div class='img-articulo'><img src='imagenes/Productos/".$row["id"].".png' height='100%'></div>";
+                        echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
+                        echo "<p>Precio: $" . $row["precio"] . "</p>";
+                        echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
+                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                        echo "</form>";
+                        echo "</div>";
+                        }
+                    } 
                 else {
                     echo "No hay productos en la base de datos";
                 }
