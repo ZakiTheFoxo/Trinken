@@ -39,15 +39,13 @@
 				// Validación edad 18 o mayor
 				var today = new Date();
 				var birthDate = new Date(document.formulario.fecha.value);
-				console.log("CUM:"+birthDate);
-				var age = today.getFullYear() - birthDate.getFullYear();
-				console.log("year:"+age);
+				birthDate.setFullYear(birthDate.getFullYear(),birthDate.getMonth(),birthDate.getDate()+1);
+				var age = today.getFullYear() - birthDate.getFullYear() ;
 				var m = today.getMonth() - birthDate.getMonth();
-				console.log("month:"+m);
+
 				if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
 					age--;
 				}
-				console.log("edad:"+age);
 
 				if(age<18){
 					alert("Trinken es solo para mayores de edad")
