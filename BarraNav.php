@@ -54,8 +54,8 @@
 									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 								}else{
 									echo '¡Bienvenido, '.$row['nombre'].'!
-									<a type="button" class="btn link btn-info" href="html/formularios/tk_pedidos_repartidor.php" target="cuadroenlaces">Ver Pedidos</a>
-									<a type="button" class="btn link btn-info" href="html/formularios/tk_editar_perfil.php" target="cuadroenlaces">Editar Perfil</a>
+									<a type="button" class="btn link btn-primary" href="html/formularios/tk_pedidos_repartidor.php" target="cuadroenlaces">Ver Pedidos</a>
+									<a type="button" class="btn link btn-info" href="html/formularios/tk_editar_perfil_repartidor.php" target="cuadroenlaces">Editar Perfil</a>
 									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 								}
 						}

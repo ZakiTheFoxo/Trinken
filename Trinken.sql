@@ -26,7 +26,9 @@ CREATE TABLE tk_usuarios (
     correo_electronico VARCHAR(60) NOT NULL,
     administrador      INTEGER DEFAULT 0,
     celular            VARCHAR(14) NOT NULL,
-    contrasena         VARCHAR(35) NOT NULL
+    contrasena         VARCHAR(35) NOT NULL,
+    validado           INT(1),
+    imagen_ine         text
 );
 
 CREATE TABLE tk_direccion_clientes (
