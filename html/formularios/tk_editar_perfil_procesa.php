@@ -7,9 +7,13 @@
     $cel = $_POST['celnum'];
     $contra = $_POST['contra'];
     
-
-    mysqli_query($link, "UPDATE tk_usuarios SET
-    correo_electronico = '$correo', celular = $cel, contrasena = $contra WHERE id = $id") or die(mysqli_error($link));
+    if($contra != "") {
+        mysqli_query($link, "UPDATE tk_usuarios SET
+        correo_electronico = '$correo', celular = $cel, contrasena = $contra WHERE id = $id") or die(mysqli_error($link));
+    } else {
+        mysqli_query($link, "UPDATE tk_usuarios SET
+        correo_electronico = '$correo', celular = $cel WHERE id = $id") or die(mysqli_error($link));
+    }
 
     mysqli_close($link);   
 ?>

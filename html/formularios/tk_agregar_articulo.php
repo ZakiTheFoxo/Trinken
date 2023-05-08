@@ -143,10 +143,10 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Imagen:
+						Imagen: <font color="red">*</font>
 					</td>
 					<td>
-						<input type="file" name="imagen" accept="image/png">
+						<input type="file" name="imagen" accept="image/png"> (Solo .png)
 					</td>
 				</tr>
 				<tr>

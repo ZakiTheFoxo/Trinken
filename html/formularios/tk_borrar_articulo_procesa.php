@@ -13,7 +13,7 @@
         $row = mysqli_fetch_array($result);
 
         if($row['imagen'])
-            unlink('../../imagenes/productos/'.$row['imagen']);
+            unlink('../../imagenes/Productos/'.$row['imagen']);
 
     mysqli_query($link, "DELETE FROM tk_articulos WHERE id = '$id';");
 

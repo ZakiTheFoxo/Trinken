@@ -9,6 +9,38 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="../../css/main.css">
+
+		<script>
+			function verificarDatos(){
+				// Validar correo
+				if(document.formulario.correo.value.length == 0){
+					alert("Tiene que escribir su Correo")
+					document.formulario.correo.focus()
+					return 0;
+				};
+
+				// Validar número de celular y longitud
+				if(document.formulario.celnum.value.length == 0){
+					alert("Tiene que escribir su Número de Celular")
+					document.formulario.celnum.focus()
+					return 0;
+				};
+				if(document.formulario.celnum.value.length != 10){
+					alert("El Número Celular debe contener 10 digitos")
+					document.formulario.celnum.focus()
+					return 0;
+				};
+
+				// Validar contraseña 
+				if(document.formulario.contra.value.length == 0){
+					alert("No puede dejar el campo vacio")
+					document.formulario.contra.focus()
+					return 0;
+				};
+
+				document.formulario.submit();
+			}
+		</script>
 	</head>
 
 	<body>
@@ -23,7 +55,7 @@
 			<p><table cellpadding="10px" align="center" width="50%">
 				<tr>
 					<td align="right">
-						Correo Electrónico:
+						Correo Electrónico: <font color="red">*</font>
 					</td>
 					<td>
 						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com" value="<?=$row['correo_electronico']?>" required>
@@ -31,28 +63,29 @@
 				</tr>
                 <tr>
                 <td align="right">
-						Celular:
+						Celular: <font color="red">*</font>
 					</td>
 					<td>
-						<input type="number" name="celnum" style="width: 6em" placeholder="0123456789" value="<?=$row['celular']?>" required>
+						<input type="number" name="celnum" style="width: 10em" placeholder="0123456789" value="<?=$row['celular']?>" required>
 					</td>
 					
 				</tr>
 				<tr>
 					<td align="right">
-						Contraseña:
+						Nueva Contraseña:
 					</td>
 					<td>
-						<input type="password" name="contra" style="width: 3em" value="<?=$row['contrasena']?>" required>
+						<input type="password" name="contra" size="30%" value="">
 					</td>
 				</tr>					
 				<tr>
 					<td colspan="2" align="center">
-						<br><input type="submit" value="Editar Perfil">
+						<br><input type="button" value="Editar Perfil" onclick="verificarDatos()">
 					</td>
 				</tr>
 			</table></p>
 		</form>
+		<a href="tk_editar_perfil.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>

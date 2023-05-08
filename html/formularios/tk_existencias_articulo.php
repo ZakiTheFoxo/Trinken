@@ -85,7 +85,7 @@
             </tr>
             <tr>
                 <td align="center">
-                    <input type="radio" name="exis" value="agregar" data="1" onclick="javascript:checkSelected(this)">Agregar
+                    <input type="radio" name="exis" value="agregar" data="1" onclick="javascript:checkSelected(this)">Solicitar
                 </td>
                 <td align="center">
                     <input type="radio" name="exis" value="quitar" data="2" onclick="checkSelected(this)">Quitar
@@ -101,11 +101,27 @@
                         <table class='metodo'>
                             <tr>
                                 <td align="right">
-                                    Agregar Existencias:
+                                    Solicitar Existencias:
                                 </td>
             
                                 <td>
                                     <input type="number" name="agregar" style="width:3em">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Proveedor: 
+                                </td>
+                                    <?php 
+								        $result = mysqli_query($link, "
+                                            SELECT p.nombre_de_la_empresa AS Proveedor
+                                            FROM tk_articulos a, tk_proveedores p 
+                                            WHERE a.pvr_id = p.id;
+                                        ");
+                                        $row = mysqli_fetch_array($result);
+                                    ?>
+                                <td>
+                                    <?=$row["Proveedor"]?>
                                 </td>
                             </tr>
                             <tr>

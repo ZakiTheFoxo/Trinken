@@ -21,7 +21,7 @@
           VALUES('$arti', '$prec', '$categ', '$desc', '$cant' ,'$row[id]');") or die(mysqli_error($link));
 
     // Insertar imagen
-    $result = mysqli_query($link, "SELECT id FROM tk_articulos WHERE nombre = '$arti'");
+    $result = mysqli_query($link, "SELECT MAX(id) as id FROM tk_articulos WHERE nombre = '$arti'");
     $row = mysqli_fetch_array($result);
 
     $target_path='../../imagenes/Productos/';

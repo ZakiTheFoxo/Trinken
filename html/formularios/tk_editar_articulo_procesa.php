@@ -23,7 +23,7 @@
 
     // Insertar imagen
     if($_FILES['imagen']['name'] != ""){
-        $result = mysqli_query($link, "SELECT id, imagen FROM tk_articulos WHERE nombre = '$arti'");
+        $result = mysqli_query($link, "SELECT id, imagen FROM tk_articulos WHERE id = '$id'");
         $row = mysqli_fetch_array($result);
         
         $target_path='../../imagenes/Productos/';

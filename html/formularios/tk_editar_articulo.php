@@ -136,10 +136,10 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Imagen:
+						Nueva Imagen:
 					</td>
 					<td>
-						<input type="file" name="imagen" value="<?=$row['imagen']?>">
+						<input type="file" name="imagen" value="<?=$row['imagen']?>"> (Solo .png)
 					</td>
 				</tr>
 				<tr>
