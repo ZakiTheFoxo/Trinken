@@ -39,15 +39,13 @@
 				// Validación edad 18 o mayor
 				var today = new Date();
 				var birthDate = new Date(document.formulario.fecha.value);
-				console.log("CUM:"+birthDate);
-				var age = today.getFullYear() - birthDate.getFullYear();
-				console.log("year:"+age);
+				birthDate.setFullYear(birthDate.getFullYear(),birthDate.getMonth(),birthDate.getDate()+1);
+				var age = today.getFullYear() - birthDate.getFullYear() ;
 				var m = today.getMonth() - birthDate.getMonth();
-				console.log("month:"+m);
+
 				if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
 					age--;
 				}
-				console.log("edad:"+age);
 
 				if(age<18){
 					alert("Trinken es solo para mayores de edad")
@@ -73,6 +71,13 @@
 				if(document.formulario.correo.value.length == 0){
 					alert("Tiene que escribir su Correo")
 					document.formulario.correo.focus()
+					return 0;
+				};
+
+				// Validar Imagen
+                if(document.formulario.imagen.value == ''){
+					alert("Tiene que subir una imagen")
+					document.formulario.imagen.focus()
 					return 0;
 				};
 
@@ -144,6 +149,14 @@
 						<input type="email" name="correo" size="30%" placeholder="ejemplo@correo.com">
 					</td>
 					
+				</tr>
+				<tr>
+					<td align="right">
+						Imagen: <font color="red">*</font>
+					</td>
+					<td>
+						<input type="file" name="imagen" accept="image/png"> (Solo .png)
+					</td>
 				</tr>
 
 				<tr>
