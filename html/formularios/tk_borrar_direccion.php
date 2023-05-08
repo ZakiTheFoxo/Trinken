@@ -12,6 +12,6 @@
 ?>
 
 <script>
-    alert("El artículo se ha borrado exitosamente");
+    alert("La direccion se ha borrado exitosamente");
     window.location.replace('tk_editar_perfil.php');
 </script>

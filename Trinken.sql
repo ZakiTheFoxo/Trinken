@@ -24,7 +24,7 @@ CREATE TABLE tk_usuarios (
     apellidos          VARCHAR(60) NOT NULL,
     fecha_nacimiento   DATE NOT NULL,
     correo_electronico VARCHAR(60) NOT NULL,
-    administrador      BOOLEAN DEFAULT FALSE,
+    administrador      INTEGER DEFAULT 0,
     celular            VARCHAR(14) NOT NULL,
     contrasena         VARCHAR(35) NOT NULL
 );

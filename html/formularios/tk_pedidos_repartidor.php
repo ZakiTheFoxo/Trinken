@@ -25,7 +25,7 @@
             echo '
                 <div class="header">
                     <font color="white" style="position:relative; left:1%" size="8%">
-                        <p>Mi Perfil</p>
+                        <p>Pedidos Pendientes</p>
                     </font>
                 </div>
             ';

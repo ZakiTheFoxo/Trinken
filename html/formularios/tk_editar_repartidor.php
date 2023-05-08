@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="../../css/main.css">
 
 		<script type="text/javascript">
-			function crearCuenta(){
+			function verificarDatos(){
 				// Validar nombre
 				if(document.formulario.nom_rep.value.length == 0){
 					alert("Tiene que escribir su Nombre")
