@@ -34,8 +34,8 @@
 								$row = mysqli_fetch_array($result);
 
 								// Admin
-								if($row['administrador'] == '1'){
-									echo '¡Bienvenido, '.$row['nombre'].'!
+								if($row['administrador'] == '1'){ ?>
+									¡Bienvenido, <?=$row['nombre']?>!
 									<a type="button" id="admin" class="btn link btn-primary" data-toggle="vista-admin">Admin</a>
 									<div class="vista-admin" style="display:inline;">
 										<div class="btn-group">
@@ -44,28 +44,36 @@
 											<a id="option" class="btn link btn-secondary" href="html/formularios/tk_repartidor.php" type="button" target="cuadroenlaces">Repartidores</a>
 										</div>
 									</div>
+									<?php 
+										$result = mysqli_query($link, "SELECT COUNT(*) as num FROM tk_usuarios WHERE validado = 0");
+										$row = mysqli_fetch_array($result);
+										if($row['num'] > 0) {
+									?>
+										<div class="btn-group">
+												<a class="btn link btn-secondary" href="html/formularios/tk_verificar_ine.php" type="button" target="cuadroenlaces">Verificar</a>
+												<a class="btn link btn-danger active" href="html/formularios/tk_verificar_ine.php" type="button" target="cuadroenlaces"><?=$row['num']?></a>
+										</div>
+										<?php } ?>
 									<a type="button" class="btn link btn-info" href="html/formularios/tk_editar_perfil.php" target="cuadroenlaces">Editar Perfil</a>
 									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
 								
-								// Usuario
-								}elseif($row['administrador'] == '0'){
-									echo '¡Bienvenido, '.$row['nombre'].'!
+								<?php // Usuario
+								}elseif($row['administrador'] == '0'){ ?>
+									¡Bienvenido, <?=$row['nombre']?>!
 									<a type="button" class="btn link btn-info" href="html/formularios/tk_editar_perfil.php" target="cuadroenlaces">Editar Perfil</a>
 									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
-								}else{
-									echo '¡Bienvenido, '.$row['nombre'].'!
+								<?php }else{ ?>
+									¡Bienvenido, <?=$row['nombre']?>!
 									<a type="button" class="btn link btn-primary" href="html/formularios/tk_pedidos_repartidor.php" target="cuadroenlaces">Ver Pedidos</a>
 									<a type="button" class="btn link btn-info" href="html/formularios/tk_editar_perfil_repartidor.php" target="cuadroenlaces">Editar Perfil</a>
 									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
-								}
+								<?php }
 						}
-						else{
-							echo '
+						else{ ?>
 							<a href="html/formularios/tk_inicio_sesion.php" target="cuadroenlaces">
 								<button id="sesion"type="button" class="btn link btn-primary">Iniciar Sesión</button>
 							</a>
-							';
-						}
+						<?php }
 					?>
 
 					<script>

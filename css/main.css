@@ -224,3 +224,46 @@ i{
     margin-left: -30px; 
     cursor: pointer;
 }
+
+.notif {
+    background: #fff;
+    color: white;
+}
+
+.verif {
+    position: fixed;
+    padding: 10px;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(45, 163, 226);
+    color: white;
+    text-align: center;
+    line-height: normal;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.verif a {
+    color: white;
+    text-decoration: none;
+    font-size: medium;
+}
+
+.verif_err {
+    position: fixed;
+    padding: 10px;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255,27,93,1);
+    color: white;
+    text-align: center;
+    line-height: normal;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.verif_err a {
+    color: white;
+    text-decoration: none;
+    font-size: medium;
+}

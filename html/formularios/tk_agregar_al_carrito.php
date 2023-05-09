@@ -66,8 +66,6 @@
 	<body>
 			<p><table cellpadding="10px" align="center" width="50%">
                 <?php
-                    include("conex.php");
-                    $link = Conectarse();
                     $ato_id=$_POST["id"];
                     $cte_id = $_SESSION['autenticado'];
                     $sql1= "SELECT * from tk_articulos WHERE id=$ato_id";

@@ -1,7 +1,5 @@
 <?php 
-    include("conex.php");
     include("seguridad.php");
-    $link = Conectarse();
 
     $direccion_linea_1=$_POST["direccion1"];
     $estado=$_POST["estado"];

@@ -45,8 +45,6 @@
 
 	<body>
         <?php 
-        include "conex.php";
-        $link = Conectarse();
 		$id = $_POST['id'];
             $result = mysqli_query($link, "SELECT * FROM tk_usuarios WHERE id = $id");
             $row = mysqli_fetch_array($result);

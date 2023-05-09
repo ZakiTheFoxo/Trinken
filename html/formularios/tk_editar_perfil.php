@@ -13,8 +13,6 @@
 
 	<body>
         <?php
-            include "conex.php";
-            $link = Conectarse();
             $contador=1;
             $result = mysqli_query($link, "
                 SELECT id, nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena

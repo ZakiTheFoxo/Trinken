@@ -88,7 +88,7 @@
 	</head>
 
 	<body>
-		<form method="POST" name="formulario" action="tk_registrar_cuenta_procesa.php">
+		<form method="POST" name="formulario" action="tk_registrar_cuenta_procesa.php" enctype="multipart/form-data">
 			<p><table cellpadding='10px' align="center" width="40%">
 				<tr>
 					<td align="right">
@@ -152,10 +152,10 @@
 				</tr>
 				<tr>
 					<td align="right">
-						Imagen: <font color="red">*</font>
+						Fotografía INE: <font color="red">*</font>
 					</td>
 					<td>
-						<input type="file" name="imagen" accept="image/png"> (Solo .png)
+						<input type="file" name="imagen" accept="image/*">
 					</td>
 				</tr>
 

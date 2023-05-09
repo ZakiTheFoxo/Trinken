@@ -21,8 +21,6 @@
         </font>
 
 		<?php
-			include("conex.php");
-			$link = Conectarse();
 			$cte_id = $_SESSION['autenticado'];
 			$sql = "SELECT fecha, hora, total, nombre, apellidos FROM tk_pedidos left outer join tk_repartidores on tk_pedidos.rpr_id = tk_repartidores.id WHERE cte_id = $cte_id and estado = 'EN PROCESO';";
 			$result = mysqli_query($link,$sql);

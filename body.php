@@ -242,11 +242,31 @@
         <div class="container">
             <div class="fixed-btn">
                 <div class="carrito">
-                    <a href="html/formularios/carrito.php"><img src="imagenes/carrito.png" width="100%" height="100%" title="Carrito">
+                    <a href="html/formularios/carrito.php"><img src="imagenes/carrito.png" width="100%" height="100%" title="Carrito" id="carrito">
                     </a>
                 </div>
             </div>
         </div>
+
+        <?php 
+            if($_SESSION){
+            $sql = "SELECT validado FROM tk_usuarios WHERE id = $_SESSION[autenticado]";
+            $result = mysqli_query($link,$sql);
+            $row = mysqli_fetch_array($result);
+
+            if($row['validado'] == 0) { ?>
+                <div class="container">
+                    <div class="verif">
+                        <a href="html/formularios/tk_validar.php">En Proceso de validación de cuenta<br>Haga click para ver más</a>
+                    </div>
+                </div>
+            <?php } else if($row['validado'] == 1) { ?>
+                <div class="container">
+                    <div class="verif_err">
+                        <a href="html/formularios/tk_validar_nuevamente.php">Error en la validacion de la cuenta!!!<br>Haga click para ver más</a>
+                    </div>
+                </div>
+            <?php }} ?>
     </body>
     
     <footer>
