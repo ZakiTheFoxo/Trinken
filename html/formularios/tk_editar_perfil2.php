@@ -31,13 +31,6 @@
 					return 0;
 				};
 
-				// Validar contraseña 
-				if(document.formulario.contra.value.length == 0){
-					alert("No puede dejar el campo vacio")
-					document.formulario.contra.focus()
-					return 0;
-				};
-
 				document.formulario.submit();
 			}
 		</script>
@@ -52,6 +45,8 @@
             $row = mysqli_fetch_array($result);
         ?>
     <form method="POST" name="formulario" action="tk_editar_perfil_procesa.php" enctype="multipart/form-data">
+		<input type="hidden" value="<?=$id?>" name="id">
+		<input type="hidden" value="<?=$admin?>" name="admin">
 			<p><table cellpadding="10px" align="center" width="50%">
 				<tr>
 					<td align="right">

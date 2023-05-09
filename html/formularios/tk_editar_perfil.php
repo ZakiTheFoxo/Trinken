@@ -87,7 +87,6 @@
                 ?>
                 </div>
                 <a href='tk_anadir_direccion.php' class='btn btn-warning rounded-circle' style='width: 50px; height: 50px; font-size: 26px;'>
-                   +
                 </a>
                 <br>
                 <?php
