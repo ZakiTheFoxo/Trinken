@@ -1,7 +1,5 @@
 <?php 
-    include("conex.php");
     include("seguridad.php");
-    $link = Conectarse();
 
     $ato_id=$_POST["ato"];
     $exist=$_POST["existencia"];

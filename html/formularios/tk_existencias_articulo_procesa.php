@@ -23,5 +23,5 @@
 ?>
 
 <script>
-    window.location.replace('tk_articulo.php?articulo=2');
+    window.location.replace('tk_articulo.php?articulo=4');
 </script>

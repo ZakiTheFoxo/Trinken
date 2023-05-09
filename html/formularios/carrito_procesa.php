@@ -1,7 +1,5 @@
 <?php 
-    include("conex.php");
     include("seguridad.php");
-    $link = Conectarse();
 
     $num = $_POST['num'];
     $titular = $_POST['titular'];
@@ -24,6 +22,13 @@
     $result = mysqli_query($link, "SELECT * from tk_carrito WHERE cte_id = $_SESSION[autenticado]");
     while($row = mysqli_fetch_array($result)){
         mysqli_query($link, "INSERT INTO tk_ato_pedidos VALUES($p_id[id], $row[ato_id], $row[cantidad_pedida]);");
+
+        $res = mysqli_query($link, "SELECT existencia FROM tk_articulos WHERE id = $row[ato_id]");
+        $exis = mysqli_fetch_array($res);
+
+        $nueva_exis = $exis['existencia'] - $row['cantidad_pedida'];
+
+        mysqli_query($link, "UPDATE tk_articulos SET existencia = $nueva_exis WHERE id = $row[ato_id]");
     }
 
     mysqli_query($link, "DELETE FROM tk_carrito WHERE cte_id = $_SESSION[autenticado]");

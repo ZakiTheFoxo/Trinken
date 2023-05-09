@@ -100,6 +100,9 @@
 		    <?php }
                 if ($_GET['articulo']==3){?> 
                     <script>alert("Artículo eliminado exitosamente");</script>
+            <?php }
+                if ($_GET['articulo']==4){?> 
+                    <script>alert("Existencias actualizadas correctamente");</script>
     <?php   }} ?>
 	</body>
 

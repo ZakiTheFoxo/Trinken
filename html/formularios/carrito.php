@@ -91,8 +91,6 @@
 	<body>	
 		<br><br>
 		<?php
-			include("conex.php");
-			$link = Conectarse();
 			$cte_id = $_SESSION['autenticado'];
 			$sql = "SELECT * FROM tk_articulos join tk_carrito WHERE id = ato_id AND cte_id = $cte_id";
 			$total=0;
@@ -161,7 +159,7 @@
 										</td>
 					
 										<td>
-											<input type="number" name="num" size="30%" minlength="16" maxlength="19">
+											<input type="number" name="num" size="30%" minlength="16" maxlength="19" placeholder="0000-0000-0000-0000">
 										</td>
 									</tr>
 					
@@ -191,7 +189,7 @@
 											CCV:
 										</td>
 										<td>
-											<input type="number" name="ccv" size="30%" maxlength="3">
+											<input type="number" name="ccv" style="width: 3em" maxlength="3">
 										</td>
 										
 									</tr>

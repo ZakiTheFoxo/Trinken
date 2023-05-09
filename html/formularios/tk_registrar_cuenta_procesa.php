@@ -13,7 +13,7 @@
 	VALUES('$nom', '$ap', '$bd', '$email', '$cel', '$pass');") or die(mysqli_error($link));
 
 	// Insertar imagen
-    $result = mysqli_query($link, "SELECT MAX(id) as id FROM tk_usuarios WHERE nombre = '$nom'");
+    $result = mysqli_query($link, "SELECT MAX(id) as id FROM tk_usuarios WHERE nombre = '$nom';");
     $row = mysqli_fetch_array($result);
 
     $target_path='../../imagenes/INE/';
@@ -30,6 +30,6 @@
 ?>
 
 	<script>
-		window.location.replace('tk_inicio_sesion.php');
+		window.location.replace('tk_validar.php');
 	</script>
 	

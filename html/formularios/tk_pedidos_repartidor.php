@@ -13,8 +13,6 @@
 
 	<body>
         <?php
-            include "conex.php";
-            $link = Conectarse();
             $contador=1;
             $result = mysqli_query($link, "
                 SELECT id, nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena
@@ -45,7 +43,6 @@
                 echo "<table align='center' cellpadding='10px'><tr><td align='center'><b>No hay repartidores</b></td></tr></table> <br>";
             }
 
-            $link = Conectarse();
             $result = mysqli_query($link, "
                 SELECT *
                 FROM tk_direccion_clientes
