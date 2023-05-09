@@ -50,20 +50,32 @@
         </div>
 
         <br>
-
-        <div class="promociones">
-            <font color="white" style="position:relative; left:1%" size="5%">
-                Todos los Artículos
-                <!-- Promociones -->
-            </font>
+        
+        <!--Vista Previa Administrador / Repartidor-->
+        <?php
+            include("html/formularios/conex.php");
+            $link = Conectarse();
+            $id = $_SESSION['autenticado'];
+            $result1 = mysqli_query($link, "SELECT nombre, administrador FROM tk_usuarios WHERE id = '$id'");
+            $row1 = mysqli_fetch_array($result1);
+            if($row1['administrador'] > 0){ ?><?php // Admin y Repartidor
+                echo '<div class="promociones">
+                <font color="white" style="position:relative; left:1%" size="6%">
+                    VISTA PREVIA DE TODOS LOS ARTICULOS
+                </font>
+                </div>';               
+            }else {
+                echo '<div class="promociones">
+                <font color="white" style="position:relative; left:1%" size="5%">
+                    Todos los Artículos
+                </font>
+                </div>';
+            }
+        ?>
             <div class="scroll-container">
             <?php
-                include("html/formularios/conex.php");
-                $link = Conectarse();
-
                 $sql = "SELECT * FROM tk_articulos ORDER BY nombre";
                 $result = mysqli_query($link,$sql);
-
                 if ($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                     echo "<div class='articulo'>";
@@ -71,11 +83,18 @@
                     echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                     echo "<p>Precio: $" . $row["precio"] . "</p>";
                     echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
-                    echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                    echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                    echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
-                    echo "</form>";
-                    echo "</div>";
+                        $result1 = mysqli_query($link, "SELECT nombre, administrador FROM tk_usuarios WHERE id = '$id'");
+						$row1 = mysqli_fetch_array($result1);
+						if($row1['administrador'] > 0){ ?><?php // Usuario
+                            echo "<p class='agregar'><b>VISTA PREVIA</b></p>";                   
+                            echo "</div>";                            
+                        }else {
+                            echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                            echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                            echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                            echo "</form>";                   
+                            echo "</div>";
+                        }
                     }
                 } 
                 else {
@@ -105,13 +124,21 @@
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
-                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
-                        echo "</form>";
-                        echo "</div>";
+                        $result1 = mysqli_query($link, "SELECT nombre, administrador FROM tk_usuarios WHERE id = '$id'");
+                        $row1 = mysqli_fetch_array($result1);
+                        if($row1['administrador'] > 0){ ?><?php // Usuario
+                            echo "<p class='agregar'><b>VISTA PREVIA</b></p>";                   
+                            echo "</div>";                            
+                        }else {
+                            echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                            echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                            echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                            echo "</form>";                   
+                            echo "</div>";
                         }
-                    } 
+                    }
+                }
+
                 else {
                     echo "No hay productos en la base de datos";
                 }
@@ -133,13 +160,21 @@
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
-                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
-                        echo "</form>";
-                        echo "</div>";
+                            $result1 = mysqli_query($link, "SELECT nombre, administrador FROM tk_usuarios WHERE id = '$id'");
+                            $row1 = mysqli_fetch_array($result1);
+                            if($row1['administrador'] > 0){ ?><?php // Usuario
+                                echo "<p class='agregar'><b>VISTA PREVIA</b></p>";                   
+                                echo "</div>";                            
+                            }else {
+                                echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                                echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                                echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                                echo "</form>";                   
+                                echo "</div>";
+                            }
                         }
-                    } 
+                } 
+     
                 else {
                     echo "No hay productos en la base de datos";
                 }
@@ -161,13 +196,21 @@
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
-                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
-                        echo "</form>";
-                        echo "</div>";
+                        $result1 = mysqli_query($link, "SELECT nombre, administrador FROM tk_usuarios WHERE id = '$id'");
+                        $row1 = mysqli_fetch_array($result1);
+                        if($row1['administrador'] > 0){ ?><?php // Usuario
+                            echo "<p class='agregar'><b>VISTA PREVIA</b></p>";                   
+                            echo "</div>";                            
+                        }else {
+                            echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                            echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                            echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                            echo "</form>";                   
+                            echo "</div>";
                         }
-                    } 
+                    }
+                }
+
                 else {
                     echo "No hay productos en la base de datos";
                 }
@@ -193,13 +236,21 @@
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
-                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
-                        echo "</form>";
-                        echo "</div>";
+                        $result1 = mysqli_query($link, "SELECT nombre, administrador FROM tk_usuarios WHERE id = '$id'");
+                        $row1 = mysqli_fetch_array($result1);
+                        if($row1['administrador'] > 0){ ?><?php // Usuario
+                            echo "<p class='agregar'><b>VISTA PREVIA</b></p>";                   
+                            echo "</div>";                            
+                        }else {
+                            echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                            echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                            echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                            echo "</form>";                   
+                            echo "</div>";
                         }
-                    }  
+                    }
+                } 
+    
                 else {
                     echo "No hay productos en la base de datos";
                 }
@@ -225,28 +276,40 @@
                         echo "<div class='info-articulo'><h2>" . $row["nombre"] . "</h2>";
                         echo "<p>Precio: $" . $row["precio"] . "</p>";
                         echo "<p class='desc'>Descripción: " . $row["descripcion"] . "</p></div>";
-                        echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
-                        echo "<input type='hidden' name='id' value='".$row['id']."'>";
-                        echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
-                        echo "</form>";
-                        echo "</div>";
+                        $result1 = mysqli_query($link, "SELECT nombre, administrador FROM tk_usuarios WHERE id = '$id'");
+                        $row1 = mysqli_fetch_array($result1);
+                        if($row1['administrador'] > 0){ ?><?php // Usuario
+                            echo "<p class='agregar'><b>VISTA PREVIA</b></p>";                   
+                            echo "</div>";                            
+                        }else {
+                            echo "<form action='html/formularios/tk_agregar_al_carrito.php' method='POST'>";
+                            echo "<input type='hidden' name='id' value='".$row['id']."'>";
+                            echo "<button class='add agregar' value='Agregar al carrito'>Agregar al carrito</button>";
+                            echo "</form>";                   
+                            echo "</div>";
                         }
-                    } 
+                    }
+                }      
                 else {
                     echo "No hay productos en la base de datos";
                 }
             ?>
             </div>
         </div>
-
-        <div class="container">
-            <div class="fixed-btn">
-                <div class="carrito">
-                    <a href="html/formularios/carrito.php"><img src="imagenes/carrito.png" width="100%" height="100%" title="Carrito" id="carrito">
-                    </a>
+        <?php
+            if($row1['administrador'] > 0){ ?><?php // Admin y Repartidor
+               
+            }else {
+                echo '<div class="container">
+                <div class="fixed-btn">
+                    <div class="carrito">
+                        <a href="html/formularios/carrito.php"><img src="imagenes/carrito.png" width="100%" height="100%" title="Carrito" id="carrito">
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div>
+             </div>';
+            }
+        ?>
 
         <?php 
             if($_SESSION){
