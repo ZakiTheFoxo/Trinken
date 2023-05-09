@@ -19,46 +19,71 @@
         <font color="white" style="position:relative; left:1%" size="6%">
             <p align="center">¡Gracias por comprar con nosotros! Esperamos que tengas un gran día ;)</p>
         </font>
+        <a href="../../body.php" class="btn btn-secondary">Regresar</a>
 
 		<?php
 			$cte_id = $_SESSION['autenticado'];
-			$sql = "SELECT fecha, hora, total, nombre, apellidos FROM tk_pedidos left outer join tk_repartidores on tk_pedidos.rpr_id = tk_repartidores.id WHERE cte_id = $cte_id and estado = 'EN PROCESO';";
+			$sql = "SELECT p.id as id, fecha, hora, total, nombre, apellidos FROM tk_pedidos p left outer join tk_repartidores r on p.rpr_id = r.id WHERE cte_id = $cte_id and estado = 'EN PROCESO';";
 			$result = mysqli_query($link,$sql);
 			if ($result->num_rows > 0) { 
                 while($row = $result->fetch_array()) { ?>
-                <div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'>
-                    <tr>
-                        <td colspan='4' align='center'>
-                            <b>Pedido realizado</b>
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td>
-                            <b>Fecha del pedido:</b> <?=$row["fecha"]?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>Hora del pedido:</b> <?=$row["hora"]?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>Repartidor:</b> <?=$row["nombre"] . " " . $row["apellidos"]?>  
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>Total:</b> <?=$row['total']?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align='center' colspan='4'><b>¡Su pedido llegará pronto!</b></td></tr>";
+                <p><div class='table-responsive'>
+                    <table align='center' cellpadding='10px' cellspacing='20px'>
+                        <tr>
+                            <td colspan='4' align='center'>
+                                <b>Pedido realizado</b>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <b>Fecha del pedido:</b> <?=$row["fecha"]?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Hora del pedido:</b> <?=$row["hora"]?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Repartidor:</b> <?=$row["nombre"] . " " . $row["apellidos"]?>  
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Total:</b> <?=$row['total']?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align='center' colspan='4'>
+                                <b>¡Su pedido llegará pronto!</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align='center' colspan='4'>
+                                <form method="POST" action="tk_cancelar_pedido_procesa.php" id="myForm">
+                                    <input type="hidden" name="id" value="<?=$row['id']?>">
+                                    <button class='del'>Cancelar Pedido</button>
+                                </form>
+                            </td>
+                        </tr>
                     </table>
-                </div>
+                </div></p>
             <?php } 
-            } ?>
-        <a href="../../body.php" class="btn btn-secondary">Regresar</a>
+            } else { ?>
+                <p><table align='center' cellpadding='10px' cellspacing='20px'>
+                    <tr>
+                        <td>
+                            <b>No hay pedidos en proceso</b><br>
+                            Empiece a animar sus fiestas comprando algo en <b>Trinken</b> ;)
+                        </td>
+                    </tr>
+                </table></p>
+            <?php } 
+            if($_GET) { 
+                if($_GET['cancelado'] == 1) {?>
+                    <script>alert("Pedido Cancelado con Éxito");</script>
+            <?php }} ?>
     </body>
     
     <footer>

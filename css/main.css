@@ -267,3 +267,22 @@ i{
     text-decoration: none;
     font-size: medium;
 }
+
+.pdo {
+    position: fixed;
+    padding: 10px;
+    top: 10px;
+    right: 10px;
+    background-color: #3FA848;
+    color: white;
+    text-align: center;
+    line-height: normal;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pdo a {
+    color: white;
+    text-decoration: none;
+    font-size: medium;
+}
