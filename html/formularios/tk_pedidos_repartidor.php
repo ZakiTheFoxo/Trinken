@@ -29,16 +29,15 @@
             SELECT fecha, hora, total, nombre, apellidos 
             FROM tk_pedidos left outer join tk_repartidores on tk_pedidos.rpr_id = tk_repartidores.id 
             WHERE rpr_id = $rpr_id and estado = 'EN PROCESO';
-            ");
+            ");?>
 
-            echo '
                 <div class="header">
                     <font color="white" style="position:relative; left:1%" size="8%">
                         <p>Pedidos Pendientes</p>
                     </font>
                 </div>
-            ';
-            if(mysqli_num_rows($result) > 0){
+
+            <?php if(mysqli_num_rows($result) > 0){
                 ?><br><div class='table-responsive' style='display:flex'><?php
                 while($row = mysqli_fetch_array($result)){
                     if ($result->num_rows > 0) { 
@@ -83,8 +82,8 @@
                 }
             ?></div>
             <?php
-            }else{
-                echo "<br><table align='center' cellpadding='10px'><tr><td align='center'><b>No hay pedidos pendientes</b></td></td></tr></table><br>";
+            }else{?>
+                <br><table align='center' cellpadding='10px'><tr><td align='center'><b>No hay pedidos pendientes</b></td></td></tr></table><br><?php
             }
 
             //Historial de Pedidos
@@ -92,15 +91,12 @@
 			$result = mysqli_query($link,$sql);
 			?>
             <br><br>
-            <?php
-            echo '
             <div class="header">
                 <font color="white" style="position:relative; left:1%" size="8%">
                     <p>Historial de Pedidos</p>
                 </font>
             </div>
-            ';
-            if ($result->num_rows > 0) { 
+            <?php if ($result->num_rows > 0) { 
                 while($row = $result->fetch_array()) { ?>
                 <div class='table-responsive' style='display:flex'><table align='center' cellpadding='10px' cellspacing='20px'>
                     <tr>

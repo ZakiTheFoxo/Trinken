@@ -78,7 +78,7 @@
 				</tr>
 			</table></p>
 		</form>
-		<a href="tk_editar_perfil.php" class="btn btn-secondary">Regresar</a>
+		<a href="../../body.php" class="btn btn-secondary">Regresar</a>
 	</body>
 
 	<footer>
