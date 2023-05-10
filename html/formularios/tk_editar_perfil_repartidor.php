@@ -13,7 +13,6 @@
 
 	<body>
         <?php
-            include "conex.php";
             $link = Conectarse();
             $contador=1;
             $result = mysqli_query($link, "

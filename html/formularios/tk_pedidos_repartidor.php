@@ -23,7 +23,7 @@
             $rpr_id = mysqli_query($link, "
                 SELECT tk_repartidores.id 
                 FROM tk_repartidores join tk_usuarios on tk_repartidores.celular = tk_usuarios.celular
-                WHERE tk_usuarios.celular = $celnum;  
+                WHERE tk_usuarios.celular = $celnum;
             ");
 
             $result = mysqli_query($link, "
@@ -78,17 +78,17 @@
                                 </td>    
                             </tr>
                             </table>
-                        </div>
+                        
                     <?php } 
                     }
                 }
+            ?></div>
+            <?php
             }else{
                 echo "<br><table align='center' cellpadding='10px'><tr><td align='center'><b>No hay pedidos pendientes</b></td></td></tr></table><br>";
             }
 
             //Historial de Pedidos
-            $cte_id = $_SESSION['autenticado'];
-
 			$sql = "SELECT fecha, hora, total, nombre, apellidos FROM tk_pedidos left outer join tk_repartidores on tk_pedidos.rpr_id = tk_repartidores.id WHERE cte_id = $cte_id and estado = 'COMPLETADO' or estado = 'CANCELADO';";
 			$result = mysqli_query($link,$sql);
 			?>
