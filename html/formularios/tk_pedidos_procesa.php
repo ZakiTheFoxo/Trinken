@@ -2,10 +2,8 @@
     include("conex.php");
     $link = Conectarse();
 
-    $id = $_POST['id'];
-
     mysqli_query($link, "UPDATE tk_pedidos SET
-    estado = 'COMPLETADO', id = $id") or die(mysqli_error($link));
+    estado = 'COMPLETADO' where id = $id") or die(mysqli_error($link));
 
     mysqli_close($link);   
     ?>
