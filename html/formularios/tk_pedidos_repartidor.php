@@ -13,7 +13,6 @@
 
 	<body>
         <?php
-            $link = Conectarse();
             $cte_id = $_SESSION['autenticado'];
             $celnum = mysqli_query($link, "
                 SELECT celular 
@@ -23,7 +22,7 @@
             $rpr_id = mysqli_query($link, "
                 SELECT tk_repartidores.id 
                 FROM tk_repartidores join tk_usuarios on tk_repartidores.celular = tk_usuarios.celular
-                WHERE tk_usuarios.celular = $celnum;
+                WHERE tk_usuarios.celular = '$celnum';
             ");
 
             $result = mysqli_query($link, "
