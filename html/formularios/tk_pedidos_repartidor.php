@@ -62,7 +62,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><form action='tk_pedidos_procesa_.php' method='POST'>
+                                <td><form action='tk_pedidos_procesa.php' method='POST'>
                                     <input type='hidden' name='id' value="<?=$row['id']?>">
                                     <button class='add' value='editar'>COMPLETAR</button>
                                 </form>
