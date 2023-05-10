@@ -13,37 +13,26 @@
 
 	<body>
         <?php
-            $link = Conectarse();
-            $contador=1;
-            $result = mysqli_query($link, "
-                SELECT id, nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena, administrador
-                FROM tk_usuarios
-                WHERE id = $_SESSION[autenticado];
-                
-            ");
-            echo '
-                <div class="header">
-                    <font color="white" style="position:relative; left:1%" size="8%">
-                        <p>Mi Perfil</p>
-                    </font>
-                </div>
-            ';
+            $result = mysqli_query($link, "SELECT * FROM tk_usuarios WHERE id = $_SESSION[autenticado];"); ?>
 
-            if(mysqli_num_rows($result) > 0){
-                echo "<div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'></td></tr>";
+            <div class="header">
+                <font color="white" style="position:relative; left:1%" size="8%">
+                    <p>Mi Perfil</p>
+                </font>
+            </div>
 
-                // printf("<tr><td>Nombre</td><td>Apellido</td><td>Fecha de Nacimiento</td><td>Correo Electrónico</td><td>Celular</td><td>Contraseña</td><td></td></tr>");
+            <?php if(mysqli_num_rows($result) > 0){ ?>
+                <div class='table-responsive'><table align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='8' align='center'></td></tr>
 
-                while($row = mysqli_fetch_array($result)){
+                <?php while($row = mysqli_fetch_array($result)){
                     printf("<form method='post' action='tk_editar_perfil2.php'><input type='hidden' name='id' value='".$row['id']."'><input type='hidden' name='admin' value='".$row['administrador']."'><tr border><tr><td>Correo: %s</td></tr><tr><td>Celular: %s</td></tr><td><button class='add' value='editar'>Editar</button></td></tr></form><br>", 
                     $row["correo_electronico"], $row["celular"]);
-                }
+                } ?>
 
-                echo '</table></div>';
-            }else{
-                echo "<table align='center' cellpadding='10px'><tr><td align='center'><b>No hay repartidores</b></td></tr></table> <br>";
-            }
-
+                </table></div>
+            <?php }else{ ?>
+                <table align='center' cellpadding='10px'><tr><td align='center'><b>No hay repartidores</b></td></tr></table> <br>
+            <?php } 
             if ( $_GET ){ 
 				if ($_GET['editarperfil']==1){
 		?> 

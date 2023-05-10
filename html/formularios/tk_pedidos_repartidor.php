@@ -19,16 +19,19 @@
                 FROM tk_usuarios
                 WHERE id = $cte_id;  
             ");
+            $row = mysqli_fetch_array($celnum);
+
             $rpr_id = mysqli_query($link, "
-                SELECT tk_repartidores.id 
-                FROM tk_repartidores join tk_usuarios on tk_repartidores.celular = tk_usuarios.celular
-                WHERE tk_usuarios.celular = '$celnum';
+                SELECT r.id as id 
+                FROM tk_repartidores r join tk_usuarios u on r.celular = u.celular
+                WHERE u.celular = $row[celular];
             ");
+            $row = mysqli_fetch_array($rpr_id);
 
             $result = mysqli_query($link, "
-            SELECT fecha, hora, total, nombre, apellidos 
-            FROM tk_pedidos left outer join tk_repartidores on tk_pedidos.rpr_id = tk_repartidores.id 
-            WHERE rpr_id = $rpr_id and estado = 'EN PROCESO';
+            SELECT p.id as id, fecha, hora, total, nombre, apellidos 
+            FROM tk_pedidos p left outer join tk_repartidores r on p.rpr_id = r.id 
+            WHERE rpr_id = $row[id] and estado = 'EN PROCESO';
             ");?>
 
                 <div class="header">
@@ -47,11 +50,6 @@
                                 <td colspan='4' align='center'>
                                     <b>Pedido realizado</b>
                                 </td>
-                            </tr> 
-                            <tr>
-                                <td>
-                                    <b>Id:</b> <?=$row["id"]?>
-                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -61,11 +59,6 @@
                             <tr>
                                 <td>
                                     <b>Hora del pedido:</b> <?=$row["hora"]?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <b>Repartidor:</b> <?=$row["nombre"] . " " . $row["apellidos"]?>  
                                 </td>
                             </tr>
                             <tr>
@@ -96,33 +89,29 @@
                     <p>Historial de Pedidos</p>
                 </font>
             </div>
-            <?php if ($result->num_rows > 0) { 
-                while($row = $result->fetch_array()) { ?>
-                <div class='table-responsive' style='display:flex'><table align='center' cellpadding='10px' cellspacing='20px'>
-                    <tr>
-                        <td colspan='4' align='center'>
-                            <b>Pedido realizado</b>
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td>
-                            <b>Fecha del pedido:</b> <?=$row["fecha"]?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>Hora del pedido:</b> <?=$row["hora"]?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>Repartidor:</b> <?=$row["nombre"] . " " . $row["apellidos"]?>  
-                        </td>
-                    </tr>
+            <?php if ($result->num_rows > 0) { ?>
+                <div class='table-responsive' style='display:flex'>
+                <?php while($row = $result->fetch_array()) { ?>
+                    <table align='center' cellpadding='10px' cellspacing='20px'>
+                        <tr>
+                            <td colspan='4' align='center'>
+                                <b>Pedido realizado</b>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <b>Fecha del pedido:</b> <?=$row["fecha"]?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Hora del pedido:</b> <?=$row["hora"]?>
+                            </td>
+                        </tr>
                     </table>
+                    <?php } ?>
                 </div>
-            <?php } 
-            }
+            <?php }
 
             mysqli_free_result($result);
             mysqli_close($link);
