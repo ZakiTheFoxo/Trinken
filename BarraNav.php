@@ -55,27 +55,23 @@
 										</div>
 										<?php } ?>
 									<a type="button" class="btn link btn-info" href="html/formularios/tk_editar_perfil.php" target="cuadroenlaces">Editar Perfil</a>
-									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
+									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>
 								
 								<?php // Usuario
 								}else if($row['administrador'] == '0'){ ?>
 									¡Bienvenido, <?=$row['nombre']?>!
 									<a type="button" class="btn link btn-info" href="html/formularios/tk_editar_perfil.php" target="cuadroenlaces">Editar Perfil</a>
-									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
+									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>
 								<?php }else{ ?>
 									¡Bienvenido, <?=$row['nombre']?>!
 									<a type="button" class="btn link btn-primary" href="html/formularios/tk_pedidos_repartidor.php" target="cuadroenlaces">Ver Pedidos</a>
 									<a type="button" class="btn link btn-info" href="html/formularios/tk_editar_perfil_repartidor.php" target="cuadroenlaces">Editar Perfil</a>
-									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>';
+									<a type="button" class="btn link btn-danger" href="html/formularios/cerrar.php" target="cuadroenlaces">Cerrar Sesión</a>
 								<?php }
 						}
 						else{ ?>
-							<a href="html/formularios/tk_inicio_sesion.php" target="cuadroenlaces">
-								<button id="sesion"type="button" class="btn link btn-primary">Iniciar Sesión</button>
-							</a>
-							<a href="html/formularios/tk_registrar_cuenta.php" target="cuadroenlaces">
-								<button id="sesion"type="button" class="btn link btn-danger">Registrar</button>
-							</a>
+							<a href="html/formularios/tk_inicio_sesion.php" target="cuadroenlaces"><button id="sesion"type="button" class="btn link btn-primary">Iniciar Sesión</button></a>
+							<a href="html/formularios/tk_registrar_cuenta.php" target="cuadroenlaces"><button id="sesion"type="button" class="btn link btn-danger">Registrar</button>		</a>
 						<?php }
 					?>
 
