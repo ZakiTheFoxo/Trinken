@@ -112,8 +112,9 @@
             </div>
             ';
             if ($result->num_rows > 0) { 
+                ?><br><div class='table-responsive' style='display:flex'><?php
                 while($row = $result->fetch_array()) { ?>
-                <div class='table-responsive' style='display:flex'><table align='center' cellpadding='10px' cellspacing='20px'>
+                <table align='center' cellpadding='10px' cellspacing='20px'>
                     <tr>
                         <td colspan='4' align='center'>
                             <b>Pedido realizado</b>
@@ -135,8 +136,8 @@
                         </td>
                     </tr>
                     </table>
-                </div>
-            <?php } 
+                    <?php }
+                    echo '</div>'; 
             }
 
             mysqli_free_result($result);

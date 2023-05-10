@@ -13,13 +13,25 @@
 
 	<body>
         <?php
+            $link = Conectarse();
             $cte_id = $_SESSION['autenticado'];
+            $celnum = mysqli_query($link, "
+                SELECT celular 
+                FROM tk_usuarios
+                WHERE id = $cte_id;  
+            ");
+            $rpr_id = mysqli_query($link, "
+                SELECT tk_repartidores.id 
+                FROM tk_repartidores join tk_usuarios on tk_repartidores.celular = tk_usuarios.celular
+                WHERE tk_usuarios.celular = $celnum;  
+            ");
+
             $result = mysqli_query($link, "
             SELECT fecha, hora, total, nombre, apellidos 
             FROM tk_pedidos left outer join tk_repartidores on tk_pedidos.rpr_id = tk_repartidores.id 
-            WHERE rpr_id = $cte_id and estado = 'EN PROCESO';
-                
+            WHERE rpr_id = $rpr_id and estado = 'EN PROCESO';
             ");
+
             echo '
                 <div class="header">
                     <font color="white" style="position:relative; left:1%" size="8%">
@@ -32,12 +44,17 @@
                 while($row = mysqli_fetch_array($result)){
                     if ($result->num_rows > 0) { 
                         while($row = $result->fetch_array()) { ?>
-                        <div class='table-responsive' style='display:flex'><table align='center' cellpadding='10px' cellspacing='20px'>
+                        <table align='center' cellpadding='10px' cellspacing='20px'>
                             <tr>
                                 <td colspan='4' align='center'>
                                     <b>Pedido realizado</b>
                                 </td>
                             </tr> 
+                            <tr>
+                                <td>
+                                    <b>Id:</b> <?=$row["id"]?>
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     <b>Fecha del pedido:</b> <?=$row["fecha"]?>
@@ -53,17 +70,10 @@
                                     <b>Repartidor:</b> <?=$row["nombre"] . " " . $row["apellidos"]?>  
                                 </td>
                             </tr>
-                            <tr><td><form action='tk_pedidos_procesa_.php' method='POST'>
-                            <input type='hidden' name='id' value="<?=$row['cte_id']?>">
-                            <button class='add' value='editar'>COMPLETAR</button>
-                            </form>
-                            </td>
-                                <td>
-                                    <form action='tk_borrar_direccion.php' method='POST'>
-                                    <input type='hidden' name='id' value="<?=$row['cte_id']?>">
-                                    <input type='hidden' name='direccion1' value="<?=$row['direccion_linea_1']?>">
-                                    <input type='hidden' name='estado' value="<?=$row['estado']?>">
-                                    <button class='del' value='editar'>Borrar</button>
+                            <tr>
+                                <td><form action='tk_pedidos_procesa_.php' method='POST'>
+                                    <input type='hidden' name='id' value="<?=$row['id']?>">
+                                    <button class='add' value='editar'>COMPLETAR</button>
                                 </form>
                                 </td>    
                             </tr>
@@ -72,13 +82,6 @@
                     <?php } 
                     }
                 }
-                ?>
-                </div>
-                <a href='tk_anadir_direccion.php' class='btn btn-warning rounded-circle' style='width: 50px; height: 50px; font-size: 26px;'>
-                   +
-                </a>
-                <br>
-                <?php
             }else{
                 echo "<br><table align='center' cellpadding='10px'><tr><td align='center'><b>No hay pedidos pendientes</b></td></td></tr></table><br>";
             }

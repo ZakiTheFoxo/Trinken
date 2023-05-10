@@ -73,6 +73,9 @@
 							<a href="html/formularios/tk_inicio_sesion.php" target="cuadroenlaces">
 								<button id="sesion"type="button" class="btn link btn-primary">Iniciar Sesión</button>
 							</a>
+							<a href="html/formularios/tk_registrar_cuenta.php" target="cuadroenlaces">
+								<button id="sesion"type="button" class="btn link btn-danger">Registrar</button>
+							</a>
 						<?php }
 					?>
 
