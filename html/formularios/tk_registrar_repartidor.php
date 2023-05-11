@@ -33,6 +33,29 @@
 					return 0;
 				};
 
+				// Validar fecha nacimiento			
+				if(document.formulario.fecha.value.length == 0){
+					alert("Tiene que escoger su fecha de Nacimiento")
+					document.formulario.fecha.focus()
+					return 0;
+				};
+				// Validación edad 18 o mayor
+				var today = new Date();
+				var birthDate = new Date(document.formulario.fecha.value);
+				birthDate.setFullYear(birthDate.getFullYear(),birthDate.getMonth(),birthDate.getDate()+1);
+				var age = today.getFullYear() - birthDate.getFullYear() ;
+				var m = today.getMonth() - birthDate.getMonth();
+
+				if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+					age--;
+				}
+
+				if(age<18){
+					alert("Trinken es solo para mayores de edad")
+					document.formulario.fecha.focus()
+					return 0;
+				}
+
 				// Validar número de celular y longitud
 				if(document.formulario.celnum.value.length == 0){
 					alert("Tiene que escribir su Número de Celular")
@@ -55,6 +78,13 @@
 
 				// Validar Comision
 				if(document.formulario.comision.value.length == 0){
+					alert("Tiene que ingresar su Comision")
+					document.formulario.comision.focus()
+					return 0;
+				};
+
+				// Validar Contraseña
+				if(document.formulario.contrasena.value.length == 0){
 					alert("Tiene que ingresar su Comision")
 					document.formulario.comision.focus()
 					return 0;
@@ -86,6 +116,16 @@
 
 					<td>
 						<input type="text" name="apellido" size="30%">
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						Fecha de Nacimiento: <font color="red">*</font>
+					</td>
+
+					<td>
+						<input type="date" name="fecha" size="30%">
 					</td>
 				</tr>
 
@@ -125,6 +165,16 @@
 					</td>
 					<td>
 						<input type="number" name="comision" style="width: 3em" placeholder="%">
+					</td>
+					
+				</tr>
+
+				<tr>
+					<td align="right">
+						Contraseña: <font color="red">*</font>
+					</td>
+					<td>
+						<input type="password" name="contrasena" size="30%">
 					</td>
 					
 				</tr>

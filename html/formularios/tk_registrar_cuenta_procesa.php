@@ -30,6 +30,6 @@
 ?>
 
 	<script>
-		window.location.replace('tk_validar.php');
+		window.location.replace('tk_inicio_sesion.php');
 	</script>
 	
