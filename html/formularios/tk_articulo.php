@@ -71,7 +71,7 @@
             ");
 
             if(mysqli_num_rows($result) > 0){?>
-                <div class='table-responsive'><table width='1000px' align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='10' align='center'><b>Trinken Artículos</b></td></tr>
+                <div class='table-responsive'><table width='1000px' align='center' cellpadding='10px' cellspacing='20px'><tr><td colspan='10' align='center'><b>BARK Artículos</b></td></tr>
 
                 <tr><td>ID</td><td>Nombre</td><td>Precio</td><td>Categoria</td><td>Descripcion</td><td>Existencia</td><td>Proveedor</td><td></td></tr>
 
@@ -114,7 +114,7 @@
                 </td>
 
                 <td align="center" width="33%">
-                    ©2023 Trinken Be Safe
+                    ©2023 BARK Be Safe
                 </td>
 
                 <td align="right" width="33%">

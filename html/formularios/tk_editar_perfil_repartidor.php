@@ -52,7 +52,7 @@
                 </td>
 
                 <td align="center" width="33%">
-                    ©2023 Trinken Be Safe
+                    ©2023 BARK Be Safe
                 </td>
 
                 <td align="right" width="33%">

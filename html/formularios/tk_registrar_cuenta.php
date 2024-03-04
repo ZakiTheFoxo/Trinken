@@ -48,7 +48,7 @@
 				}
 
 				if(age<18){
-					alert("Trinken es solo para mayores de edad")
+					alert("BARK es solo para mayores de edad")
 					document.formulario.fecha.focus()
 					return 0;
 				}
@@ -177,7 +177,7 @@
                 </td>
 
                 <td align="center" width="33%">
-                    ©2023 Trinken Be Safe
+                    ©2023 BARK Be Safe
                 </td>
 
                 <td align="right" width="33%">

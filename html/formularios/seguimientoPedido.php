@@ -13,7 +13,7 @@
 	<body>
         <div class="header">
             <font color="white" style="position:relative; left:1%" size="8%">
-                <p align="center"><b>TRINKEN Be Safe</b></p>
+                <p align="center"><b>BARK Be Safe</b></p>
             </font>
         </div>
         <font color="white" style="position:relative; left:1%" size="6%">
@@ -94,7 +94,7 @@
                 </td>
 
                 <td align="center" width="33%">
-                    ©2023 Trinken Be Safe
+                    ©2023 BARK Be Safe
                 </td>
 
                 <td align="right" width="33%">

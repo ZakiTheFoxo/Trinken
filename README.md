@@ -1,5 +1,5 @@
 # Trinken_Web
-Repositorio para almacenar los códigos de la página web de Trinken
+Repositorio para almacenar los códigos de la página web deBARK 
 
 ### html
 Contiene los archivos html necesarios para el funcionamiento de la página web
