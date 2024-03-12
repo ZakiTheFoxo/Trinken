@@ -9,8 +9,8 @@
 	$cel = $_POST['celnum'];
 	$email = $_POST['correo'];
 
-	mysqli_query($link, "INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena)
-	VALUES('$nom', '$ap', '$bd', '$email', '$cel', '$pass');") or die(mysqli_error($link));
+	mysqli_query($link, "INSERT INTO tk_usuarios(nombre, apellidos, fecha_nacimiento, correo_electronico, celular, contrasena, validado)
+	VALUES('$nom', '$ap', '$bd', '$email', '$cel', '$pass', 0);") or die(mysqli_error($link));
 
 	// Insertar imagen
     $result = mysqli_query($link, "SELECT MAX(id) as id FROM tk_usuarios WHERE nombre = '$nom';");
